@@ -8,6 +8,8 @@ Our web app will walk the user through the user through picking a restaurant usi
 From start to finish, you’ll have fun using the app, be given a single restaurant (avoiding the argument all together), and be able to take action based on the result. We hope you enjoy using Piece Broker!
 
 
+----------------------------------------------------------------------------------------
+
 Developed By:
 
 Colin McAtee: [@colinmac17](https://github.com/colinmac17) |
