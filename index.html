@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>piecebroker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>piecebroker</title>
+    <!--Load Favicon-->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
+    <!--Load Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Poppins|Roboto" rel="stylesheet">
+    <!--Load Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Load Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Load Custom Styles-->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
     <!--Bootstrap navbar-->
-	<nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
+                <!--Collapse Button for links on smaller devices-->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links-collapse" id="collapseBtn">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:#fffff0;"><img class="img-responsive" id="logo" style="height:50px; width: 150px;" src="images/piecebroker.png"></a>
+                <!--NavBar Logo-->
+                <a href="index.html" style="color:#fffff0;"><img class="navbar-brand img-responsive" id="logo" src="assets/images/whitelogo.png" style="width:225px; height:75px;"></a>
             </div>
+            <!--NavBar Links-->
             <div class="collapse navbar-collapse" id="links-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                	<li><a id="firebase" href="" target="_blank">About</a></li>
-                    <li><a id="firebase" href="" target="_blank">Login | Sign Up</a></li>
+                    <li><a class="nav-link" href="" target="_blank"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>About</a></li>
+                    <li><a class="nav-link" href="" target="_blank"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Login | Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-	<!--Bootstrap sticky footer-->
-	<div class="navbar-fixed-bottom footer text-center">
+    <!--Bootstrap sticky footer-->
+    <div class="navbar-fixed-bottom footer text-center">
         <p>&copy; 2017 | Colin | JJ | Jake | Mike </p>
     </div>
 
-	
-
-	<!--Load JQuery-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<!--Load Bootstrap JS-->
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--Load App-->
-	<script type="text/javascript" src="app.js"></script>
+    <!--Load JQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--Load Bootstrap JS-->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Load piecebroker Application-->
+    <script type="text/javascript" src="app.js"></script>
 </body>
+
 </html>
