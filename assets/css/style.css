@@ -1,0 +1,25 @@
+.navbar {
+    background: #3421f5;
+}
+
+#logo {
+}
+
+
+#collapseBtn {
+    margin-top:20px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color:#fffff0;
+}
+
+.footer {
+    background: #3421f5;
+    padding: 10px;
+}
+
+.footer p {
+    margin-top: 5px;
+    color:#fffff0;
+}
