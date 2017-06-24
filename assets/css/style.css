@@ -14,13 +14,13 @@ body {
 .nav-link {
     margin-top: 13px;
     font-size: 16px;
+	cursor: pointer;
+	opacity: 0.7;
 }
-
 
 .fa {
     margin-right: 5px;
 }
-
 
 #collapseBtn {
     margin-top:20px;
@@ -50,6 +50,3 @@ body {
 .panel-heading {
     background: #3421f5;
 }
-
-
-
