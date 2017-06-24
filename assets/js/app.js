@@ -39,6 +39,7 @@ $('#submitBtn').on('click', function(e) {
 	    	cityID = response.location_suggestions[0].id;
 	    	console.log(cityID);
 	    	$("#location-container").fadeOut();
+	    	$('.foodType-container').show();
 	    	return cityID;
 	  	} else {
 	  		$('#failMsg').addClass('animated shake');
