@@ -38,8 +38,8 @@ $('#submitBtn').on('click', function(e) {
 	  		console.log(response);
 	    	cityID = response.location_suggestions[0].id;
 	    	console.log(cityID);
-	    	return cityID;
 	    	$("#location-container").fadeOut();
+	    	return cityID;
 	  	} else {
 	  		$('#failMsg').html('Please enter a valid city');
 	  	}
