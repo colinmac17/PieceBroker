@@ -68,4 +68,7 @@ body {
 .footer-link:hover {
     color: white;
 }
+.panel-heading {
+    background: #3421f5;
+}
 

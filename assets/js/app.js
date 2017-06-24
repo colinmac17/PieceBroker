@@ -38,4 +38,6 @@ $('#submitBtn').on('click', function(e) {
 	    console.log(cityID);
 	    return cityID;
 	 });
+	  
+	$("#location-container").fadeOut();
 });
