@@ -44,14 +44,17 @@ body {
     color:#fffff0;
 }
 
-<<<<<<< HEAD
 .panel > .panel-heading {
-    background-image: none;
     background-color :#3421f5;
     color: white;
 }
 
-#submitBtn, #hungryBtn {
+.panel-primary {
+    position: absolute;
+    margin-top: 180px;
+}
+
+.btn {
     margin-top: 10px;
     background: gray; 
     border: white;
@@ -61,11 +64,8 @@ body {
     background: #C63D0F
     
 }
-=======
+
 .footer-link:hover {
     color: white;
 }
-.panel-heading {
-    background: #3421f5;
-}
->>>>>>> ddefb9f43773b037f853e3f6da32f0b3ab9f9619
+
