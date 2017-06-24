@@ -43,3 +43,13 @@ body {
 .footer-link {
     color:#fffff0;
 }
+
+.footer-link:hover {
+    color: white;
+}
+.panel-heading {
+    background: #3421f5;
+}
+
+
+
