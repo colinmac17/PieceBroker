@@ -33,11 +33,18 @@ $('#submitBtn').on('click', function(e) {
 	      'user-key': apiKey
 	    }
 	  }).done(function(response) {
-	    console.log(response);
-	    cityID = response.location_suggestions[0].id;
-	    console.log(cityID);
-	    return cityID;
+	  	//confirm that user has entered in a city
+	  	if (location.length > 0) {
+	  		console.log(response);
+	    	cityID = response.location_suggestions[0].id;
+	    	console.log(cityID);
+	    	return cityID;
+	    	$("#location-container").fadeOut();
+	  	} else {
+	  		$('#failMsg').html('Please enter a valid city');
+	  	}
+	  
 	 });
 	  
-	$("#location-container").fadeOut();
+	
 });
