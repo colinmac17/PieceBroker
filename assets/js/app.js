@@ -41,7 +41,7 @@ $('#submitBtn').on('click', function(e) {
 	    	$("#location-container").fadeOut();
 	    	return cityID;
 	  	} else {
-	  		$('#failMsg').addClass('animated bounce');
+	  		$('#failMsg').addClass('animated shake');
 	  		$('#failMsg').html('Please enter a valid city');
 	  	}
 	  
