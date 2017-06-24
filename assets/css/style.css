@@ -1,5 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
+    position: relative;
 }
 
 .navbar {
@@ -51,7 +52,11 @@ body {
 
 .panel-primary {
     position: absolute;
-    margin-top: 180px;
+    margin-top:160px;
+}
+
+.panel-title {
+    font-size:30px;
 }
 
 .btn {
