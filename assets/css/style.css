@@ -62,7 +62,6 @@ body {
 
 #submitBtn:hover, #hungryBtn:hover {
     background: #C63D0F
-    
 }
 
 .footer-link:hover {
@@ -70,5 +69,9 @@ body {
 }
 .panel-heading {
     background: #3421f5;
+}
+
+#failMsg {
+    color:red;
 }
 
