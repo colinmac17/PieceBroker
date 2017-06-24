@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +16,8 @@
     <!--Load Custom Styles-->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
 
+<body>
     <!--Bootstrap navbar-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -40,18 +41,38 @@
             </div>
         </div>
     </nav>
-
+    <!-- search feature -->
+    <div>
+        <input type="text" placeholder="where are you?" id="userLocation">
+        <button id="locationBtn">
+            Set Location
+        </button>
+        <p>Location:
+            <span id="location"></span>
+        </p>
+        <br>
+        <br>
+        <!--User Search-->
+        <input type="text" placeholder="type of food" id="userSearch">
+        <button id="clickMe"> Get Zomato Data
+        </button>
+        <div id="restaurants">
+            <p>Restaurant Name: <span id="restaurantName"></span></p>
+            <p>Type: <span id="type"></span>
+                <p>Cost for Two: <span id="costForTwo"></span></p>
+                <p>Average Rating: <span id="userRating"></span></p>
+        </div>
+    </div>
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
     </div>
-
     <!--Load JQuery-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!--Load Bootstrap JS-->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Load piecebroker Application-->
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 
 </html>
