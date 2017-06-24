@@ -36,7 +36,6 @@ $('#submitBtn').on('click', function(e) {
 	    console.log(response);
 	    cityID = response.location_suggestions[0].id;
 	    console.log(cityID);
-	    $('#welcomeMsg').html(`Welcome to ${location}!`);
 	    return cityID;
 	 });
 });
