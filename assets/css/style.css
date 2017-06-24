@@ -45,12 +45,16 @@ body {
 }
 
 .panel > .panel-heading {
-    background-image: none;
     background-color :#3421f5;
     color: white;
 }
 
-#submitBtn, #hungryBtn {
+.panel-primary {
+    position: absolute;
+    margin-top: 180px;
+}
+
+.btn {
     margin-top: 10px;
     background: gray; 
     border: white;
