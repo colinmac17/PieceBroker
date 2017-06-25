@@ -18,6 +18,10 @@ var database = firebase.database();
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget;
 
+var cheapRestaurants = [];
+var medRestaurants = [];
+var expensiveRestaurants = [];
+
 // gather user input
 $('#submitBtn').on('click', function(e) {
     e.preventDefault();
@@ -68,10 +72,39 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        //For loop to push restaurants to budget arrays
+        for (var i=0; i < response.restaurants.length; i++) {
+            if(response.restaurants[i].restaurant.average_cost_for_two < 40) {
+                cheapRestaurants.push(response.restaurants[i]);
+            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 40 && response.restaurants[i].restaurant.average_cost_for_two < 100) {
+                medRestaurants.push(response.restaurants[i]);
+            } else {
+                expensiveRestaurants.push(response.restaurants[i]);
+            }
+        }
         $('.foodType-container').fadeOut();
         $('.price-container').show();
         return cuisineID;
     });
+});
+
+$('.budget-gif').on('click', function() {
+    var userResult
+    userBudget = $(this).attr("data-id");
+
+    if (userBudget === 'cheap') {
+        var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length);
+        userResult = cheapRestaurants[cheapRandNum].restaurant.name;
+        alert(userResult);
+    } else if (userBudget === 'medium') {
+        var medRandNum = Math.floor(Math.random() * medRestaurants.length);
+        userResult = medRestaurants[medRandNum].restaurant.name;
+        alert(userResult);
+    } else {
+        var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
+        userResult = expensiveRestaurants[expensiveRandNum].restaurant.name;
+        alert(userResult);
+    }
 });
 
 

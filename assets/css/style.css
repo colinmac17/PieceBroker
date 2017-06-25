@@ -156,7 +156,11 @@ img {
 >>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
 =======
 
+<<<<<<< HEAD
+.gif:hover, .budget-gif:hover {
+=======
 .gif:hover, .budget-gif {
+>>>>>>> master
     cursor: pointer;
     opacity: 0.7;
 }
