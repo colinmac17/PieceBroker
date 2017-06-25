@@ -140,4 +140,20 @@ $('#hungryBtn').on('click', function(e) {
         });
     }
 });
+<<<<<<< HEAD
 >>>>>>> 2e94c814207394c99d836eb6a9ab78348071d45d
+=======
+
+// grab title and fade
+// grab gifs and fade
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
