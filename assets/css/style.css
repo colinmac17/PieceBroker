@@ -14,7 +14,9 @@ body {
     margin-top: 120px;
 }
 
-.location-head {
+.location-head,
+.food-head,
+.price-head {
     background: #3421f5;
     color: #fffff0;
     padding: 5px;
@@ -111,21 +113,38 @@ body {
 .foodType-container {
     display: none;
 }
-
+/*
 img {
     width: 200px;
     height: 300px;
+<<<<<<< HEAD
 }
 <<<<<<< HEAD
 >>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
 =======
+=======
+}*/
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266
 
 .gif-container {
     margin-top: 20px;
     margin-bottom: 100px;
 }
 
+.price-container {
+    display: none;
+    margin-top: 100px;
+}
+
 .gif {
     margin: 10px;
 }
+<<<<<<< HEAD
 >>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
+=======
+
+.gif:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266

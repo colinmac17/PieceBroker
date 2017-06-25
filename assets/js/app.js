@@ -27,11 +27,8 @@ $('#submitBtn').on('click', function(e) {
 =======
 var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
-//set global cityID
-var cityID;
-
-//set global cuisineID
-var cuisineID;
+//set global vars for cityID, cuisineID 
+var cityID, cuisineID;
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -82,6 +79,9 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        $('.foodType-container').fadeOut();
+        $('.price-container').show();
+        return cuisineID;
     });
 });
 <<<<<<< HEAD
@@ -156,4 +156,8 @@ $('#hungryBtn').on('click', function(e) {
 
 
 
+<<<<<<< HEAD
 >>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
+=======
+
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266
