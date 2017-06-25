@@ -19,6 +19,9 @@ var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 //set global cityID
 var cityID;
 
+//set global cuisineID
+var cuisineID;
+
 // gather user input
 $('#submitBtn').on('click', function(e) {
     e.preventDefault();
@@ -54,12 +57,11 @@ $('#submitBtn').on('click', function(e) {
     }
 });
 
-var cuisineId;
 $(".gif").on("click", function() {
-    cuisineId = $(this).attr("data-id");
-    console.log(cuisineId);
+    cuisineID = $(this).attr("data-id");
+    console.log(cuisineID);
 
-    var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineId}&count=10`;
+    var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=10`;
 
     $.ajax({
         url: queryURL,
@@ -70,4 +72,57 @@ $(".gif").on("click", function() {
     }).done(function(response) {
         console.log(response);
     });
+});
+
+
+//I'm Feeling Hungry click function
+$('#hungryBtn').on('click', function(e) {
+    e.preventDefault();
+
+    //Array to Store Cuisine IDs
+    var cuisineIDs = [73, 55, 1, 25, 148, 70, 177, 308];
+
+    //Get randomNumbers for cuisine and restaurant data
+    var randNumCuisine = Math.floor(Math.random() * (8));
+    var randNumRestaurant = Math.floor(Math.random() * (10));
+
+    //set random cuisineID
+    cuisineID = cuisineIDs[randNumCuisine];
+
+    //get user location
+    var location = $('#locationInput').val();
+    $('#locationInput').val('');
+
+    //Set Zomato Endpoint
+    var locationURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
+    var searchURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=10`;
+    //Error message if user does not input data
+    if (location.length < 1) {
+        $('#failMsg').addClass('animated shake');
+        $('#failMsg').html('Please enter a valid city');
+    }
+    //Get Zomato data for random restaurants
+    else {
+        $.ajax({
+            url: locationURL,
+            method: 'GET',
+            headers: {
+                'user-key': apiKey
+            }
+        }).done(function(response) {
+            console.log(response);
+            cityID = response.location_suggestions[0].id;
+
+            $.ajax({
+                url: searchURL,
+                method: 'GET',
+                headers: {
+                    'user-key': apiKey
+                }
+            }).done(function(response) {
+                //get random restaurant name
+                console.log(response.restaurants[randNumRestaurant].restaurant.name);
+            });
+        });
+    }
 });
