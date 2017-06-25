@@ -23,30 +23,33 @@ var cityID;
 $('#submitBtn').on('click', function(e) {
 	e.preventDefault();
 
+	//get user location
 	var location = $('#locationInput').val();
   	$('#locationInput').val('');
-	  var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
-	  $.ajax({
+  	
+  	//Set Zomato Endpoint
+  	var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
+  	//Error message if user does not input data
+	if (location.length < 1) {
+		$('#failMsg').addClass('animated shake');
+	  	$('#failMsg').html('Please enter a valid city');
+	} 
+	// Get Zomato Data and store cityID in a variable
+	else {
+	$.ajax({
 	    url: queryURL,
 	    method: 'GET',
 	    headers: {
 	      'user-key': apiKey
 	    }
-	  }).done(function(response) {
+	}).done(function(response) {
 	  	//confirm that user has entered in a city
-	  	if (location.length > 0) {
 	  		console.log(response);
 	    	cityID = response.location_suggestions[0].id;
 	    	console.log(cityID);
 	    	$("#location-container").fadeOut();
 	    	$('.foodType-container').show();
 	    	return cityID;
-	  	} else {
-	  		$('#failMsg').addClass('animated shake');
-	  		$('#failMsg').html('Please enter a valid city');
-	  	}
-	  
 	 });
-	  
-	
+	}
 });
