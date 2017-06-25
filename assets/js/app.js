@@ -17,7 +17,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //set global vars for cityID, cuisineID 
-var cityID, cuisineID, userBudget;
+var cityID, cuisineID, userBudget, restaurantID;
 
 var cheapRestaurants = [];
 var medRestaurants = [];
@@ -52,7 +52,7 @@ $('#submitBtn').on('click', function(e) {
             cityID = response.location_suggestions[0].id;
             console.log(cityID);
             $('.location-container').fadeOut();
-            $('.foodType-container').show();
+            $('.foodType-container').fadeIn();
             return cityID;
         });
     }
@@ -75,37 +75,40 @@ $(".gif").on("click", function() {
         console.log(response);
         //For loop to push restaurants to budget arrays
         for (var i=0; i < response.restaurants.length; i++) {
-            if(response.restaurants[i].restaurant.average_cost_for_two < 40) {
+            if(response.restaurants[i].restaurant.average_cost_for_two < 35) {
                 cheapRestaurants.push(response.restaurants[i]);
-            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 40 && response.restaurants[i].restaurant.average_cost_for_two < 100) {
+            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 35 && response.restaurants[i].restaurant.average_cost_for_two < 70) {
                 medRestaurants.push(response.restaurants[i]);
             } else {
                 expensiveRestaurants.push(response.restaurants[i]);
             }
         }
         $('.foodType-container').fadeOut();
-        $('.price-container').show();
+        $('.price-container').fadeIn();
         return cuisineID;
     });
 });
 
 $('.budget-gif').on('click', function() {
-    var userResult
+    var userResult;
     userBudget = $(this).attr("data-id");
 
     if (userBudget === 'cheap') {
         var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length);
         userResult = cheapRestaurants[cheapRandNum].restaurant.name;
-        alert(userResult);
+        console.log(userResult);
     } else if (userBudget === 'medium') {
         var medRandNum = Math.floor(Math.random() * medRestaurants.length);
         userResult = medRestaurants[medRandNum].restaurant.name;
-        alert(userResult);
+        console.log(userResult);
     } else {
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
         userResult = expensiveRestaurants[expensiveRandNum].restaurant.name;
-        alert(userResult);
+        console.log(userResult);
     }
+
+    $('.price-container').fadeOut();
+    $('.results-container').fadeIn();
 });
 
 
