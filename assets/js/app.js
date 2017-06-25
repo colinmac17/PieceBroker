@@ -108,6 +108,11 @@ $('.budget-gif').on('click', function() {
     }
 });
 
+// grab recommendation/userResult and send to results screen
+// display name of restaurant
+// display location
+// display rating
+// display phone number
 
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
