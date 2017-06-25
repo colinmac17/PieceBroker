@@ -14,7 +14,9 @@ body {
     margin-top: 120px;
 }
 
-.location-head {
+.location-head,
+.food-head,
+.price-head {
     background: #3421f5;
     color: #fffff0;
     padding: 5px;
@@ -113,6 +115,10 @@ img {
 .gif-container {
     margin-top: 20px;
     margin-bottom: 100px;
+}
+
+.price-container {
+    display: none;
 }
 
 .gif {
