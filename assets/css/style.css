@@ -135,11 +135,11 @@ img {
     margin-bottom:100px;
 }
 
-.gif {
+.gif, .budget-gif {
     margin: 10px;
 }
 
-.gif:hover {
+.gif:hover, .budget-gif:hover {
     cursor: pointer;
     opacity: 0.7;
 }
