@@ -1,55 +1,120 @@
 body {
-	font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: snow;
 }
 
-.navbar {
-    background: #3421f5;
-}
 
 #logo:hover {
-	cursor: pointer;
-	opacity: 0.7;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.location-container {
+    max-width: 500px;
+    margin-top: 120px;
+}
+
+.location-head {
+    background: #3421f5;
+    color: #fffff0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#locationInput {
+    margin-top: 5px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .nav-link {
-	margin-top: 13px;
-	font-size: 16px;
+    margin-top: 13px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.7;
 }
-
 
 .fa {
-	margin-right: 5px;
+    margin-right: 5px;
 }
-
 
 #collapseBtn {
-    margin-top:20px;
+    margin-top: 20px;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color:#fffff0;
+.navbar-inverse .navbar-nav>li>a {
+    color: snow;
 }
 
 .footer {
-    background: #3421f5;
     padding: 10px;
 }
 
 .footer p {
     margin-top: 5px;
-    color:#fffff0;
+    color: #fffff0;
 }
 
 .footer-link {
+    color: #fffff0;
+}
+
+.panel > .panel-heading {
+    background-color: #3421f5;
+    color: white;
+}
+
+.panel-primary {
+    position: absolute;
+    margin-top: 160px;
+}
+
+.panel-title {
+    font-size: 30px;
+}
+
+.btn {
+    margin-top: 5px;
+    padding: 10px;
+    background: gray;
+    border: white;
+    font-size: 20px;
+    color: #fffff0;
+}
+
+#submitBtn:hover,
+#hungryBtn:hover {
+    background: #C63D0F;
     color:#fffff0;
 }
 
 .footer-link:hover {
     color: white;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
 .panel-heading {
     background: #3421f5;
 }
 
+<<<<<<< HEAD
 
 
+=======
+#failMsg {
+    color: red;
+    margin-top: 5px;
+    font-size: 24px;
+}
+
+.foodType-container {
+    display: none;
+}
+
+img {
+    width: 200px;
+    height: 300px;
+}
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a

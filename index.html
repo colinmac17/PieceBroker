@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +13,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Load Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Load Animate.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!--Load Custom Styles-->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
 
+<body>
     <!--Bootstrap navbar-->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <!--Collapse Button for links on smaller devices-->
@@ -29,7 +32,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!--NavBar Logo-->
-                <a href="index.html" style="color:#fffff0;"><img class="navbar-brand img-responsive" id="logo" src="assets/images/whitelogo.png" style="width:225px; height:75px;"></a>
+                <a href="index.html" style="color:#fffff0;"><img class="navbar-brand img-responsive" id="logo" src="assets/images/purple_logo.png" style="width:225px; height:75px;"></a>
             </div>
             <!--NavBar Links-->
             <div class="collapse navbar-collapse" id="links-collapse">
@@ -40,37 +43,100 @@
             </div>
         </div>
     </nav>
-    <div class="row content">
-            <!--Input location-->
+    <!-- location search container -->
+    <div class="container text-center location-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="location-head">
+                    <h1>Where are you?</h1>
+                </div>
+                <!--User Form-->
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="locationInput" placeholder="Chicago, IL">
+                    </div>
+                    <button class="btn btn-primary" id="hungryBtn">I'm feeling hungry</button>
+                    <button type="submit" class="btn btn-default" id="submitBtn">Find Food</button>
+                </form>
+                <p id="failMsg"></p>
+            </div>
+        </div>
+    </div>
+    <!-- pick food type title container -->
+    <div class="container text-center foodType-container">
+        <div class="row content">
             <div class="col-xs-4 col-xs-offset-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h4 class="panel-title text-center">Where would you like to eat?</h4>
-                    </div>
-                    <div class="panel-body">
-                        <form>
-                            <div class-"form-group">
-                                <label for="locationInput"></label>
-                                <input placeholder="Chicago, IL" type="text" class="form-control" id="locationInput">
-                            </div>
-                            <button type="submit" class="btn" id="submitBtn">Submit</button>
-                        </form>
+                        <h4 class="panel-title text-center">Pick a type of food!</h4>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- row of gifs -->
+        <div class="container text-center">
+            <div class="row">
+                <!-- Mexican -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/mexican.gif" class="gif img-responsive" data-id="73">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Italian -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/italian.gif" class="gif img-responsive" data-id="55">
+                </div>
+            </div>
+            <div clas="row">
+                <!-- American -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/burger.gif" class="gif img-responsive" data-id="1">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Chinese -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/chinese.gif.crdownload" class="gif img-responsive" data-id="25">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Indian -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/indian.gif" class="gif img-responsive" data-id="148">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Mediterranean -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/mediterranean.gif.crdownload" class="gif img-responsive" data-id="70">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Sushi -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/sushi.gif.crdownload" class="gif img-responsive" data-id="177">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Vegetarian -->
+                <div class="col-xs-6 col-md-3">
+                    <img src="assets/images/vegetarian.gif" class="gif img-responsive" data-id="308">
+                </div>
+            </div>
+        </div>
     </div>
-
     <!--Bootstrap sticky footer-->
-    <div class="navbar-fixed-bottom footer text-center">
+    <div class="navbar-fixed-bottom navbar-inverse footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
     </div>
-
     <!--Load JQuery-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--Load Firebase-->
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <!--Load Bootstrap JS-->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Load piecebroker Application-->
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 
 </html>
