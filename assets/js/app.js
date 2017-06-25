@@ -126,3 +126,16 @@ $('#hungryBtn').on('click', function(e) {
         });
     }
 });
+
+// grab title and fade
+// grab gifs and fade
+
+
+
+
+
+
+
+
+
+
