@@ -40,6 +40,7 @@ $('#submitBtn').on('click', function(e) {
 	    	console.log(cityID);
 	    	$("#location-container").fadeOut();
 	    	$('.foodType-container').show();
+	    	$(".gif-container").show();
 	    	return cityID;
 	  	} else {
 	  		$('#failMsg').addClass('animated shake');
@@ -47,6 +48,7 @@ $('#submitBtn').on('click', function(e) {
 	  	}
 	  
 	 });
-	  
+
+	
 	
 });
