@@ -6,6 +6,7 @@ var config = {
     projectId: "piecebroker-65733",
     storageBucket: "piecebroker-65733.appspot.com",
     messagingSenderId: "189574691729"
+  };
 };
 
 // initialize app
@@ -13,8 +14,6 @@ firebase.initializeApp(config);
 
 // reference database
 var database = firebase.database();
-
-var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget;
@@ -58,6 +57,7 @@ $('#submitBtn').on('click', function(e) {
     }
 });
 
+//Get User Choice for Cuisine
 $(".gif").on("click", function() {
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
@@ -159,17 +159,7 @@ $('#hungryBtn').on('click', function(e) {
         });
     }
 });
-
 // grab title and fade
 // grab gifs and fade
-
-
-
-
-
-
-
-
-
 
 
