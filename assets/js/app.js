@@ -16,11 +16,8 @@ var database = firebase.database();
 
 var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
-//set global cityID
-var cityID;
-
-//set global cuisineID
-var cuisineID;
+//set global vars for cityID, cuisineID 
+var cityID, cuisineID;
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -72,6 +69,8 @@ $(".gif").on("click", function() {
     }).done(function(response) {
         console.log(response);
         $('.foodType-container').fadeOut();
+        $('.price-container').show();
+        return cuisineID;
     });
 });
 
