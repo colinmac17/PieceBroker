@@ -57,6 +57,7 @@ $('#submitBtn').on('click', function(e) {
     }
 });
 
+// select cuisine & fade out
 $(".gif").on("click", function() {
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
@@ -71,6 +72,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        $('.foodType-container').fadeOut();
     });
 });
 
@@ -128,6 +130,8 @@ $('#hungryBtn').on('click', function(e) {
 });
 
 // grab title and fade
+
+
 // grab gifs and fade
 
 
