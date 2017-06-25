@@ -17,7 +17,11 @@ var database = firebase.database();
 var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
 //set global vars for cityID, cuisineID 
-var cityID, cuisineID;
+var cityID, cuisineID, userBudget;
+
+var cheapRestaurants = [];
+var medRestaurants = [];
+var expensiveRestaurants = [];
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -54,11 +58,12 @@ $('#submitBtn').on('click', function(e) {
     }
 });
 
+//Get User Choice for Cuisine
 $(".gif").on("click", function() {
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
 
-    var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=10`;
+    var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=20`;
 
     $.ajax({
         url: queryURL,
@@ -68,10 +73,28 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        for (var i = 0; i < response.restaurants.length; i++) {
+            if (response.restaurants[i].restaurant.average_cost_for_two <= 25) {
+                cheapRestaurants.push(response.restaurants[i]);
+            } else if (response.restaurants[i].restaurant.average_cost_for_two > 25 && response.restaurants[i].restaurant.average_cost_for_two <= 50) {
+                medRestaurants.push(response.restaurants[i]);
+            } else {
+                expensiveRestaurants.push(response.restaurants[i]);
+            }
+        }
         $('.foodType-container').fadeOut();
         $('.price-container').show();
         return cuisineID;
     });
+});
+
+$(".budget-gif").on('click', function() {
+    userBudget = $(this).attr("data-id");
+
+
+    if(userBudget === 'cheap') {
+        var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length;
+    }
 });
 
 
