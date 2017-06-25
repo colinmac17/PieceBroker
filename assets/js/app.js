@@ -17,7 +17,7 @@ var database = firebase.database();
 var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
 //set global vars for cityID, cuisineID 
-var cityID, cuisineID userName;
+var cityID, cuisineID;
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
