@@ -16,11 +16,23 @@ body {
 
 .location-head,
 .food-head,
-.price-head {
+.price-head,
+.about-head {
     background: #3421f5;
     color: #fffff0;
     padding: 5px;
     border-radius: 5px;
+}
+
+.about-page {
+    margin-bottom: 100px;
+}
+.about-paragraph {
+    font-size: 20px;
+    color:#3e3e3e;
+    font-weight: 900;
+    line-height: 30px;
+    margin-bottom: 50px;
 }
 
 #locationInput {
@@ -134,6 +146,7 @@ img {
 .price-container {
     display: none;
     margin-top: 100px;
+    margin-bottom:100px;
 }
 
 .gif {
