@@ -71,6 +71,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        $('.foodType-container').fadeOut();
     });
 });
 
@@ -129,6 +130,7 @@ $('#hungryBtn').on('click', function(e) {
 
 // grab title and fade
 // grab gifs and fade
+
 
 
 
