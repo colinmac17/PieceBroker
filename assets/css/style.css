@@ -1,9 +1,8 @@
 body {
     font-family: 'Poppins', sans-serif;
-    position: relative;
+    background: snow;
 }
 
-.navbar {}
 
 #logo:hover {
     cursor: pointer;
@@ -43,8 +42,8 @@ body {
     margin-top: 20px;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: #fffff0;
+.navbar-inverse .navbar-nav>li>a {
+    color: snow;
 }
 
 .footer {
@@ -85,7 +84,8 @@ body {
 
 #submitBtn:hover,
 #hungryBtn:hover {
-    background: #C63D0F
+    background: #C63D0F;
+    color:#fffff0;
 }
 
 .footer-link:hover {
