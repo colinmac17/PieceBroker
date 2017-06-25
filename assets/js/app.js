@@ -70,4 +70,18 @@ $(".gif").on("click", function() {
     }).done(function(response) {
         console.log(response);
     });
+    // grab cuisine gifs
+    // grab header
+    // hide gifs and hide header
+    // grab price screen header and display
+    // grab price screen gifs and display
+    // grab price screen header and hide
+    // grab price screen gifs and hide
 });
+
+
+
+
+
+
+
