@@ -104,11 +104,18 @@ body {
 .footer-link:hover {
     color: white;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
 .panel-heading {
     background: #3421f5;
 }
 
+<<<<<<< HEAD
+
+
+=======
 #failMsg {
     color: red;
     margin-top: 5px;
@@ -122,7 +129,14 @@ body {
 img {
     width: 200px;
     height: 300px;
+<<<<<<< HEAD
+}
+<<<<<<< HEAD
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
+=======
+=======
 }*/
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266
 
 .gif-container {
     margin-top: 20px;
@@ -138,8 +152,12 @@ img {
 .gif, .budget-gif {
     margin: 10px;
 }
+<<<<<<< HEAD
+>>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
+=======
 
 .gif:hover, .budget-gif {
     cursor: pointer;
     opacity: 0.7;
 }
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266
