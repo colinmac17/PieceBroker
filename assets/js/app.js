@@ -6,8 +6,9 @@ var config = {
     projectId: "piecebroker-65733",
     storageBucket: "piecebroker-65733.appspot.com",
     messagingSenderId: "189574691729"
-  };
 };
+
+var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
 // initialize app
 firebase.initializeApp(config);
