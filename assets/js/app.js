@@ -54,26 +54,20 @@ $('#submitBtn').on('click', function(e) {
     }
 });
 
-                var cuisineId;
-                $(".gif").on("click", function() {
-                            cuisineId = $(this).attr("data-id");
-                            console.log(cuisineId);
+var cuisineId;
+$(".gif").on("click", function() {
+    cuisineId = $(this).attr("data-id");
+    console.log(cuisineId);
 
-                            var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineId}&count=10`;
+    var queryURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineId}&count=10`;
 
-                            $.ajax({
-                                url: queryURL,
-                                method: 'GET',
-                                headers: {
-                                    'user-key': apiKey
-                                }
-                            }).done(function(response) {
-                                console.log(response);
-
-
-
-                            });
-
-                           });
-
-
+    $.ajax({
+        url: queryURL,
+        method: 'GET',
+        headers: {
+            'user-key': apiKey
+        }
+    }).done(function(response) {
+        console.log(response);
+    });
+});
