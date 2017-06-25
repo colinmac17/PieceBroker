@@ -6,7 +6,11 @@ var config = {
     projectId: "piecebroker-65733",
     storageBucket: "piecebroker-65733.appspot.com",
     messagingSenderId: "189574691729"
+<<<<<<< HEAD
+  };
+=======
 };
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
 
 // initialize app
 firebase.initializeApp(config);
@@ -14,6 +18,13 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
+<<<<<<< HEAD
+// gather user input
+
+$('#submitBtn').on('click', function(e) {
+	e.preventDefault();
+});
+=======
 var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
 
 //set global vars for cityID, cuisineID 
@@ -73,6 +84,9 @@ $(".gif").on("click", function() {
         return cuisineID;
     });
 });
+<<<<<<< HEAD
+>>>>>>> 3ac4412d1b7a7aac0dcc83fd369b84dae7568a0a
+=======
 
 
 //I'm Feeling Hungry click function
@@ -126,6 +140,9 @@ $('#hungryBtn').on('click', function(e) {
         });
     }
 });
+<<<<<<< HEAD
+>>>>>>> 2e94c814207394c99d836eb6a9ab78348071d45d
+=======
 
 // grab title and fade
 // grab gifs and fade
@@ -139,4 +156,8 @@ $('#hungryBtn').on('click', function(e) {
 
 
 
+<<<<<<< HEAD
+>>>>>>> 38369a56e0d64d6f3d50e2bc8433812c8e5d8eb7
+=======
 
+>>>>>>> a02881c48448fd787ace62f4f4061afc3a4bc266
