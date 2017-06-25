@@ -31,6 +31,15 @@ body {
     color:#fffff0;
 }
 
+.foodType-container{
+    display: none;
+    float: left;
+}
+
+.gif-container {
+    display: none;
+}
+
 .footer {
     background: #3421f5;
     padding: 10px;
@@ -44,6 +53,7 @@ body {
 .footer-link {
     color:#fffff0;
 }
+
 
 .panel > .panel-heading {
     background-color :#3421f5;
@@ -81,11 +91,9 @@ body {
 }
 
 
-.foodType-container {
-    display: none;
-}
 
-img {
-    width: 200px;
-    height: 300px;
+
+.gif, .image-responsive {
+    width: 100px;
+    height: 100px;
 }
