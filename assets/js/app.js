@@ -70,7 +70,7 @@ $('#submitBtn').on('click', function(e) {
             console.log(response);
             cityID = response.location_suggestions[0].id;
             console.log(cityID);
-            $('.foodType-container').fadeIn();
+            $('.foodType-container').show();
             return cityID;
         });
     }
@@ -178,8 +178,8 @@ $('.budget-gif').on('click', function() {
     //push data to firebase
     addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
 
-    $('.price-container').fadeOut();
-    $('.results-container').fadeIn();
+    $('.price-container').hide();
+    $('.results-container').show();
 });
 
 //I'm Feeling Hungry click function
@@ -260,7 +260,7 @@ $('#hungryBtn').on('click', function(e) {
 
                 //push data to firebase
                 addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
-                $('.results-container').fadeIn();
+                $('.results-container').show();
             });
         });
     }
