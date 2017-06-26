@@ -16,6 +16,9 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
+// restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating
+var recName, recAddress, recCuisine, recBudget, recRating, recDetails;
+
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget, restaurantID;
 
@@ -75,9 +78,9 @@ $(".gif").on("click", function() {
         console.log(response);
         //For loop to push restaurants to budget arrays
         for (var i=0; i < response.restaurants.length; i++) {
-            if(response.restaurants[i].restaurant.average_cost_for_two < 35) {
+            if(response.restaurants[i].restaurant.average_cost_for_two < 40) {
                 cheapRestaurants.push(response.restaurants[i]);
-            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 35 && response.restaurants[i].restaurant.average_cost_for_two < 70) {
+            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 40 && response.restaurants[i].restaurant.average_cost_for_two < 80) {
                 medRestaurants.push(response.restaurants[i]);
             } else {
                 expensiveRestaurants.push(response.restaurants[i]);
@@ -95,27 +98,73 @@ $('.budget-gif').on('click', function() {
 
     if (userBudget === 'cheap') {
         var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length);
-        userResult = cheapRestaurants[cheapRandNum].restaurant.name;
+        userResult = cheapRestaurants[cheapRandNum].restaurant;
         console.log(userResult);
     } else if (userBudget === 'medium') {
         var medRandNum = Math.floor(Math.random() * medRestaurants.length);
-        userResult = medRestaurants[medRandNum].restaurant.name;
+        userResult = medRestaurants[medRandNum].restaurant;
         console.log(userResult);
     } else {
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
-        userResult = expensiveRestaurants[expensiveRandNum].restaurant.name;
+        userResult = expensiveRestaurants[expensiveRandNum].restaurant;
         console.log(userResult);
     }
+
+    //Set data for Database variables
+    recName = userResult.name;
+    recAddress = userResult.location.address;
+    recCuisine = userResult.cuisines;
+    recBudget = userResult.average_cost_for_two;
+    recRating = userResult.user_rating.aggregate_rating;
+    recDetails = userResult.url;
+
+    //add data to results page
+    $('#recName').text(recName);
+    $('#recAddress').text(recAddress);
+    $('#recRating').text(recRating);
+    $('#recLink').attr('href', recDetails);
+
+    //push data to firebase
+    addItemToFirebase(recName, recAddress, recCuisine, recBudget, recRating);
 
     $('.price-container').fadeOut();
     $('.results-container').fadeIn();
 });
 
-// grab recommendation/userResult and send to results screen
-// display name of restaurant
-// display location
-// display rating
-// display phone number
+
+// need to add method to gather user input
+
+
+// snapshot
+database.ref().on('child_added', function(childSnapshot){
+    var sv = childSnapshot.val();
+    //append elements to DOM
+    renderItem(sv.recName, sv.recAddress, sv.recCuisine, sv.recBudget, sv.recRating);
+});
+
+// add items to firebase
+function addItemToFirebase (name,address,cuisine,budget,rating) {
+    if (recName && recAddress && recCuisine && recBudget && recRating) {
+        database.ref().push({
+            recName: name,
+            recAddress: address,
+            recCuisine: cuisine,
+            recBudget: budget,
+            recRating: rating
+        });
+    console.log(`Name: ${recName} Address: ${recAddress} Cuisine: ${recCuisine} Budget: ${recBudget} Rating: ${recRating}`);
+    } else {
+        console.log('data missing in firebase');
+    };
+}
+
+// return items to DOM
+function renderItem (recName,recAddress,recCuisine,recBudget,recRating) {
+    var row = [recName,recAddress,recCuisine,recBudget,recRating].map(function (val) {
+        return "<td>" + val + "</td>"
+    }).join('');
+}
+
 
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {

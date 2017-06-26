@@ -138,35 +138,35 @@
             <div class="row content">
                 <div class="col-xs-12">
                     <div class="result-head">
-                        <h1 class="text-center">Here Ya Go!</h1>
+                        <h1 class="text-center results-head">Here Ya Go!</h1>
                     </div>
                 </div>
             </div>
         <!-- row with gifs and result -->
-         <div class="container text-center">
+         <div class="container">
+            <div class="row">
                 <!-- congrats gif -->
-                <div class="col-xs-12 col-md-4 text-center">
+                <div class="col-xs-12 col-md-4">
                     <img src="" class="gif img-responsive" data-id="">
                 </div>
                 <!--recommendation-->
-                <div class="col-xs-12 col-md-4 text-center" id="restaurantRec">
+                <div class="col-xs-12 col-md-4" id="restaurantRec">
                     <div class="restaurantHolder">
-                        <ul>   
-                            <li>Name: <span id="recName"></span></li>
-                            <li>Address: <span id="recAddress"></span></li>
-                            <li>Rating: <span id="recRating"></span></li>
-                            <li>Details: <a id="recLink" href="" target="_blank"></a></li>
-                        </ul>
+                        <div class="results-list">   
+                            <p class="result">Name: <span class="data" id="recName"></span></p>
+                            <p class="result">Address: <span class="data" id="recAddress"></span></li>
+                            <p class="result">Rating: <span class="data" id="recRating"></span></p>
+                            <p class="result">Details: <a class="data" id="recLink" href="" target="_blank">Restaurant Details</a></p>
+                        </div>
                     </div>
                 </div>
                 <!--congrats gif 2-->
-                <div class="col-xs-12 col-md-4 text-center">
+                <div class="col-xs-12 col-md-4">
                     <img src="" class="gif img-responsive" data-id="">
                 </div>
+            </div>
                 <!-- button to results page -->
-                <div class="row">
-                    <button type="submit" class="btn btn-default" id="resultsBtn">History</button>
-                </div>
+                <a href="resultspage.html"><button class="btn btn-primary col-xs-12 center-block" type="submit" class="btn btn-default" id="resultsBtn">View User History</button></a>
         </div>
     </div>
     
