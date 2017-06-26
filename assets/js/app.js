@@ -38,7 +38,6 @@ database.ref().once("value", function(snapshot) {
 // gather user input
 $('#submitBtn').on('click', function(e) {
     e.preventDefault();
-    $('.location-container').hide();
 
     //get user location
     var location = $('#locationInput').val();
@@ -51,12 +50,13 @@ $('#submitBtn').on('click', function(e) {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
         function removeMessage() {
-            message = setTimeout(hideMessage, 3000);
+            message = setTimeout(hideFailMessage, 3000);
         }
         removeMessage();
     }
     // Get Zomato Data and store cityID in a variable
     else {
+        $('.location-container').hide();
         $('.loader').show();
         $.ajax({
             url: queryURL,
@@ -185,8 +185,6 @@ $('.budget-gif').on('click', function() {
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
     e.preventDefault();
-    $('.location-container').hide();
-    $('.loader').show();
 
     //Array to Store Cuisine IDs
     var cuisineIDs = [73, 55, 1, 25, 148, 70, 177, 308];
@@ -209,12 +207,16 @@ $('#hungryBtn').on('click', function(e) {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
         function removeMessage() {
-            message = setTimeout(hideMessage, 3000);
+            message = setTimeout(hideFailMessage, 3000);
         }
         removeMessage();
     }
     //Get Zomato data for random restaurants
     else {
+
+        $('.location-container').hide();
+        $('.loader').show();
+
         $.ajax({
             url: locationURL,
             method: 'GET',
