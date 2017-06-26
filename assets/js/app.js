@@ -48,7 +48,11 @@ $('#submitBtn').on('click', function(e) {
     //Error message if user does not input data
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
-        $('#failMsg').html('Please enter a valid city');
+        $('#failMsg').show();
+        function removeMessage() {
+            message = setTimeout(hideMessage, 3000);
+        }
+        removeMessage();
     }
     // Get Zomato Data and store cityID in a variable
     else {
@@ -107,7 +111,12 @@ $('.budget-gif').on('click', function() {
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
         if (cheapRestaurants.length === 0 ){
-            alert('There are no Restaurants in this category');
+            $('#cheapErrMsg').addClass('animated shake');
+            $('#cheapErrMsg').show();
+             function removeCheapMessage() {
+            message = setTimeout(cheapFail, 3000);
+            }
+            removeCheapMessage();
         }
         var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length);
         userResult = cheapRestaurants[cheapRandNum].restaurant;
@@ -115,7 +124,12 @@ $('.budget-gif').on('click', function() {
     } else if (userBudget === 'medium') {
         //check if there is a medium priced restaurant
         if (medRestaurants.length === 0 ){
-            alert('There are no Restaurants in this category');
+            $('#medErrMsg').addClass('animated shake');
+             $('#medErrMsg').show();
+             function removeMedMessage() {
+                message = setTimeout(medFail, 3000);
+            }
+            removeMedMessage();
         }
         var medRandNum = Math.floor(Math.random() * medRestaurants.length);
         userResult = medRestaurants[medRandNum].restaurant;
@@ -123,7 +137,12 @@ $('.budget-gif').on('click', function() {
     } else {
         //check if there is an expensive restaurant
          if (expensiveRestaurants.length === 0 ){
-            alert('There are no Restaurants in this category');
+            $('#expErrMsg').addClass('animated shake');
+             $('#expErrMsg').show();
+             function removeExpMessage() {
+                message = setTimeout(expFail, 3000);
+            }
+            removeExpMessage();
         }
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
         userResult = expensiveRestaurants[expensiveRandNum].restaurant;
@@ -161,7 +180,7 @@ $('#hungryBtn').on('click', function(e) {
 
     //Get randomNumbers for cuisine and restaurant data
     var randNumCuisine = Math.floor(Math.random() * (8));
-    var randNumRestaurant = Math.floor(Math.random() * (10));
+    var randNumRestaurant = Math.floor(Math.random() * (20));
 
     //set random cuisineID
     cuisineID = cuisineIDs[randNumCuisine];
@@ -175,7 +194,11 @@ $('#hungryBtn').on('click', function(e) {
     //Error message if user does not input data
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
-        $('#failMsg').html('Please enter a valid city');
+        $('#failMsg').show();
+        function removeMessage() {
+            message = setTimeout(hideMessage, 3000);
+        }
+        removeMessage();
     }
     //Get Zomato data for random restaurants
     else {
@@ -253,4 +276,22 @@ function addItemToFirebase(name, address, city, cuisine, budget, rating) {
     } else {
         console.log('data missing in firebase');
     };
+}
+
+//Function to hide fail message
+function hideFailMessage() {
+    $('#failMsg').hide();
+}
+
+//functions to hide budget fail messages
+function cheapFail() {
+    $('#cheapErrMsg').hide();
+}
+
+function medFail() {
+    $('#medErrMsg').hide();
+}
+
+function expFail() {
+    $('#expErrMsg').hide();
 }

@@ -57,7 +57,7 @@
                     <button type="submit" class="btn btn-default" id="submitBtn">Find Food</button>
                     <button class="btn btn-primary" id="hungryBtn">I'm feeling hungry</button>
                 </form>
-                <p id="failMsg"></p>
+                <p class="errMsg" id="failMsg">Please enter a valid city</p>
             </div>
         </div>
     </div>
@@ -120,14 +120,17 @@
                 <!--Broke-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/3ohuPkgbcIaG2OoDIs/giphy.gif" class="budget-gif img-responsive" data-id="cheap">
+                    <p class="errMsg" id="cheapErrMsg">There are no cheap restaurants</p>
                 </div>
                 <!--Good-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/imRu0Oqh6kzdK/giphy.gif" class="budget-gif img-responsive" data-id="medium">
+                    <p class="errMsg" id="medErrMsg">There are no medium priced restaurants</p>
                 </div>
                 <!--Rich-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/lZd4oyt1EzC3C/giphy.gif" class="budget-gif img-responsive" data-id="expensive">
+                    <p class="errMsg" id="expErrMsg">There are no expensive restaurants</p>
                 </div>
         </div>
     </div>
