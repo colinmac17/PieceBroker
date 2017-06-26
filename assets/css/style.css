@@ -9,15 +9,11 @@ body {
     opacity: 0.7;
 }
 
-.location-container {
-    max-width: 500px;
-    margin-top: 120px;
-}
-
 .location-head,
 .food-head,
 .price-head,
-.about-head {
+.about-head,
+.results-head {
     background: #3421f5;
     color: #fffff0;
     padding: 5px;
@@ -79,7 +75,7 @@ body {
 
 .panel > .panel-heading {
     background-color: #3421f5;
-    color: white;
+    color: #fffff0;
 }
 
 .panel-primary {
@@ -100,7 +96,8 @@ body {
 }
 
 #submitBtn:hover,
-#hungryBtn:hover {
+#hungryBtn:hover,
+#resultsBtn:hover {
     background: #C63D0F;
     color:#fffff0;
 }
@@ -113,7 +110,11 @@ body {
     background: #3421f5;
 }
 
-#failMsg {
+#failMsg, #cheapErrMsg, #medErrMsg, #expErrMsg {
+    display: none;
+}
+
+.errMsg {
     color: red;
     margin-top: 5px;
     font-size: 24px;
@@ -122,11 +123,13 @@ body {
 .foodType-container {
     display: none;
 }
-/*
-img {
-    width: 200px;
-    height: 300px;
-*/
+
+
+.location-container {
+    max-width: 500px;
+    margin-top: 130px;
+}
+
 .gif-container {
     margin-top: 20px;
     margin-bottom: 100px;
@@ -144,6 +147,10 @@ img {
     margin-bottom: 100px;
 }
 
+.history-container  {
+    margin-bottom:100px;
+}
+
 .gif, .budget-gif {
     margin: 10px;
 }
@@ -153,3 +160,75 @@ img {
     cursor: pointer;
     opacity: 0.7;
 }
+
+.results-list {
+    list-style-type: none;
+}
+
+.result {
+    color:#3421f5;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.data {
+    color:#3e3e3e;
+}
+
+#recLink {
+    color:dodgerblue;
+}
+
+.panel-heading {
+    font-size: 20px;
+}
+
+th {
+    color:#3421f5;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width:565px) {
+    .table {
+        font-size: 12px;
+    }
+
+    th {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:501px) {
+    .table {
+        font-size: 10px;
+    }
+    th {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:434px) {
+    .table {
+        font-size: 8px;
+    }
+    th {
+        font-size: 10px;
+    }
+
+    .results-head {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .table {
+        font-size: 6px;
+    }
+
+    th {
+        font-size: 8px;
+    }
+}
+

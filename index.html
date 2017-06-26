@@ -57,7 +57,7 @@
                     <button type="submit" class="btn btn-default" id="submitBtn">Find Food</button>
                     <button class="btn btn-primary" id="hungryBtn">I'm feeling hungry</button>
                 </form>
-                <p id="failMsg"></p>
+                <p class="errMsg" id="failMsg">Please enter a valid city</p>
             </div>
         </div>
     </div>
@@ -120,14 +120,17 @@
                 <!--Broke-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/3ohuPkgbcIaG2OoDIs/giphy.gif" class="budget-gif img-responsive" data-id="cheap">
+                    <p class="errMsg" id="cheapErrMsg">There are no cheap restaurants</p>
                 </div>
                 <!--Good-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/imRu0Oqh6kzdK/giphy.gif" class="budget-gif img-responsive" data-id="medium">
+                    <p class="errMsg" id="medErrMsg">There are no medium priced restaurants</p>
                 </div>
                 <!--Rich-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/lZd4oyt1EzC3C/giphy.gif" class="budget-gif img-responsive" data-id="expensive">
+                    <p class="errMsg" id="expErrMsg">There are no expensive restaurants</p>
                 </div>
         </div>
     </div>
@@ -138,38 +141,37 @@
             <div class="row content">
                 <div class="col-xs-12">
                     <div class="result-head">
-                        <h1 class="text-center">Here Ya Go!</h1>
+                        <h1 class="text-center results-head">Here Ya Go!</h1>
                     </div>
                 </div>
             </div>
         <!-- row with gifs and result -->
-         <div class="container text-center">
+         <div class="container">
+            <div class="row">
                 <!-- congrats gif -->
-                <div class="col-xs-12 col-md-4 text-center">
+                <div class="col-xs-12 col-md-4">
                     <img src="" class="gif img-responsive" data-id="">
                 </div>
                 <!--recommendation-->
-                <div class="col-xs-12 col-md-4 text-center" id="restaurantRec">
+                <div class="col-xs-12 col-md-4" id="restaurantRec">
                     <div class="restaurantHolder">
-                        <ul>   
-                            <li>Name: <span id="recName"></span></li>
-                            <li>Address: <span id="recAddress"></span></li>
-                            <li>Rating: <span id="recRating"></span></li>
-                            <li>Phone #: <span id="recPhone"></span></li>
-                        </ul>
+                        <div class="results-list">   
+                            <p class="result">Name: <span class="data" id="recName"></span></p>
+                            <p class="result">Address: <span class="data" id="recAddress"></span></li>
+                            <p class="result">Rating: <span class="data" id="recRating"></span></p>
+                            <p class="result">Details: <a class="data" id="recLink" href="" target="_blank">Restaurant Details</a></p>
+                        </div>
                     </div>
                 </div>
                 <!--congrats gif 2-->
-                <div class="col-xs-12 col-md-4 text-center">
+                <div class="col-xs-12 col-md-4">
                     <img src="" class="gif img-responsive" data-id="">
                 </div>
+            </div>
                 <!-- button to results page -->
-                <div class="row">
-                    <button type="submit" class="btn btn-default" id="resultsBtn">History</button>
-                </div>
+                <a href="results.html"><button class="btn btn-primary col-xs-12 center-block" type="submit" class="btn btn-default" id="resultsBtn">View User History</button></a>
         </div>
     </div>
-    
 
 
     <!--Bootstrap sticky footer-->

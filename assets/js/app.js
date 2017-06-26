@@ -8,7 +8,8 @@ var config = {
     messagingSenderId: "189574691729"
 };
 
-var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
+//define apiKey variable as global to use in AJAX calls
+var apiKey;
 
 // initialize app
 firebase.initializeApp(config);
@@ -16,12 +17,23 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
+// userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating
+var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails;
+
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget, restaurantID;
 
+//set empty arrays for restaurant types
 var cheapRestaurants = [];
 var medRestaurants = [];
 var expensiveRestaurants = [];
+
+//get API Key from Firebase
+database.ref().once("value", function(snapshot) {
+    var sv = snapshot.val();
+    //set value of apiKey
+    apiKey = sv.apiKey;
+});
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -36,7 +48,11 @@ $('#submitBtn').on('click', function(e) {
     //Error message if user does not input data
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
-        $('#failMsg').html('Please enter a valid city');
+        $('#failMsg').show();
+        function removeMessage() {
+            message = setTimeout(hideMessage, 3000);
+        }
+        removeMessage();
     }
     // Get Zomato Data and store cityID in a variable
     else {
@@ -74,10 +90,10 @@ $(".gif").on("click", function() {
     }).done(function(response) {
         console.log(response);
         //For loop to push restaurants to budget arrays
-        for (var i=0; i < response.restaurants.length; i++) {
-            if(response.restaurants[i].restaurant.average_cost_for_two < 35) {
+        for (var i = 0; i < response.restaurants.length; i++) {
+            if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
                 cheapRestaurants.push(response.restaurants[i]);
-            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 35 && response.restaurants[i].restaurant.average_cost_for_two < 70) {
+            } else if (response.restaurants[i].restaurant.average_cost_for_two >= 40 && response.restaurants[i].restaurant.average_cost_for_two < 80) {
                 medRestaurants.push(response.restaurants[i]);
             } else {
                 expensiveRestaurants.push(response.restaurants[i]);
@@ -90,32 +106,70 @@ $(".gif").on("click", function() {
 });
 
 $('.budget-gif').on('click', function() {
-    var userResult;
     userBudget = $(this).attr("data-id");
 
     if (userBudget === 'cheap') {
+        //check if there is a cheap restaurant
+        if (cheapRestaurants.length === 0 ){
+            $('#cheapErrMsg').addClass('animated shake');
+            $('#cheapErrMsg').show();
+             function removeCheapMessage() {
+            message = setTimeout(cheapFail, 3000);
+            }
+            removeCheapMessage();
+        }
         var cheapRandNum = Math.floor(Math.random() * cheapRestaurants.length);
-        userResult = cheapRestaurants[cheapRandNum].restaurant.name;
+        userResult = cheapRestaurants[cheapRandNum].restaurant;
         console.log(userResult);
     } else if (userBudget === 'medium') {
+        //check if there is a medium priced restaurant
+        if (medRestaurants.length === 0 ){
+            $('#medErrMsg').addClass('animated shake');
+             $('#medErrMsg').show();
+             function removeMedMessage() {
+                message = setTimeout(medFail, 3000);
+            }
+            removeMedMessage();
+        }
         var medRandNum = Math.floor(Math.random() * medRestaurants.length);
-        userResult = medRestaurants[medRandNum].restaurant.name;
+        userResult = medRestaurants[medRandNum].restaurant;
         console.log(userResult);
     } else {
+        //check if there is an expensive restaurant
+         if (expensiveRestaurants.length === 0 ){
+            $('#expErrMsg').addClass('animated shake');
+             $('#expErrMsg').show();
+             function removeExpMessage() {
+                message = setTimeout(expFail, 3000);
+            }
+            removeExpMessage();
+        }
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
-        userResult = expensiveRestaurants[expensiveRandNum].restaurant.name;
+        userResult = expensiveRestaurants[expensiveRandNum].restaurant;
         console.log(userResult);
     }
+
+    //Set data for Database variables
+    recName = userResult.name;
+    recAddress = userResult.location.address;
+    recCity = userResult.location.city;
+    recCuisine = userResult.cuisines;
+    recBudget = userResult.average_cost_for_two;
+    recRating = userResult.user_rating.aggregate_rating;
+    recDetails = userResult.url;
+
+    //add data to results page
+    $('#recName').text(recName);
+    $('#recAddress').text(recAddress);
+    $('#recRating').text(recRating);
+    $('#recLink').attr('href', recDetails);
+
+    //push data to firebase
+    addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
 
     $('.price-container').fadeOut();
     $('.results-container').fadeIn();
 });
-
-// grab recommendation/userResult and send to results screen
-// display name of restaurant
-// display location
-// display rating
-// display phone number
 
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
@@ -126,7 +180,7 @@ $('#hungryBtn').on('click', function(e) {
 
     //Get randomNumbers for cuisine and restaurant data
     var randNumCuisine = Math.floor(Math.random() * (8));
-    var randNumRestaurant = Math.floor(Math.random() * (10));
+    var randNumRestaurant = Math.floor(Math.random() * (20));
 
     //set random cuisineID
     cuisineID = cuisineIDs[randNumCuisine];
@@ -137,11 +191,14 @@ $('#hungryBtn').on('click', function(e) {
 
     //Set Zomato Endpoint
     var locationURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
-    var searchURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=10`;
     //Error message if user does not input data
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
-        $('#failMsg').html('Please enter a valid city');
+        $('#failMsg').show();
+        function removeMessage() {
+            message = setTimeout(hideMessage, 3000);
+        }
+        removeMessage();
     }
     //Get Zomato data for random restaurants
     else {
@@ -154,7 +211,7 @@ $('#hungryBtn').on('click', function(e) {
         }).done(function(response) {
             console.log(response);
             cityID = response.location_suggestions[0].id;
-
+            var searchURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&cuisines=${cuisineID}&count=20`;
             $.ajax({
                 url: searchURL,
                 method: 'GET',
@@ -163,12 +220,78 @@ $('#hungryBtn').on('click', function(e) {
                 }
             }).done(function(response) {
                 //get random restaurant name
-                console.log(response.restaurants[randNumRestaurant].restaurant.name);
+                userResult = response.restaurants[randNumRestaurant].restaurant;
+                console.log(userResult);
+                
+
+                //Set data for Database variables
+                recName = userResult.name;
+                recAddress = userResult.location.address;
+                recCity = userResult.location.city;
+                recCuisine = userResult.cuisines;
+                recBudget = userResult.average_cost_for_two;
+                recRating = userResult.user_rating.aggregate_rating;
+                recDetails = userResult.url;
+
+                //add data to results page
+                $('#recName').text(recName);
+                $('#recAddress').text(recAddress);
+                $('#recRating').text(recRating);
+                $('#recLink').attr('href', recDetails);
+
+                //push data to firebase
+                addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
+
+                $('.location-container').fadeOut();
+                $('.results-container').fadeIn();
             });
         });
     }
 });
-// grab title and fade
-// grab gifs and fade
+
+// show firebase data in user history table
+database.ref().on('child_added', function(childSnapshot) {
+    var sv = childSnapshot.val();
+    //append elements to DOM, except for APIKEY
+    if (sv.recName !== undefined) {
+    $('.active').removeClass('active');
+    $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
+    }
+});
 
 
+
+// function to add items to firebase
+function addItemToFirebase(name, address, city, cuisine, budget, rating) {
+    if (recName && recAddress && recCuisine && recBudget && recRating) {
+        database.ref().push({
+            recName: name,
+            recAddress: address,
+            recCity: city,
+            recCuisine: cuisine,
+            recBudget: budget,
+            recRating: rating
+        });
+        console.log(`Name: ${recName} Address: ${recAddress} Cuisine: ${recCuisine} Budget: ${recBudget} Rating: ${recRating}`);
+    } else {
+        console.log('data missing in firebase');
+    };
+}
+
+//Function to hide fail message
+function hideFailMessage() {
+    $('#failMsg').hide();
+}
+
+//functions to hide budget fail messages
+function cheapFail() {
+    $('#cheapErrMsg').hide();
+}
+
+function medFail() {
+    $('#medErrMsg').hide();
+}
+
+function expFail() {
+    $('#expErrMsg').hide();
+}
