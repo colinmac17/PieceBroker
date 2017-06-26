@@ -120,17 +120,17 @@
                 <!--Broke-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/3ohuPkgbcIaG2OoDIs/giphy.gif" class="budget-gif img-responsive" data-id="cheap">
-                    <p class="errMsg" id="cheapErrMsg">There are no cheap restaurants</p>
+                    <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
                 </div>
                 <!--Good-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/imRu0Oqh6kzdK/giphy.gif" class="budget-gif img-responsive" data-id="medium">
-                    <p class="errMsg" id="medErrMsg">There are no medium priced restaurants</p>
+                    <p class="errMsg" id="medErrMsg">Sorry, there are no medium priced restaurants for your selection</p>
                 </div>
                 <!--Rich-->
                 <div class="col-xs-12 col-md-4 text-center">
                     <img src="https://media.giphy.com/media/lZd4oyt1EzC3C/giphy.gif" class="budget-gif img-responsive" data-id="expensive">
-                    <p class="errMsg" id="expErrMsg">There are no expensive restaurants</p>
+                    <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection.</p>
                 </div>
         </div>
     </div>
@@ -157,7 +157,7 @@
                     <div class="restaurantHolder">
                         <div class="results-list">   
                             <p class="result">Name: <span class="data" id="recName"></span></p>
-                            <p class="result">Address: <span class="data" id="recAddress"></span></li>
+                            <p class="result">Address: <span class="data" id="recAddress"></span></p>
                             <p class="result">Rating: <span class="data" id="recRating"></span></p>
                             <p class="result">Details: <a class="data" id="recLink" href="" target="_blank">Restaurant Details</a></p>
                         </div>
@@ -172,6 +172,8 @@
                 <a href="results.html"><button class="btn btn-primary col-xs-12 center-block" type="submit" class="btn btn-default" id="resultsBtn">View User History</button></a>
         </div>
     </div>
+
+    <div class="loader center-block text-center"></div>
 
 
     <!--Bootstrap sticky footer-->

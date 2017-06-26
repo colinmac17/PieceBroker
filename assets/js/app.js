@@ -38,6 +38,7 @@ database.ref().once("value", function(snapshot) {
 // gather user input
 $('#submitBtn').on('click', function(e) {
     e.preventDefault();
+    $('.location-container').hide();
 
     //get user location
     var location = $('#locationInput').val();
@@ -56,6 +57,7 @@ $('#submitBtn').on('click', function(e) {
     }
     // Get Zomato Data and store cityID in a variable
     else {
+        $('.loader').show();
         $.ajax({
             url: queryURL,
             method: 'GET',
@@ -63,11 +65,11 @@ $('#submitBtn').on('click', function(e) {
                 'user-key': apiKey
             }
         }).done(function(response) {
+            $('.loader').hide();
             //confirm that user has entered in a city
             console.log(response);
             cityID = response.location_suggestions[0].id;
             console.log(cityID);
-            $('.location-container').fadeOut();
             $('.foodType-container').fadeIn();
             return cityID;
         });
@@ -76,6 +78,8 @@ $('#submitBtn').on('click', function(e) {
 
 //Get User Choice for Cuisine
 $(".gif").on("click", function() {
+    $('.foodType-container').hide();
+    $('.loader').show();
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
 
@@ -89,6 +93,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
+        $('.loader').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
             if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
@@ -99,7 +104,7 @@ $(".gif").on("click", function() {
                 expensiveRestaurants.push(response.restaurants[i]);
             }
         }
-        $('.foodType-container').fadeOut();
+        
         $('.price-container').fadeIn();
         return cuisineID;
     });
@@ -174,6 +179,8 @@ $('.budget-gif').on('click', function() {
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
     e.preventDefault();
+    $('.location-container').hide();
+    $('.loader').show();
 
     //Array to Store Cuisine IDs
     var cuisineIDs = [73, 55, 1, 25, 148, 70, 177, 308];
@@ -219,6 +226,7 @@ $('#hungryBtn').on('click', function(e) {
                     'user-key': apiKey
                 }
             }).done(function(response) {
+                $('.loader').hide();
                 //get random restaurant name
                 userResult = response.restaurants[randNumRestaurant].restaurant;
                 console.log(userResult);
@@ -241,8 +249,6 @@ $('#hungryBtn').on('click', function(e) {
 
                 //push data to firebase
                 addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
-
-                $('.location-container').fadeOut();
                 $('.results-container').fadeIn();
             });
         });
