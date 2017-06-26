@@ -8,7 +8,8 @@ var config = {
     messagingSenderId: "189574691729"
 };
 
-var apiKey = 'bd44f34a9f419b15bdda245f2c261942';
+//define apiKey variable as global to use in AJAX calls
+var apiKey;
 
 // initialize app
 firebase.initializeApp(config);
@@ -25,6 +26,15 @@ var cityID, cuisineID, userBudget, restaurantID;
 var cheapRestaurants = [];
 var medRestaurants = [];
 var expensiveRestaurants = [];
+
+//get API Key from Firebase
+database.ref().once("value", function(snapshot) {
+  // do some stuff once
+  sv = snapshot.val();
+
+  apiKey = sv.apiKey;
+
+});
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -130,10 +140,6 @@ $('.budget-gif').on('click', function() {
     $('.price-container').fadeOut();
     $('.results-container').fadeIn();
 });
-
-
-// need to add method to gather user input
-
 
 // snapshot
 database.ref().on('child_added', function(childSnapshot){
