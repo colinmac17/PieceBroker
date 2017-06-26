@@ -154,6 +154,12 @@ $('.budget-gif').on('click', function() {
         console.log(userResult);
     }
 
+    //in case there is no restaurant data
+    if (userResult === undefined) {
+        $('#errDiv').html(`Sorry no restaurants were found in ${location}`);
+        $('#errDiv').show();
+    }
+
     //Set data for Database variables
     recName = userResult.name;
     recAddress = userResult.location.address;
@@ -231,7 +237,12 @@ $('#hungryBtn').on('click', function(e) {
                 userResult = response.restaurants[randNumRestaurant].restaurant;
                 console.log(userResult);
                 
-
+                //in case there is no restaurant data
+                if (userResult === undefined) {
+                    $('#errDiv').html(`Sorry no restaurants were found in ${location}`);
+                    $('#errDiv').show();
+                }
+                
                 //Set data for Database variables
                 recName = userResult.name;
                 recAddress = userResult.location.address;
