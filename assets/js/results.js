@@ -60,7 +60,7 @@ function addItem (recName,recAddress,recCuisine,recBudget,recRating) {
 // return items to DOM
 function renderItem (recName,recAddress,recCuisine,recBudget,recRating) {
 	var row = [recName,recAddress,recCuisine,recBudget,recRating].map(function (val) {
-		return "<td>" + val "</td>"
+		return "<td>" + val + "</td>"
 	}).join('');
 	$('#historyTable').append('<tr>'+row+'</tr>');
 }
