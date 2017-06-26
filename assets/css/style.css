@@ -140,7 +140,7 @@ body {
 }
 
 .history-container  {
-    
+    margin-bottom:50px;
 }
 
 .gif, .budget-gif {
@@ -154,7 +154,7 @@ body {
 }
 
 .results-list {
-    list-style-type: none;f
+    list-style-type: none;
 }
 
 .result {
@@ -171,4 +171,56 @@ body {
     color:dodgerblue;
 }
 
+.panel-heading {
+    font-size: 20px;
+}
+
+th {
+    color:#3421f5;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width:565px) {
+    .table {
+        font-size: 12px;
+    }
+
+    th {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:501px) {
+    .table {
+        font-size: 10px;
+    }
+    th {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:434px) {
+    .table {
+        font-size: 8px;
+    }
+    th {
+        font-size: 10px;
+    }
+
+    .results-head {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .table {
+        font-size: 6px;
+    }
+
+    th {
+        font-size: 8px;
+    }
+}
 

@@ -42,25 +42,22 @@
     </nav>
     
     <!--1st screen: location search container -->
-    <div class="container history-container">
-        <div class="row col-xs-12">
-            <div class="panel panel-primary panel-res text-center" id="userHistory">
-                <div class="panel-heading">
-                  <h3 class="panel-title">User History</h3>
+    <div class="container history-container center-bock">
+        <div class="row col-xs-12" id="userHistory">
+            <div class="table-repsonsive" id="currentHistory">
+                <div class="text-center">
+                    <h1 class="results-head">User History</h1>
                 </div>
-                <div class="panel-body" id="currentHistory">
-                    <div class="table-repsonsive">
-                      <table class="table" id="historyTable">
-                        <tr>
-                          <th>Name</th>
-                          <th>Address</th>
-                          <th>Cuisine</th>
-                          <th>Budget</th>
-                          <th>Rating</th>
-                        </tr>
-                      </table>
-                    </div>
-                </div>
+                <table class="table table-striped" id="historyTable">
+                    <thead class="table-head text-center">
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Cuisine</th>
+                        <th>Budget</th>
+                        <th>Rating</th>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
