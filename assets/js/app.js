@@ -17,6 +17,10 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
+//store user auth
+var auth = firebase.auth();
+
+
 // userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating
 var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails;
 
@@ -279,6 +283,40 @@ database.ref().on('child_added', function(childSnapshot) {
 });
 
 
+
+//Sign up new users
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+//sign in existing users
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+//Firebase User Authentication
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 
 // function to add items to firebase
 function addItemToFirebase(name, address, city, cuisine, budget, rating) {
