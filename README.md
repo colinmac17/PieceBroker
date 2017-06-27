@@ -1,11 +1,14 @@
 # PieceBroker
-An App to help couples, friends and families make decisions.
-
-...You have been hanging out with friends, family or significant others looking for a place to eat. It’s hard to decide and can often end up in an argument. Piece Broker aims to eliminate the argument and add levity to choosing a place to eat, while adding a little fun along the way.     
-
-Our web app will walk the user through the user through picking a restaurant using funny gifs and provide a single restaurant recommendation based on what they’ve selected. We will be using the GIPHY API to call the gifs which when clicked will be pushed to firebase as our search parameters. Those search terms will then be pushed to the Zomato API to pick the restaurant that best matches the user’s criteria. We will send that recommendation back to the app and display it for the user. From there, the user can call and make a reservation.
-
-From start to finish, you’ll have fun using the app, be given a single restaurant (avoiding the argument all together), and be able to take action based on the result. We hope you enjoy using Piece Broker!
+	Piece Broker is an app that helps people make decisions about food.
+    
+    We've all been hanging out with friends, family or significant others looking for a place to eat, 
+    but with so many great choices out there, it can sometimes be challenging for everyone to agree.
+    
+    We don't think this should ever happen.
+    
+    Piece Broker eliminates the need for an argument while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user with this process by providing a single restaurant recommendation. It uses the GIPHY API to call the gifs, which, when clicked, will be pushed to Firebase as the search parameters. Those search terms will then be pushed to the Zomato API to pick the restaurant that best matches the user’s criteria. That recommendation is sent back to the app and displayed for the user. From there, the user can call and make a reservation.
+    
+    From start to finish, it's fun, a decision is made (avoiding the argument all together), and action can be taken based on the result. Skip the argument, skip the line.
 
 
 ----------------------------------------------------------------------------------------
