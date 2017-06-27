@@ -9,6 +9,10 @@ body {
     opacity: 0.7;
 }
 
+#logOutBtn {
+    display: none;
+}
+
 .location-head,
 .food-head,
 .price-head,
@@ -82,7 +86,7 @@ body {
     font-size: 30px;
 }
 
-.btn {
+.gray-btn {
     margin-top: 5px;
     padding: 10px;
     background: gray;

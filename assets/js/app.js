@@ -17,10 +17,6 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
-//store user auth
-var auth = firebase.auth();
-
-
 // userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating
 var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails;
 
@@ -283,49 +279,101 @@ database.ref().on('child_added', function(childSnapshot) {
 });
 
 
-$('#signUpBtn').on('click', function(e){
-    e.preventDefault();
+//Get user auth data from DOM
+const txtEmail = $('#email');
+const txtPassword = $('#pwd');
+const loginBtn = $('#loginBtn');
+const signUpBtn = $('#signUpBtn');
+const logOutBtn = $('#logOutBtn');
 
-    var userEmail = $('#email').val();
-    var userPassword = $('#pwd').val();
-    console.log('user input ' + userEmail + userPassword);
+//store user auth
+const auth = firebase.auth();
+
+signUpBtn.on('click', function(e){
+    e.preventDefault();
+    //get email and password
+    const email = txtEmail.val();
+    const pass = txtPassword.val();
     $('#email').val('');
     $('#pwd').val('');
-    //Sign up new users
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+    //validate user email and password
+    if (email.length < 9) {
+          alert('Please enter an email address.');
+          return;
+    }
+    if (pass.length < 6) {
+        alert('Please enter a password.');
+        return;
+    }
+
+    //Sign up new users and log them in
+    auth.createUserWithEmailAndPassword(email, pass).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+            console.log(errorMessage);
+        }
+
     });
     
 });
 
 
-// //sign in existing users
-// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // ...
-// });
+//sign in existing users
+loginBtn.on('click', function(e) {
+    e.preventDefault();
+    //get email and password
+    const email = txtEmail.val();
+    const pass = txtPassword.val();
+    $('#email').val('');
+    $('#pwd').val('');
+    //login user
+    auth.signInWithEmailAndPassword(email, pass).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+        } else {
+            console.log(errorMessage);
+        }
+    });
+});
 
-// //Firebase User Authentication
-// auth.onAuthStateChanged(function(user) {
-//   if (user) {
-//     // User is signed in.
-//     var displayName = user.displayName;
-//     var email = user.email;
-//     var emailVerified = user.emailVerified;
-//     var photoURL = user.photoURL;
-//     var isAnonymous = user.isAnonymous;
-//     var uid = user.uid;
-//     var providerData = user.providerData;
-//     // ...
-//   } else {
-//     // User is signed out.
-//     // ...
-//   }
-// });
+//Log current user out
+logOutBtn.on('click', function(e) {
+    e.preventDefault();
+    //sign up user
+    auth.signOut();
+});
+
+//Firebase User Authentication
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log(user);
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    signUpBtn.hide();
+    loginBtn.hide();
+    logOutBtn.show();
+    // ...
+  } else {
+    // User is signed out.
+    console.log('user is not logged in');
+    logOutBtn.hide();
+    loginBtn.show();
+    signUpBtn.show();
+  }
+});
 
 // function to add items to firebase
 function addItemToFirebase(name, address, city, cuisine, budget, rating) {

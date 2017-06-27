@@ -64,8 +64,9 @@
                             <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd">
                         </div>
-                        <button type="submit" class="btn modal-btn">Login</button>
-                        <button type="submit" class="btn modal-btn" id="signUpBtn">Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-success" id="loginBtn">Login</button>
+                        <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn">Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn">Log Out</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -86,8 +87,8 @@
                     <div class="form-group">
                         <input type="text" class="form-control" id="locationInput" placeholder="Chicago, IL">
                     </div>
-                    <button type="submit" class="btn btn-default" id="submitBtn">Find Food</button>
-                    <button class="btn btn-primary" id="hungryBtn">I'm feeling hungry</button>
+                    <button type="submit" class="btn btn-default gray-btn" id="submitBtn">Find Food</button>
+                    <button class="btn btn-primary gray-btn" id="hungryBtn">I'm feeling hungry</button>
                 </form>
                 <p class="errMsg" id="failMsg">Please enter a valid city</p>
             </div>
@@ -201,7 +202,7 @@
             </div>
             <!-- button to results page -->
             <a href="results.html">
-                <button class="btn btn-primary col-xs-12 center-block" type="submit" class="btn btn-default" id="resultsBtn">View User History</button>
+                <button class="btn btn-primary col-xs-12 center-block gray-btn" type="submit" class="btn btn-default" id="resultsBtn">View User History</button>
             </a>
         </div>
     </div>
