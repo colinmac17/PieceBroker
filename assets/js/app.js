@@ -289,9 +289,15 @@ const txtEmail = $('#email');
 const txtPassword = $('#pwd');
 const loginBtn = $('#loginBtn');
 const signUpBtn = $('#signUpBtn');
-const logOutBtn = $('.logOutBtn');
+const logOutBtn = $('#logOutBtn');
+const logOutBtn2 = $('#logOutBtn2');
 const account = $('#myAccount');
 const signUpLink = $('#signUpLink');
+const passGroup = $('#passGroup');
+const emailGroup = $('#emailGroup');
+const displayName = $('#displayName');
+const displayGroup = $('#displayNameGroup');
+var userName;
 
 //store user auth
 const auth = firebase.auth();
@@ -301,6 +307,7 @@ signUpBtn.on('click', function(e) {
     //get email and password
     const email = txtEmail.val();
     const pass = txtPassword.val();
+    userName = displayName.val();
     $('#email').val('');
     $('#pwd').val('');
     //validate user email and password
@@ -310,6 +317,10 @@ signUpBtn.on('click', function(e) {
     }
     if (pass.length < 6) {
         alert('Please enter a password.');
+        return;
+    }
+    if (userName.length < 4) {
+        alert('Username must be at least 4 characters');
         return;
     }
 
@@ -333,6 +344,7 @@ signUpBtn.on('click', function(e) {
 loginBtn.on('click', function(e) {
     e.preventDefault();
     //get email and password
+    userName = displayName.val();
     const email = txtEmail.val();
     const pass = txtPassword.val();
     $('#email').val('');
@@ -357,9 +369,23 @@ logOutBtn.on('click', function(e) {
     auth.signOut();
 });
 
+//Log current user out
+logOutBtn2.on('click', function(e) {
+    e.preventDefault();
+    //sign up user
+    auth.signOut();
+});
+
+
+
 //Firebase User Auth State Changes
 auth.onAuthStateChanged(function(user) {
     if (user) {
+        user.updateProfile({
+            displayName: userName
+        }).then(function(){
+            console.log(user.displayName);
+        });
         // User is signed in.
         console.log(user);
         var displayName = user.displayName;
@@ -369,6 +395,11 @@ auth.onAuthStateChanged(function(user) {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
+        $('.modal-header').hide();
+        emailGroup.hide();
+        passGroup.hide();
+        displayGroup.hide();
+        $('.welcome-user').text(`Welcome back, ${user.displayName}!`);
         signUpBtn.hide();
         loginBtn.hide();
         logOutBtn.show();
@@ -378,6 +409,10 @@ auth.onAuthStateChanged(function(user) {
     } else {
         // User is signed out.
         console.log('user is not logged in');
+         $('.modal-header').show();
+        emailGroup.show();
+        passGroup.show();
+        displayGroup.show();
         logOutBtn.hide();
         loginBtn.show();
         signUpBtn.show();
