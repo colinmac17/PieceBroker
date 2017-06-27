@@ -12,6 +12,12 @@ body {
     display: none;
 }
 
+.modal-title {
+    color:#3421f5;
+    font-weight: 900;
+    font-size: 20px;
+}
+
 .location-head,
 .food-head,
 .price-head,

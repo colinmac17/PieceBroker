@@ -295,9 +295,6 @@ const account = $('#myAccount');
 const signUpLink = $('#signUpLink');
 const passGroup = $('#passGroup');
 const emailGroup = $('#emailGroup');
-const displayName = $('#displayName');
-const displayGroup = $('#displayNameGroup');
-var userName;
 
 //store user auth
 const auth = firebase.auth();
@@ -307,7 +304,6 @@ signUpBtn.on('click', function(e) {
     //get email and password
     const email = txtEmail.val();
     const pass = txtPassword.val();
-    userName = displayName.val();
     $('#email').val('');
     $('#pwd').val('');
     //validate user email and password
@@ -319,10 +315,6 @@ signUpBtn.on('click', function(e) {
         alert('Please enter a password.');
         return;
     }
-    if (userName.length < 4) {
-        alert('Username must be at least 4 characters');
-        return;
-    }
 
     //Sign up new users and log them in
     auth.createUserWithEmailAndPassword(email, pass).catch(function(error) {
@@ -332,7 +324,7 @@ signUpBtn.on('click', function(e) {
         if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
         } else {
-            console.log(errorMessage);
+            alert(errorMessage);
         }
 
     });
@@ -344,7 +336,6 @@ signUpBtn.on('click', function(e) {
 loginBtn.on('click', function(e) {
     e.preventDefault();
     //get email and password
-    userName = displayName.val();
     const email = txtEmail.val();
     const pass = txtPassword.val();
     $('#email').val('');
@@ -381,11 +372,6 @@ logOutBtn2.on('click', function(e) {
 //Firebase User Auth State Changes
 auth.onAuthStateChanged(function(user) {
     if (user) {
-        user.updateProfile({
-            displayName: userName
-        }).then(function(){
-            console.log(user.displayName);
-        });
         // User is signed in.
         console.log(user);
         var displayName = user.displayName;
@@ -398,8 +384,6 @@ auth.onAuthStateChanged(function(user) {
         $('.modal-header').hide();
         emailGroup.hide();
         passGroup.hide();
-        displayGroup.hide();
-        $('.welcome-user').text(`Welcome back, ${user.displayName}!`);
         signUpBtn.hide();
         loginBtn.hide();
         logOutBtn.show();
@@ -409,10 +393,9 @@ auth.onAuthStateChanged(function(user) {
     } else {
         // User is signed out.
         console.log('user is not logged in');
-         $('.modal-header').show();
+        $('.modal-header').show();
         emailGroup.show();
         passGroup.show();
-        displayGroup.show();
         logOutBtn.hide();
         loginBtn.show();
         signUpBtn.show();
