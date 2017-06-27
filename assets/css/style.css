@@ -148,13 +148,23 @@ body {
 }
 
 .gif, .budget-gif {
-    margin: 10px;
+    width: 80%;
+    height: 80%;
+    margin: 20px auto ;
 }
 
 
 .gif:hover, .budget-gif:hover {
     cursor: pointer;
     opacity: 0.7;
+}
+
+.gif-black{
+    height: 200px;
+    width: 200px;
+    background: #3e3e3e;
+    margin: 10px 10px 10px 10px;
+    /*padding: 5px 5px 5px 5px;*/
 }
 
 .results-list {
