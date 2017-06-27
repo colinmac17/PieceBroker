@@ -180,6 +180,27 @@
     <!--Loader to show between data search-->
     <div class="loader center-block text-center"></div>
 
+    <!--Help Icon and Modal-->
+    <i id="helpBtn" class="fa fa-question-circle fa-4x" aria-hidden="true" data-popup-open="popup-1"></i>
+
+    <!--Pop up Help Modal-->
+    <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <h1 class="text-center">What is piecebroker?</h1>
+            <hr class="hr-style">
+            <p class="piecbroker-help">Piece Broker is an app that helps people make decisions about food. 
+            <br><br>
+            You've been hanging out with friends, family or significant others looking for a place to eat, but with so many great choices out there, it can sometimes be challenging for everyone to agree. 
+            <br><br>
+            We don't think this should ever happen. 
+            <br><br>
+            Piece Broker eliminates the need for an argument while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user with this process by providing a single restaurant recommendation. It uses the GIPHY API to call the gifs, which, when clicked, will be pushed to Firebase as the search parameters. Those search terms will then be pushed to the Zomato API to pick the restaurant that best matches the user’s criteria. That recommendation is sent back to the app and displayed for the user. From there, the user can call and make a reservation. 
+            <br><br>
+            From start to finish, it's fun, a decision is made (avoiding the argument all together), and action can be taken based on the result. Skip the argument, skip the line.
+            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        </div>
+    </div>
 
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom navbar-inverse footer text-center">
