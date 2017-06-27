@@ -186,8 +186,8 @@ body {
   border-bottom: 16px solid #3421f5;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
   display: none;
   margin-top:130px;
   margin-bottom: 100px;
