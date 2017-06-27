@@ -312,12 +312,24 @@ th {
         font-size: 14px;
     }
 
+    #thAddress, #thBudget, #tdAddress, #tdBudget {
+        display: none;
+    }
+
     #helpBtn {
         bottom:90px;
     }
 
     .popup {
         font-size: 10px;
+    }
+
+    .popup h1 {
+        font-size: 16px;
+    }
+
+    .results-container{
+        margin-top:40px;
     }
 }
 
@@ -349,6 +361,15 @@ th {
     }
 
     th {
+        font-size: 8px;
+    }
+
+    .location-container {
+        margin-top:50px;
+    }
+
+    .popup-inner {
+        padding: 30px;
         font-size: 8px;
     }
 }

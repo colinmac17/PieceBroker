@@ -278,7 +278,7 @@ database.ref().on('child_added', function(childSnapshot) {
     //append elements to DOM, except for APIKEY
     if (sv.recName !== undefined) {
     $('.active').removeClass('active');
-    $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
+    $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td id="tdAddress" class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td id="tdBudget" class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
     }
 });
 
