@@ -180,10 +180,32 @@
     <!--Loader to show between data search-->
     <div class="loader center-block text-center"></div>
 
-
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom navbar-inverse footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
+    </div>
+
+    <i id="helpBtn" class="fa fa-question-circle fa-4x" data-popup-open="popup-1"></i>
+    
+    <!--Pop up Help Modal-->
+    <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <h1 class="text-center">What is piecebroker?</h1>
+            <hr class="hr-style">
+            <p class="piecbroker-help">Piece Broker is an app that helps people make decisions about food. 
+            <br><br>
+            ...You've been hanging out with friends, family or significant others looking for a place to eat, but with so many great choices out there, it can sometimes be challenging for everyone to agree. 
+            <br><br>
+            <p id="opinion">We don't think this should ever happen.</p>
+            <br>
+            Piece Broker eliminates the need for an argument while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user with this process by providing a single restaurant recommendation based on their search criteria. 
+            <br><br>
+            That recommendation is sent back to the app and displayed for the user. From there, the user can checkout the restaurant details and even see a log of restaurants they have matched with. 
+            <br><br>
+            From start to finish, it's fun, a decision is made (avoiding the argument all together), and action can be taken based on the result. Skip the argument, skip the line.
+            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+        </div>
     </div>
     <!--Load JQuery-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
