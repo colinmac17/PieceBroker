@@ -199,6 +199,11 @@ body {
     opacity: 0.7;
     cursor: pointer;
 }
+
+#opinion {
+    color: #3421f5;
+    font-weight: 900;
+}
 /* Outer */
 .popup {
     width:100%;
@@ -208,9 +213,19 @@ body {
     top:0px;
     left:0px;
     z-index: 12;
-    background: #1FA2FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #396afc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.popup h1 {
+    color:#3421f5;
+    font-weight: 900;
+}
+
+.hr-style {
+    border-top: 3px dashed #3421f5;
+    background:snow;
 }
 
  
@@ -295,6 +310,14 @@ th {
 
     th {
         font-size: 14px;
+    }
+
+    #helpBtn {
+        bottom:90px;
+    }
+
+    .popup {
+        font-size: 10px;
     }
 }
 

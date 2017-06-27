@@ -331,5 +331,3 @@ function expFail() {
         $('.footer').show();
         e.preventDefault();
      });
-
-});
