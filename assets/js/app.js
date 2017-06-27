@@ -289,7 +289,9 @@ const txtEmail = $('#email');
 const txtPassword = $('#pwd');
 const loginBtn = $('#loginBtn');
 const signUpBtn = $('#signUpBtn');
-const logOutBtn = $('#logOutBtn');
+const logOutBtn = $('.logOutBtn');
+const account = $('#myAccount');
+const signUpLink = $('#signUpLink');
 
 //store user auth
 const auth = firebase.auth();
@@ -370,6 +372,8 @@ auth.onAuthStateChanged(function(user) {
         signUpBtn.hide();
         loginBtn.hide();
         logOutBtn.show();
+        signUpLink.hide();
+        account.show();
         // ...
     } else {
         // User is signed out.
@@ -377,6 +381,8 @@ auth.onAuthStateChanged(function(user) {
         logOutBtn.hide();
         loginBtn.show();
         signUpBtn.show();
+        signUpLink.show();
+        account.hide();
     }
 });
 
