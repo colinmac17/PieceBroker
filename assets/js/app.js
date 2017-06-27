@@ -49,6 +49,7 @@ $('#submitBtn').on('click', function(e) {
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
+
         function removeMessage() {
             message = setTimeout(hideFailMessage, 3000);
         }
@@ -104,7 +105,7 @@ $(".gif").on("click", function() {
                 expensiveRestaurants.push(response.restaurants[i]);
             }
         }
-        
+
         $('.price-container').fadeIn();
         return cuisineID;
     });
@@ -115,11 +116,12 @@ $('.budget-gif').on('click', function() {
 
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
-        if (cheapRestaurants.length === 0 ){
+        if (cheapRestaurants.length === 0) {
             $('#cheapErrMsg').addClass('animated shake');
             $('#cheapErrMsg').show();
-             function removeCheapMessage() {
-            message = setTimeout(cheapFail, 3000);
+
+            function removeCheapMessage() {
+                message = setTimeout(cheapFail, 3000);
             }
             removeCheapMessage();
         }
@@ -128,10 +130,11 @@ $('.budget-gif').on('click', function() {
         console.log(userResult);
     } else if (userBudget === 'medium') {
         //check if there is a medium priced restaurant
-        if (medRestaurants.length === 0 ){
+        if (medRestaurants.length === 0) {
             $('#medErrMsg').addClass('animated shake');
-             $('#medErrMsg').show();
-             function removeMedMessage() {
+            $('#medErrMsg').show();
+
+            function removeMedMessage() {
                 message = setTimeout(medFail, 3000);
             }
             removeMedMessage();
@@ -141,10 +144,11 @@ $('.budget-gif').on('click', function() {
         console.log(userResult);
     } else {
         //check if there is an expensive restaurant
-         if (expensiveRestaurants.length === 0 ){
+        if (expensiveRestaurants.length === 0) {
             $('#expErrMsg').addClass('animated shake');
-             $('#expErrMsg').show();
-             function removeExpMessage() {
+            $('#expErrMsg').show();
+
+            function removeExpMessage() {
                 message = setTimeout(expFail, 3000);
             }
             removeExpMessage();
@@ -206,6 +210,7 @@ $('#hungryBtn').on('click', function(e) {
     if (location.length < 1) {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
+
         function removeMessage() {
             message = setTimeout(hideFailMessage, 3000);
         }
@@ -238,13 +243,13 @@ $('#hungryBtn').on('click', function(e) {
                 //get random restaurant name
                 userResult = response.restaurants[randNumRestaurant].restaurant;
                 console.log(userResult);
-                
+
                 //in case there is no restaurant data
                 if (userResult === undefined) {
                     $('#errDiv').html(`Sorry no restaurants were found in ${location}`);
                     $('#errDiv').show();
                 }
-                
+
                 //Set data for Database variables
                 recName = userResult.name;
                 recAddress = userResult.location.address;
@@ -273,8 +278,8 @@ database.ref().on('child_added', function(childSnapshot) {
     var sv = childSnapshot.val();
     //append elements to DOM, except for APIKEY
     if (sv.recName !== undefined) {
-    $('.active').removeClass('active');
-    $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td id="tdAddress" class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td id="tdBudget" class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
+        $('.active').removeClass('active');
+        $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td id="tdAddress" class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td id="tdBudget" class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
     }
 });
 
@@ -289,7 +294,7 @@ const logOutBtn = $('#logOutBtn');
 //store user auth
 const auth = firebase.auth();
 
-signUpBtn.on('click', function(e){
+signUpBtn.on('click', function(e) {
     e.preventDefault();
     //get email and password
     const email = txtEmail.val();
@@ -298,8 +303,8 @@ signUpBtn.on('click', function(e){
     $('#pwd').val('');
     //validate user email and password
     if (email.length < 9) {
-          alert('Please enter an email address.');
-          return;
+        alert('Please enter an email address.');
+        return;
     }
     if (pass.length < 6) {
         alert('Please enter a password.');
@@ -308,17 +313,17 @@ signUpBtn.on('click', function(e){
 
     //Sign up new users and log them in
     auth.createUserWithEmailAndPassword(email, pass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+        } else {
             console.log(errorMessage);
         }
 
     });
-    
+
 });
 
 
@@ -332,10 +337,10 @@ loginBtn.on('click', function(e) {
     $('#pwd').val('');
     //login user
     auth.signInWithEmailAndPassword(email, pass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
         } else {
             console.log(errorMessage);
@@ -350,29 +355,29 @@ logOutBtn.on('click', function(e) {
     auth.signOut();
 });
 
-//Firebase User Authentication
+//Firebase User Auth State Changes
 auth.onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    console.log(user);
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    signUpBtn.hide();
-    loginBtn.hide();
-    logOutBtn.show();
-    // ...
-  } else {
-    // User is signed out.
-    console.log('user is not logged in');
-    logOutBtn.hide();
-    loginBtn.show();
-    signUpBtn.show();
-  }
+    if (user) {
+        // User is signed in.
+        console.log(user);
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        signUpBtn.hide();
+        loginBtn.hide();
+        logOutBtn.show();
+        // ...
+    } else {
+        // User is signed out.
+        console.log('user is not logged in');
+        logOutBtn.hide();
+        loginBtn.show();
+        signUpBtn.show();
+    }
 });
 
 // function to add items to firebase
@@ -411,18 +416,18 @@ function expFail() {
 }
 
 
-     //----- OPEN POP UP
-    $('[data-popup-open]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-open');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
-        $('.footer').hide();
-        e.preventDefault();
-    });
- 
-    //----- CLOSE POP UP
-    $('[data-popup-close]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-close');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
-        $('.footer').show();
-        e.preventDefault();
-     });
+//----- OPEN POP UP
+$('[data-popup-open]').on('click', function(e) {
+    var targeted_popup_class = jQuery(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+    $('.footer').hide();
+    e.preventDefault();
+});
+
+//----- CLOSE POP UP
+$('[data-popup-close]').on('click', function(e) {
+    var targeted_popup_class = jQuery(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+    $('.footer').show();
+    e.preventDefault();
+});

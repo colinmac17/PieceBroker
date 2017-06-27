@@ -42,9 +42,8 @@
             </div>
         </div>
     </nav>
-
     <!--Login Modal-->
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="myModal1" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -62,8 +61,9 @@
                             <label for="pwd">Password:</label>
                             <input type="password" class="form-control" id="pwd">
                         </div>
-                        <button type="submit" class="btn modal-btn">Login</button>
-                        <button type="submit" class="btn modal-btn" id="signUpBtn">Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-success" id="loginBtn">Login</button>
+                        <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn">Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn">Log Out</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -72,7 +72,6 @@
             </div>
         </div>
     </div>
-    
     <!--1st screen: location search container -->
     <div class="container history-container center-bock">
         <div class="row col-xs-12" id="userHistory">
@@ -91,12 +90,11 @@
                     </thead>
                 </table>
             </div>
-             <a href="index.html"><button class="btn btn-primary col-xs-12 center-bock gray-btn" id="startOver">Search For Another Restaurant</button></a>
+            <a href="index.html">
+                <button class="btn btn-primary col-xs-12 center-bock gray-btn" id="startOver">Search For Another Restaurant</button>
+            </a>
         </div>
     </div>
-    
-
-    
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom navbar-inverse footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
