@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>piecebroker | About</title>
-	  <!--Load Favicon-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>piecebroker | About</title>
+    <!--Load Favicon-->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <!--Load Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Cabin|Poppins|Roboto" rel="stylesheet">
@@ -16,8 +18,9 @@
     <!--Load Custom Styles-->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-	<!--Bootstrap navbar-->
+    <!--Bootstrap navbar-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -34,21 +37,60 @@
             <!--NavBar Links-->
             <div class="collapse navbar-collapse" id="links-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="myAccount">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">My Account
+                      <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li id="logOutBtn2"><a href="#">Log Out</a></li>
+                            <li><a href="#">My Restaurants</a></li>
+                        </ul>
+                    </li>
+                    <li id="signUpLink"><a class="nav-link" href="" data-toggle="modal" data-target="#myModal1"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>Login | Sign Up</a></li>
                     <li><a class="nav-link" href="index.html"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a></li>
                     <li><a class="nav-link" href="about.html"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-	<div class="container about-page">
+    <!--Login Modal-->
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login or Sign Up</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" id="emailGroup">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group" id="passGroup">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="welcome-user"></div>
+                        <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
+                        <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container about-page">
         <div class="row content">
             <div class="col-xs-12">
-		        <h1 class="about-head text-center">Piece Broker</h1>
+                <h1 class="about-head text-center">Piece Broker</h1>
                 <br>
-		        <p class="about-paragraph text-center">
-                Skip the argument, skip the line, and meet the founders!
-		        </p>
+                <p class="about-paragraph text-center">
+                    Skip the argument, skip the line, and meet the founders!
+                </p>
             </div>
         </div>
         <!--row of pictures-->
@@ -98,10 +140,15 @@
                 </div>
             </div>
         </div>
+    </div>
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom navbar-inverse footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
     </div>
-	
+    <!--Load JQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--Load Bootstrap JS-->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+
 </html>
