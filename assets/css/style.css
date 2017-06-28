@@ -28,13 +28,50 @@ body {
     padding: 5px;
     border-radius: 5px;
 }
+/* About page */
 
 .about-page {
     margin-bottom: 100px;
 }
 
-.profile-img {
-    border-radius: 10px;
+.column {
+    margin-bottom: 15px;
+    padding: 0 8px;
+}
+
+/* Adds shadows */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 506px;
+}
+
+.about-container {
+    padding: 0 16px;
+}
+
+.title {
+    color: grey;
+}
+
+.contact-btn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #5e5e5e;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-btn:hover {
+    background-color: #A8A4A3;
+    color: black;
+}
+
+.mike-btn {
+    margin-bottom: 14px;
 }
 
 .about-paragraph {
