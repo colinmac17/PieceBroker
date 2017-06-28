@@ -39,6 +39,14 @@ body {
     padding: 0 8px;
 }
 
+.about-paragraph {
+    font-size: 20px;
+    color: #3e3e3e;
+    font-weight: 900;
+    line-height: 30px;
+    margin-bottom: 50px;
+}
+
 /* Adds shadows */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -52,6 +60,8 @@ body {
 .title {
     color: grey;
 }
+
+/* buttons */
 
 .contact-btn {
     border: none;
@@ -74,12 +84,37 @@ body {
     margin-bottom: 14px;
 }
 
-.about-paragraph {
+#collapseBtn {
+    margin-top: 20px;
+}
+
+
+.gray-btn {
+    margin-top: 5px;
+    padding: 10px;
+    background: gray;
+    border: white;
     font-size: 20px;
-    color: #3e3e3e;
-    font-weight: 900;
-    line-height: 30px;
-    margin-bottom: 50px;
+    color: #fffff0;
+}
+
+#helpBtn {
+    color: #3421f5;
+    position: fixed;
+    right: 15px;
+    bottom: 70px;
+}
+
+#helpBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#submitBtn:hover,
+#hungryBtn:hover,
+#resultsBtn:hover {
+    background: #C63D0F;
+    color: #fffff0;
 }
 
 #locationInput {
@@ -97,10 +132,6 @@ body {
 
 .fa {
     margin-right: 5px;
-}
-
-#collapseBtn {
-    margin-top: 20px;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -129,22 +160,6 @@ body {
     font-size: 30px;
 }
 
-.gray-btn {
-    margin-top: 5px;
-    padding: 10px;
-    background: gray;
-    border: white;
-    font-size: 20px;
-    color: #fffff0;
-}
-
-#submitBtn:hover,
-#hungryBtn:hover,
-#resultsBtn:hover {
-    background: #C63D0F;
-    color: #fffff0;
-}
-
 .footer-link:hover {
     color: white;
 }
@@ -165,6 +180,8 @@ body {
     margin-top: 5px;
     font-size: 24px;
 }
+
+/* containers */
 
 .foodType-container {
     display: none;
@@ -239,23 +256,10 @@ body {
     font-size: 20px;
 }
 
-#helpBtn {
-    color: #3421f5;
-    position: fixed;
-    right: 15px;
-    bottom: 70px;
-}
-
-#helpBtn:hover {
-    opacity: 0.7;
-    cursor: pointer;
-}
-
 #opinion {
     color: #3421f5;
     font-weight: 900;
 }
-
 
 /* Outer */
 
