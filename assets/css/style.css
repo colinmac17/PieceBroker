@@ -8,10 +8,6 @@ body {
     opacity: 0.7;
 }
 
-#logOutBtn, #myAccount {
-    display: none;
-}
-
 .modal-title {
     color:#3421f5;
     font-weight: 900;
@@ -28,94 +24,34 @@ body {
     padding: 5px;
     border-radius: 5px;
 }
-/* About page */
 
-.about-page {
-    margin-bottom: 100px;
+.results-list {
+    list-style-type: none;
 }
 
-.column {
-    margin-bottom: 15px;
-    padding: 0 8px;
-}
-
-.about-paragraph {
-    font-size: 20px;
-    color: #3e3e3e;
-    font-weight: 900;
-    line-height: 30px;
-    margin-bottom: 50px;
-}
-
-/* Adds shadows */
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 506px;
-}
-
-.about-container {
-    padding: 0 16px;
-}
-
-.title {
-    color: grey;
-}
-
-/* buttons */
-
-.contact-btn {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #5e5e5e;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-}
-
-.contact-btn:hover {
-    background-color: #A8A4A3;
-    color: black;
-}
-
-.mike-btn {
-    margin-bottom: 14px;
-}
-
-#collapseBtn {
-    margin-top: 20px;
-}
-
-
-.gray-btn {
-    margin-top: 5px;
-    padding: 10px;
-    background: gray;
-    border: white;
-    font-size: 20px;
-    color: #fffff0;
-}
-
-#helpBtn {
+.result {
     color: #3421f5;
-    position: fixed;
-    right: 15px;
-    bottom: 70px;
+    font-weight: 900;
+    font-size: 20px;
 }
 
-#helpBtn:hover {
-    opacity: 0.7;
-    cursor: pointer;
+.data {
+    color: #3e3e3e;
 }
 
-#submitBtn:hover,
-#hungryBtn:hover,
-#resultsBtn:hover {
-    background: #C63D0F;
-    color: #fffff0;
+#recLink {
+    color: dodgerblue;
 }
+
+.panel-heading {
+    font-size: 20px;
+}
+
+#opinion {
+    color: #3421f5;
+    font-weight: 900;
+}
+
 
 #locationInput {
     margin-top: 5px;
@@ -181,7 +117,98 @@ body {
     font-size: 24px;
 }
 
+/* About page */
+
+.about-page {
+    margin-bottom: 100px;
+}
+
+.column {
+    margin-bottom: 15px;
+    padding: 0 8px;
+}
+
+.about-paragraph {
+    font-size: 20px;
+    color: #3e3e3e;
+    font-weight: 900;
+    line-height: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 506px;
+}
+
+.title {
+    color: grey;
+}
+
+/* buttons */
+
+#logOutBtn, #myAccount {
+    display: none;
+}
+
+.contact-btn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #5e5e5e;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-btn:hover {
+    background-color: #A8A4A3;
+    color: black;
+}
+
+.mike-btn {
+    margin-top: 14px;
+}
+
+#collapseBtn {
+    margin-top: 20px;
+}
+
+.gray-btn {
+    margin-top: 5px;
+    padding: 10px;
+    background: gray;
+    border: white;
+    font-size: 20px;
+    color: #fffff0;
+}
+
+#helpBtn {
+    color: #3421f5;
+    position: fixed;
+    right: 15px;
+    bottom: 70px;
+}
+
+#helpBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#submitBtn:hover,
+#hungryBtn:hover,
+#resultsBtn:hover {
+    background: #C63D0F;
+    color: #fffff0;
+}
+
 /* containers */
+
+.about-container {
+    padding: 0 16px;
+}
 
 .foodType-container {
     display: none;
@@ -213,6 +240,8 @@ body {
     margin-bottom: 100px;
 }
 
+/* GIFs */
+
 .gif,
 .budget-gif {
     width: 80%;
@@ -232,33 +261,6 @@ body {
     background: #3e3e3e;
     margin: 10px 10px 10px 10px;
     /*padding: 5px 5px 5px 5px;*/
-}
-
-.results-list {
-    list-style-type: none;
-}
-
-.result {
-    color: #3421f5;
-    font-weight: 900;
-    font-size: 20px;
-}
-
-.data {
-    color: #3e3e3e;
-}
-
-#recLink {
-    color: dodgerblue;
-}
-
-.panel-heading {
-    font-size: 20px;
-}
-
-#opinion {
-    color: #3421f5;
-    font-weight: 900;
 }
 
 /* Outer */
@@ -289,7 +291,6 @@ body {
     background: snow;
 }
 
-
 /* Inner */
 
 .popup-inner {
@@ -305,7 +306,6 @@ body {
     border-radius: 3px;
     background: snow;
 }
-
 
 /* Close Button */
 
