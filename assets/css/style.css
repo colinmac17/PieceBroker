@@ -42,6 +42,7 @@ body {
 /* Adds shadows */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 506px;
 }
 
 .about-container {
@@ -62,12 +63,15 @@ body {
     text-align: center;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 10px;
 }
 
 .contact-btn:hover {
     background-color: #A8A4A3;
     color: black;
+}
+
+.mike-btn {
+    margin-bottom: 14px;
 }
 
 .about-paragraph {
