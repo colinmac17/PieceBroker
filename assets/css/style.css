@@ -44,10 +44,6 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*.profile-img {
-    border-radius: 10px;
-}*/
-
 .about-container {
     padding: 0 16px;
 }
@@ -62,14 +58,16 @@ body {
     display: inline-block;
     padding: 8px;
     color: white;
-    background-color: #000;
+    background-color: #5e5e5e;
     text-align: center;
     cursor: pointer;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .contact-btn:hover {
-    background-color: green;
+    background-color: #A8A4A3;
+    color: black;
 }
 
 .about-paragraph {
