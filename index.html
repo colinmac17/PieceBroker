@@ -219,8 +219,11 @@
             </div>
         </div>
 
-        <div id="map">
+        <div class="map-container">
+            <div id="themap"></div>
         </div>
+        <div id="startLat"></div>
+        <div id="startLon"></div>
 
         <!--error message to show if no restaurants are found in a city-->
         <div id="errDiv">
@@ -261,6 +264,10 @@
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!--Load piecebroker Application-->
         <script type="text/javascript" src="assets/js/app.js"></script>
+        <!-- Google Maps API -->
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk&callback=initMap">
+        </script>
 </body>
 
 </html>

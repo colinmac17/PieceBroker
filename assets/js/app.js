@@ -23,6 +23,41 @@ var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, 
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget, restaurantID;
 
+// set global var to display google map
+var userLocation = {};
+
+// Check for geolocation support
+if (navigator.geolocation) {
+  console.log('Geolocation is supported!');
+}
+else {
+  console.log('Geolocation is not supported for this Browser/OS.');
+}
+
+// Grabs user location
+window.onload = function() {
+  var startPos;
+  var geoOptions = {
+     timeout: 10 * 1000
+  }
+
+  var geoSuccess = function(position) {
+    startPos = position;
+    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+  };
+  var geoError = function(error) {
+    console.log('Error occurred. Error code: ' + error.code);
+    // error.code can be:
+    //   0: unknown error
+    //   1: permission denied
+    //   2: position unavailable (error response from location provider)
+    //   3: timed out
+  };
+
+  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+};
+
 //set empty arrays for restaurant types
 var cheapRestaurants = [];
 var medRestaurants = [];
@@ -184,6 +219,7 @@ $('.budget-gif').on('click', function() {
 
     $('.price-container').hide();
     $('.results-container').show();
+    $('#themap').show();
 });
 
 //I'm Feeling Hungry click function
@@ -455,3 +491,17 @@ $('[data-popup-close]').on('click', function(e) {
     $('.footer').show();
     e.preventDefault();
 });
+
+// Google Map Function
+function initMap() {
+  userLocation.lat = $('#startLat');
+  userLocation.lon = $('#startLon');
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: userLocation
+  });
+  var marker = new google.maps.Marker({
+    position: userLocation,
+    map: map
+  });
+}

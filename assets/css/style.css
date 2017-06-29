@@ -8,6 +8,14 @@ body {
     opacity: 0.7;
 }
 
+
+#themap {
+   display: none;
+   width: 600px;
+   height: 400px;
+   background-color: grey;
+}
+
 .location-head,
 .food-head,
 .price-head,
@@ -170,6 +178,11 @@ body {
 
 .history-container {
     margin-bottom: 100px;
+}
+
+.map-container {
+    position: center;
+    margin-bottom: 20px;
 }
 
 /* buttons */
