@@ -374,13 +374,8 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         console.log(user);
-        var displayName = user.displayName;
         var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        var providerData = user.providerData;
         $('.modal-header').hide();
         emailGroup.hide();
         passGroup.hide();
@@ -389,7 +384,6 @@ auth.onAuthStateChanged(function(user) {
         logOutBtn.show();
         signUpLink.hide();
         account.show();
-        // ...
     } else {
         // User is signed out.
         console.log('user is not logged in');
