@@ -17,6 +17,13 @@ body {
   border-radius: 10px;
 }
 
+#themap {
+   display: none;
+   width: 600px;
+   height: 400px;
+   background-color: grey;
+}
+
 .form-title {
     color: #fffff0;
     font-weight: 900;
