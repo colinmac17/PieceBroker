@@ -308,11 +308,21 @@ signUpBtn.on('click', function(e) {
     $('#pwd').val('');
     //validate user email and password
     if (email.length < 9) {
-        alert('Please enter an email address.');
+        $('#signUpErr').addClass('animated shake');
+        $('#signUpErr').show();
+            function removeSignUpFailMessage() {
+                message = setTimeout(signUpFail, 3000);
+            }
+            removeSignUpFailMessage();
         return;
     }
     if (pass.length < 6) {
-        alert('Please enter a password.');
+        $('#signUpErr').addClass('animated shake');
+        $('#signUpErr').show();
+            function removeSignUpFailMessage() {
+                message = setTimeout(signUpFail, 3000);
+            }
+            removeSignUpFailMessage();
         return;
     }
 
@@ -324,7 +334,12 @@ signUpBtn.on('click', function(e) {
         if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
         } else {
-            alert(errorMessage);
+            $('#signUpErr2').addClass('animated shake');
+            $('#signUpErr2').show();
+            function removeSignUpFailMessage2() {
+                message = setTimeout(signUpFail2, 3000);
+            }
+            removeSignUpFailMessage2();
         }
 
     });
@@ -346,9 +361,20 @@ loginBtn.on('click', function(e) {
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
-            alert('Wrong password.');
+            $('#signInErr').addClass('animated shake');
+            $('#signInErr').show();
+            function removeSignInFailMessage() {
+                message = setTimeout(signInFail, 3000);
+            }
+            removeSignInFailMessage();
+        return;
         } else {
-            console.log(errorMessage);
+            $('#signInErr').addClass('animated shake');
+            $('#signInErr').show();
+            function removeSignInFailMessage() {
+                message = setTimeout(signInFail, 3000);
+            }
+            removeSignInFailMessage();
         }
     });
 });
@@ -374,22 +400,17 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         console.log(user);
-        var displayName = user.displayName;
         var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        var providerData = user.providerData;
-        $('.modal-header').hide();
+        $('.sign-up-form').hide();
         emailGroup.hide();
         passGroup.hide();
         signUpBtn.hide();
         loginBtn.hide();
         logOutBtn.show();
         signUpLink.hide();
+        $('.all-containers').show();
         account.show();
-        // ...
     } else {
         // User is signed out.
         console.log('user is not logged in');
@@ -400,6 +421,8 @@ auth.onAuthStateChanged(function(user) {
         loginBtn.show();
         signUpBtn.show();
         signUpLink.show();
+        $('.all-containers').hide();
+        $('.sign-up-form').show();
         account.hide();
     }
 });
@@ -437,6 +460,18 @@ function medFail() {
 
 function expFail() {
     $('#expErrMsg').hide();
+}
+
+function signUpFail() {
+    $('#signUpErr').hide();
+}
+
+function signUpFail2() {
+    $('#signUpErr2').hide();
+}
+
+function signInFail() {
+    $('#signInErr').hide();
 }
 
 
