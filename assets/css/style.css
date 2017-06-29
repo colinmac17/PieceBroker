@@ -330,6 +330,15 @@ body {
     cursor: pointer;
     opacity: 0.7;
 }
+ 
+.row-center {
+    text-align: center;
+}
+
+.col-center{
+    display: inline-block;
+    float:none;
+}
 
 .gif-black {
     height: 200px;
