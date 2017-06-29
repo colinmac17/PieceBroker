@@ -22,7 +22,9 @@
 <body>
     <!--Sign in/up form-->
     <form class="sign-up-form center-block">
+           <img class="img-responsive" style="max-width:250px;" src="assets/images/whitelogo.png"> 
         <h4 class="form-title">Login or Sign Up</h4>
+        <hr class="hr-style-2">
         <div class="form-group" id="emailGroup">
             <label for="email">Email address:</label>
             <input type="email" class="form-control" id="email">
@@ -35,8 +37,11 @@
         <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
         <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
         <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button>
+        <p id="signUpErr" class="errMsg2">Please enter an email address and password</p>
+        <p id="signInErr" class="errMsg2">Password or email is incorrect. Please Try again.</p>
+        <p id="signUpErr2" class="errMsg2">That email is already in use, please use a different email for your account.</p>
     </form>
-   <div class="container all-containers">
+   <div class="all-containers">
     <!--Bootstrap navbar-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -194,6 +199,25 @@
             <div class="col-xs-12 col-md-4 text-center">
                 <img src="assets/images/expensive-optimize.gif" class="budget-gif img-responsive" data-id="expensive">
                 <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection.</p>
+            <!-- row of gifs -->
+            <div class="row row-center">
+                <div class="container gif-container text-center">
+                    <!--Broke-->
+                    <div class="col-xs-12 col-md-4 text-center gif-black col-center">
+                        <img src="assets/images/poor-optimize (1).gif" class="budget-gif img-responsive" data-id="cheap">
+                        <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
+                    </div>
+                    <!--Good-->
+                    <div class="col-xs-12 col-md-4 text-center gif-black col-center">
+                        <img src="assets/images/meh-optimize (1).gif" class="budget-gif img-responsive" data-id="medium">
+                        <p class="errMsg" id="medErrMsg">Sorry, there are no medium priced restaurants for your selection</p>
+                    </div>
+                    <!--Rich-->
+                    <div class="col-xs-12 col-md-4 text-center gif-black col-center">
+                        <img src="assets/images/expensive-optimize.gif" class="budget-gif img-responsive" data-id="expensive">
+                        <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection.</p>
+                    </div>
+                </div>    
             </div>
         </div>
     </div>
@@ -263,10 +287,10 @@
             <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
         </div>
     </div>
+    </div>
     <!--Bootstrap sticky footer-->
     <div class="navbar-fixed-bottom navbar-inverse footer text-center">
         <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
-    </div>
     </div>
     <!--Load JQuery-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

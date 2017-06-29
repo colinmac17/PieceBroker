@@ -4,9 +4,9 @@ body {
 }
 
 .sign-up-form {
-    max-width: 700px;
-    background: #3421f5;
-    color: #fffff0;
+    width:320px;
+  background: #3421f5;
+  color: #fffff0;
   position:absolute;
   top:50%;
   left:50%;
@@ -20,7 +20,7 @@ body {
 .form-title {
     color: #fffff0;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 #logo:hover {
@@ -308,6 +308,11 @@ body {
     background: snow;
 }
 
+.hr-style-2 {
+    border-top: 3px dashed snow;
+    background: blue;
+}
+
 
 /* Inner */
 
@@ -330,7 +335,10 @@ body {
 #failMsg,
 #cheapErrMsg,
 #medErrMsg,
-#expErrMsg {
+#expErrMsg,
+#signUpErr,
+#signInErr,
+#signUpErr2 {
     display: none;
 }
 
@@ -338,6 +346,12 @@ body {
     color: red;
     margin-top: 5px;
     font-size: 24px;
+}
+
+.errMsg2 {
+    color:red;
+    margin-top:10px;
+    font-size:12px;
 }
 
 /* GIFs */
@@ -450,6 +464,18 @@ th {
     th {
         font-size: 12px;
     }
+    .sign-up-form {
+        font-size: 12px;
+    }
+    .form-title {
+        font-size: 16px;
+    }
+
+    #signUpBtn, #loginBtn {
+        font-size: 12px;
+        padding: 5px;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width:434px) {
@@ -477,5 +503,9 @@ th {
     .popup-inner {
         padding: 30px;
         font-size: 8px;
+    }
+
+    .sign-up-form {
+        width:300px;
     }
 }
