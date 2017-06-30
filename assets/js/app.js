@@ -23,8 +23,6 @@ var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, 
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget, restaurantID;
 
-// set global var to display google map
-var userLocation = {};
 
 // Check for geolocation support
 if (navigator.geolocation) {
@@ -34,29 +32,46 @@ else {
   console.log('Geolocation is not supported for this Browser/OS.');
 }
 
-// Grabs user location
-window.onload = function() {
-  var startPos;
-  var geoOptions = {
-     timeout: 10 * 1000
-  }
+var DirectionsService = {
+    DirectionsService.route() {
+        origin: LatLng | String | google.maps.Place,
+        destination: LatLng | String | google.maps.Place,
+        travelMode: TravelMode,
+        transitOptions: TransitOptions,
+        drivingOptions: DrivingOptions,
+        unitSystem: UnitSystem,
+        waypoints[]: DirectionsWaypoint,
+        optimizeWaypoints: Boolean,
+        provideRouteAlternatives: Boolean,
+        avoidHighways: Boolean,
+        avoidTolls: Boolean,
+        region: String
+    }
+}
 
-  var geoSuccess = function(position) {
-    startPos = position;
-    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-  };
-  var geoError = function(error) {
-    console.log('Error occurred. Error code: ' + error.code);
-    // error.code can be:
-    //   0: unknown error
-    //   1: permission denied
-    //   2: position unavailable (error response from location provider)
-    //   3: timed out
-  };
+// // Grabs user location
+// window.onload = function() {
+//   var startPos;
+//   var geoOptions = {
+//      timeout: 10 * 1000
+//   }
 
-  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-};
+//   var geoSuccess = function(position) {
+//     startPos = position;
+//     document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+//     document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+//   };
+//   var geoError = function(error) {
+//     console.log('Error occurred. Error code: ' + error.code);
+//     // error.code can be:
+//     //   0: unknown error
+//     //   1: permission denied
+//     //   2: position unavailable (error response from location provider)
+//     //   3: timed out
+//   };
+
+//   navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+// };
 
 //set empty arrays for restaurant types
 var cheapRestaurants = [];
@@ -492,16 +507,17 @@ $('[data-popup-close]').on('click', function(e) {
     e.preventDefault();
 });
 
-// Google Map Function
-function initMap() {
-  userLocation.lat = $('#startLat');
-  userLocation.lon = $('#startLon');
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: userLocation
-  });
-  var marker = new google.maps.Marker({
-    position: userLocation,
-    map: map
-  });
-}
+
+// // Old Google Map Function
+// function initMap() {
+//   userLocation.lat = $('#startLat');
+//   userLocation.lon = $('#startLon');
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 4,
+//     center: userLocation
+//   });
+//   var marker = new google.maps.Marker({
+//     position: userLocation,
+//     map: map
+//   });
+// }
