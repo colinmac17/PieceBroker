@@ -32,46 +32,55 @@ else {
   console.log('Geolocation is not supported for this Browser/OS.');
 }
 
-var DirectionsService = {
-    DirectionsService.route() {
-        origin: LatLng | String | google.maps.Place,
-        destination: LatLng | String | google.maps.Place,
-        travelMode: TravelMode,
-        transitOptions: TransitOptions,
-        drivingOptions: DrivingOptions,
-        unitSystem: UnitSystem,
-        waypoints[]: DirectionsWaypoint,
-        optimizeWaypoints: Boolean,
-        provideRouteAlternatives: Boolean,
-        avoidHighways: Boolean,
-        avoidTolls: Boolean,
-        region: String
-    }
-}
+// Grabs user location
+window.onload = function() {
+  var startPos;
+  var geoOptions = {
+     timeout: 10 * 1000
+  }
 
-// // Grabs user location
-// window.onload = function() {
-//   var startPos;
-//   var geoOptions = {
-//      timeout: 10 * 1000
-//   }
+var geoSuccess = function(position) {
+    startPos = position;
+    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+  };
+  var geoError = function(error) {
+    console.log('Error occurred. Error code: ' + error.code);
+    // error.code can be:
+    //   0: unknown error
+    //   1: permission denied
+    //   2: position unavailable (error response from location provider)
+    //   3: timed out
+  };
 
-//   var geoSuccess = function(position) {
-//     startPos = position;
-//     document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-//     document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-//   };
-//   var geoError = function(error) {
-//     console.log('Error occurred. Error code: ' + error.code);
-//     // error.code can be:
-//     //   0: unknown error
-//     //   1: permission denied
-//     //   2: position unavailable (error response from location provider)
-//     //   3: timed out
-//   };
+  navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+};
 
-//   navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-// };
+// var DirectionsService = {
+//     DirectionsService.route() {
+//         origin: LatLng | String |,
+//         destination: LatLng | String |,
+//         travelMode: DRIVING,
+//         transitOptions: {
+//                arrivalTime: Date,
+//                departureTime: Date,
+//                modes[]: TransitMode,
+//                routingPreference: TransitRoutePreference
+//            }
+//         drivingOptions: {
+//              departureTime: new Date(),
+//              trafficModel: 'pessimistic'
+//          },
+//         unitSystem: UnitSystem,
+//         waypoints[]: DirectionsWaypoint,
+//         optimizeWaypoints: Boolean,
+//         provideRouteAlternatives: false,
+//         avoidHighways: Boolean,
+//         avoidTolls: Boolean,
+//         region: String
+//     }
+//     unitSystem: google.maps.UnitSystem.IMPERIAL
+// }
 
 //set empty arrays for restaurant types
 var cheapRestaurants = [];
