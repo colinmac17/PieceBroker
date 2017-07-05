@@ -481,7 +481,6 @@ auth.onAuthStateChanged(function(user) {
         $('#guestLogin').hide();
         logOutBtn.show();
         signUpLink.hide();
-        $('.all-containers').show();
         account.show();
     } else {
         // User is signed out.
@@ -494,7 +493,6 @@ auth.onAuthStateChanged(function(user) {
         signUpBtn.show();
         signUpLink.show();
         $('#guestLogin').show();
-        $('.all-containers').hide();
         $('.sign-up-form').show();
         account.hide();
     }
