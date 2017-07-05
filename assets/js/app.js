@@ -353,25 +353,25 @@ database.ref().on('child_added', function(childSnapshot) {
 
 
 //Get user auth data from DOM
-const txtEmail = $('#email');
-const txtPassword = $('#pwd');
-const loginBtn = $('#loginBtn');
-const signUpBtn = $('#signUpBtn');
-const logOutBtn = $('#logOutBtn');
-const logOutBtn2 = $('#logOutBtn2');
-const account = $('#myAccount');
-const signUpLink = $('#signUpLink');
-const passGroup = $('#passGroup');
-const emailGroup = $('#emailGroup');
+var txtEmail = $('#email');
+var txtPassword = $('#pwd');
+var loginBtn = $('#loginBtn');
+var signUpBtn = $('#signUpBtn');
+var logOutBtn = $('#logOutBtn');
+var logOutBtn2 = $('#logOutBtn2');
+var account = $('#myAccount');
+var signUpLink = $('#signUpLink');
+var passGroup = $('#passGroup');
+var emailGroup = $('#emailGroup');
 
 //store user auth
-const auth = firebase.auth();
+var auth = firebase.auth();
 
 signUpBtn.on('click', function(e) {
     e.preventDefault();
     //get email and password
-    const email = txtEmail.val();
-    const pass = txtPassword.val();
+    var email = txtEmail.val();
+    var pass = txtPassword.val();
     $('#email').val('');
     $('#pwd').val('');
     //validate user email and password
@@ -422,8 +422,8 @@ signUpBtn.on('click', function(e) {
 loginBtn.on('click', function(e) {
     e.preventDefault();
     //get email and password
-    const email = txtEmail.val();
-    const pass = txtPassword.val();
+    var email = txtEmail.val();
+    var pass = txtPassword.val();
     $('#email').val('');
     $('#pwd').val('');
     //login user
