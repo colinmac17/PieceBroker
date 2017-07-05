@@ -20,263 +20,242 @@
 </head>
 
 <body>
-    <!--Sign in/up form-->
-    <div class="sign-up-form">
-        <form class="center-block">
-            <img class="img-responsive" style="max-width:250px;" src="assets/images/whitelogo.png">
-            <h4 class="form-title">Login or Sign Up</h4>
-            <hr class="hr-style-2">
-            <div class="form-group" id="emailGroup">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email">
+    <!--Bootstrap navbar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!--Collapse Button for links on smaller devices-->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links-collapse" id="collapseBtn">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--NavBar Logo-->
+                <a href="index.html" style="color:#fffff0;"><img class="navbar-brand img-responsive" id="logo" src="assets/images/purple_logo.png" style="width:225px; height:75px;"></a>
             </div>
-            <div class="form-group" id="passGroup">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
-            </div>
-            <div class="welcome-user"></div>
-            <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
-            <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
-            <p class="text-center" id="guestLogin"> Continue as Guest</p>
-            <p id="signUpErr" class="errMsg2">Please enter an email address and password</p>
-            <p id="signInErr" class="errMsg2">Password or email is incorrect. Please Try again.</p>
-            <p id="signUpErr2" class="errMsg2">That email is already in use, please use a different email for your account.</p>
-        </form>
-    </div>
-    <!--Add div to hold all content-->
-    <div class="all-containers">
-        <!--Bootstrap navbar-->
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <!--Collapse Button for links on smaller devices-->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links-collapse" id="collapseBtn">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!--NavBar Logo-->
-                    <a href="index.html" style="color:#fffff0;"><img class="navbar-brand img-responsive" id="logo" src="assets/images/purple_logo.png" style="width:225px; height:75px;"></a>
-                </div>
-                <!--NavBar Links-->
-                <div class="collapse navbar-collapse" id="links-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" id="myAccount">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">My Account
+            <!--NavBar Links-->
+            <div class="collapse navbar-collapse" id="links-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="myAccount">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">My Account
                       <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li id="logOutBtn2"><a href="#">Log Out</a></li>
-                                <li><a href="#">My Restaurants</a></li>
-                            </ul>
-                        </li>
-                        <li id="signUpLink"><a class="nav-link"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>Login | Sign Up</a></li>
-                        <li><a class="nav-link" href="index.html"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a></li>
-                        <li><a class="nav-link" href="about.html"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>About</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!--Login Modal-->
-        <div id="myModal1" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Login or Sign Up</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group" id="emailGroup">
-                                <label for="email">Email address:</label>
-                                <input type="email" class="form-control" id="email">
-                            </div>
-                            <div class="form-group" id="passGroup">
-                                <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" id="pwd">
-                            </div>
-                            <div class="welcome-user"></div>
-                            <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
-                            <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
-                            <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
+                        <ul class="dropdown-menu">
+                            <li id="logOutBtn2"><a href="#">Log Out</a></li>
+                            <li><a href="#">My Restaurants</a></li>
+                        </ul>
+                    </li>
+                    <li id="signUpLink"><a class="nav-link" href="" data-toggle="modal" data-target="#myModal1"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>Login | Sign Up</a></li>
+                    <li><a class="nav-link" href="index.html"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Home</a></li>
+                    <li><a class="nav-link" href="about.html"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>About</a></li>
+                </ul>
             </div>
         </div>
-        <!--1st screen: location search container -->
-        <div class="container text-center location-container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="location-head">
-                        <h1>Where are you?</h1>
-                    </div>
-                    <!--User Form-->
+    </nav>
+    <!--Login Modal-->
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <img class="img-responsive center-block" style="max-width:250px;" src="assets/images/purple_logo.png">
+                    <h4 class="form-title">Login or Sign Up</h4>
+                </div>
+                <div class="modal-body">
                     <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="locationInput" placeholder="Chicago, IL">
+                        <div class="form-group" id="emailGroup">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email">
                         </div>
-                        <button type="submit" class="btn btn-default gray-btn" id="submitBtn">Find Food</button>
-                        <button class="btn btn-primary gray-btn" id="hungryBtn">I'm feeling hungry</button>
+                        <div class="form-group" id="passGroup">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="welcome-user"></div>
+                        <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
+                        <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
+                        <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button>
+                        <p class="text-center" id="guestLogin" data-dismiss="modal"> Continue as Guest</p>
+                        <p id="signUpErr" class="errMsg2">Please enter an email address and password</p>
+                        <p id="signInErr" class="errMsg2">Password or email is incorrect. Please Try again.</p>
+                        <p id="signUpErr2" class="errMsg2">That email is already in use, please use a different email for your account.</p>
                     </form>
-                    <p class="errMsg" id="failMsg">Please enter a valid city</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-        <!--2nd screen: Pick food type container-->
-        <div class="container text-center foodType-container">
-            <div class="row content">
-                <div class="col-xs-12">
-                    <div class="food-head">
-                        <h1 class="text-center">What looks good?</h1>
-                    </div>
+    </div>
+    <!--1st screen: location search container -->
+    <div class="container text-center location-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="location-head">
+                    <h1>Where are you?</h1>
                 </div>
+                <!--User Form-->
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="locationInput" placeholder="Chicago, IL">
+                    </div>
+                    <button type="submit" class="btn btn-default gray-btn" id="submitBtn">Find Food</button>
+                    <button class="btn btn-primary gray-btn" id="hungryBtn">I'm feeling hungry</button>
+                </form>
+                <p class="errMsg" id="failMsg">Please enter a valid city</p>
             </div>
-            <!-- row of gifs -->
-            <div class="container gif-container text-center">
-                <div class="row row-center">
-                    <!--Mexican-->
-                    <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
-                        <img src="assets/images/mexican-optimize.gif" class="gif img-responsive" data-id="73">
-                    </div>
-                    <!-- Italian -->
-                    <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
-                        <img src="assets/images/italianoptimize.gif" class="gif img-responsive" data-id="55">
-                    </div>
-                    <!-- American -->
-                    <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
-                        <img src="assets/images/american-optimize.gif" class="gif img-responsive" data-id="1">
-                    </div>
-                    <!-- Chinese -->
-                    <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
-                        <img src="assets/images/chinese-optimize.gif" class="gif img-responsive" data-id="25">
-                    </div>
-                </div>
-                <div class="row row-center">
-                    <!-- Indian -->
-                    <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
-                        <img src="assets/images/INDIANdownsized.gif" class="gif img-responsive" data-id="148">
-                    </div>
-                    <!-- Mediterranean -->
-                    <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
-                        <img src="assets/images/med-optimize (1).gif" class="gif img-responsive" data-id="70">
-                    </div>
-                    <!-- Sushi -->
-                    <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
-                        <img src="assets/images/sushi-optimize (1).gif" class="gif img-responsive" data-id="177">
-                    </div>
-                    <!-- Vegetarian -->
-                    <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
-                        <img src="assets/images/vegetarian-optimize (1).gif" class="gif img-responsive" data-id="308">
-                    </div>
+        </div>
+    </div>
+    <!--2nd screen: Pick food type container-->
+    <div class="container text-center foodType-container">
+        <div class="row content">
+            <div class="col-xs-12">
+                <div class="food-head">
+                    <h1 class="text-center">What looks good?</h1>
                 </div>
             </div>
         </div>
-        <!--3rd Screen: Price options container-->
-        <div class="container text-center price-container">
-            <div class="row content">
-                <div class="col-xs-12">
-                    <div class="price-head">
-                        <h1 class="text-center">What's your budget?</h1>
-                    </div>
+        <!-- row of gifs -->
+        <div class="container gif-container text-center">
+            <div class="row row-center">
+                <!--Mexican-->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <img src="assets/images/mexican-optimize.gif" class="gif img-responsive" data-id="73">
+                </div>
+                <!-- Italian -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <img src="assets/images/italianoptimize.gif" class="gif img-responsive" data-id="55">
+                </div>
+                <!-- American -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <img src="assets/images/american-optimize.gif" class="gif img-responsive" data-id="1">
+                </div>
+                <!-- Chinese -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <img src="assets/images/chinese-optimize.gif" class="gif img-responsive" data-id="25">
                 </div>
             </div>
-            <!-- row of gifs -->
-            <div class="container gif-container text-center">
-                <!--Broke-->
-                <div class="col-xs-12 col-md-4 text-center">
-                    <img src="assets/images/poor-optimize (1).gif" class="budget-gif img-responsive" data-id="cheap">
-                    <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
+            <div class="row row-center">
+                <!-- Indian -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <img src="assets/images/INDIANdownsized.gif" class="gif img-responsive" data-id="148">
                 </div>
-                <!--Good-->
-                <div class="col-xs-12 col-md-4 text-center">
-                    <img src="assets/images/meh-optimize (1).gif" class="budget-gif img-responsive" data-id="medium">
-                    <p class="errMsg" id="medErrMsg">Sorry, there are no medium priced restaurants for your selection</p>
+                <!-- Mediterranean -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <img src="assets/images/med-optimize (1).gif" class="gif img-responsive" data-id="70">
                 </div>
-                <!--Rich-->
-                <div class="col-xs-12 col-md-4 text-center">
-                    <img src="assets/images/expensive-optimize.gif" class="budget-gif img-responsive" data-id="expensive">
-                    <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection.</p>
+                <!-- Sushi -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <img src="assets/images/sushi-optimize (1).gif" class="gif img-responsive" data-id="177">
+                </div>
+                <!-- Vegetarian -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <img src="assets/images/vegetarian-optimize (1).gif" class="gif img-responsive" data-id="308">
                 </div>
             </div>
         </div>
-        <!-- result screen -->
-        <!-- header -->
-        <div class="container text-center results-container">
-            <div class="row content">
-                <div class="col-xs-12">
-                    <div class="result-head">
-                        <h1 class="text-center results-head">Here Ya Go!</h1>
-                    </div>
+    </div>
+    <!--3rd Screen: Price options container-->
+    <div class="container text-center price-container">
+        <div class="row content">
+            <div class="col-xs-12">
+                <div class="price-head">
+                    <h1 class="text-center">What's your budget?</h1>
                 </div>
             </div>
-            <!-- row with gifs and result -->
-            <div class="container">
-                <div class="row">
-                    <!-- congrats gif -->
-                    <div class="col-xs-12 col-md-4">
-                        <img src="" class="gif img-responsive" data-id="">
-                    </div>
-                    <!--recommendation-->
-                    <div class="col-xs-12 col-md-4" id="restaurantRec">
-                        <div class="restaurantHolder">
-                            <div class="results-list">
-                                <p class="result">Name: <span class="data" id="recName"></span></p>
-                                <p class="result">Address: <span class="data" id="recAddress"></span></p>
-                                <p class="result">Rating: <span class="data" id="recRating"></span></p>
-                                <p class="result">Details: <a class="data" id="recLink" href="" target="_blank">Restaurant Details</a></p>
-                            </div>
+        </div>
+        <!-- row of gifs -->
+        <div class="container gif-container text-center">
+            <!--Broke-->
+            <div class="col-xs-12 col-md-4 text-center">
+                <img src="assets/images/poor-optimize (1).gif" class="budget-gif img-responsive" data-id="cheap">
+                <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
+            </div>
+            <!--Good-->
+            <div class="col-xs-12 col-md-4 text-center">
+                <img src="assets/images/meh-optimize (1).gif" class="budget-gif img-responsive" data-id="medium">
+                <p class="errMsg" id="medErrMsg">Sorry, there are no medium priced restaurants for your selection</p>
+            </div>
+            <!--Rich-->
+            <div class="col-xs-12 col-md-4 text-center">
+                <img src="assets/images/expensive-optimize.gif" class="budget-gif img-responsive" data-id="expensive">
+                <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection.</p>
+            </div>
+        </div>
+    </div>
+    <!-- result screen -->
+    <!-- header -->
+    <div class="container text-center results-container">
+        <div class="row content">
+            <div class="col-xs-12">
+                <div class="result-head">
+                    <h1 class="text-center results-head">Here Ya Go!</h1>
+                </div>
+            </div>
+        </div>
+        <!-- row with gifs and result -->
+        <div class="container">
+            <div class="row">
+                <!-- congrats gif -->
+                <div class="col-xs-12 col-md-4">
+                    <img src="" class="gif img-responsive" data-id="">
+                </div>
+                <!--recommendation-->
+                <div class="col-xs-12 col-md-4" id="restaurantRec">
+                    <div class="restaurantHolder">
+                        <div class="results-list">
+                            <p class="result">Name: <span class="data" id="recName"></span></p>
+                            <p class="result">Address: <span class="data" id="recAddress"></span></p>
+                            <p class="result">Rating: <span class="data" id="recRating"></span></p>
+                            <p class="result">Details: <a class="data" id="recLink" href="" target="_blank">Restaurant Details</a></p>
                         </div>
                     </div>
-                    <!--congrats gif 2-->
-                    <div class="col-xs-12 col-md-4">
-                        <img src="" class="gif img-responsive" data-id="">
-                    </div>
                 </div>
-                <!-- button to results page -->
-                <a href="results.html">
-                    <button class="btn btn-primary col-xs-12 center-block gray-btn" type="submit" class="btn btn-default" id="resultsBtn">View User History</button>
-                </a>
+                <!--congrats gif 2-->
+                <div class="col-xs-12 col-md-4">
+                    <img src="" class="gif img-responsive" data-id="">
+                </div>
             </div>
+            <!-- button to results page -->
+            <a href="results.html">
+                <button class="btn btn-primary col-xs-12 center-block gray-btn" type="submit" class="btn btn-default" id="resultsBtn">View User History</button>
+            </a>
         </div>
-        <!--error message to show if no restaurants are found in a city-->
-        <div id="errDiv">
-            <h1 class="errMsg"></h1>
+    </div>
+    <!--error message to show if no restaurants are found in a city-->
+    <div id="errDiv">
+        <h1 class="errMsg"></h1>
+    </div>
+    <!--Loader to show between data search-->
+    <div class="loader center-block text-center"></div>
+    <!--Help Btn-->
+    <i id="helpBtn" class="fa fa-question-circle fa-4x" data-popup-open="popup-1"></i>
+    <!--Pop up Help Modal-->
+    <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <h1 class="text-center">What is piecebroker?</h1>
+            <hr class="hr-style">
+            <p class="piecbroker-help">
+                Piece Broker is an app that helps people make decisions about food.
+                <br>
+                <br> ...You've been hanging out with friends, family or significant others looking for a place to eat, but with so many great choices out there, it can sometimes be challenging for everyone to agree.
+                <br>
+                <br>
+                <p id="opinion">We don't think this should ever happen.</p>
+                <br> Piece Broker eliminates the need for an argument while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user with this process by providing a single restaurant recommendation based on their search criteria.
+                <br>
+                <br> That recommendation is sent back to the app and displayed for the user. From there, the user can checkout the restaurant details and even see a log of restaurants they have matched with.
+                <br>
+                <br> From start to finish, it's fun, a decision is made (avoiding the argument all together), and action can be taken based on the result. Skip the argument, skip the line.
+            </p>
+            <p><a data-popup-close="popup-1" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
         </div>
-        <!--Loader to show between data search-->
-        <div class="loader center-block text-center"></div>
-        <!--Help Btn-->
-        <i id="helpBtn" class="fa fa-question-circle fa-4x" data-popup-open="popup-1"></i>
-        <!--Pop up Help Modal-->
-        <div class="popup" data-popup="popup-1">
-            <div class="popup-inner">
-                <h1 class="text-center">What is piecebroker?</h1>
-                <hr class="hr-style">
-                <p class="piecbroker-help">
-                    Piece Broker is an app that helps people make decisions about food.
-                    <br>
-                    <br> ...You've been hanging out with friends, family or significant others looking for a place to eat, but with so many great choices out there, it can sometimes be challenging for everyone to agree.
-                    <br>
-                    <br>
-                    <p id="opinion">We don't think this should ever happen.</p>
-                    <br> Piece Broker eliminates the need for an argument while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user with this process by providing a single restaurant recommendation based on their search criteria.
-                    <br>
-                    <br> That recommendation is sent back to the app and displayed for the user. From there, the user can checkout the restaurant details and even see a log of restaurants they have matched with.
-                    <br>
-                    <br> From start to finish, it's fun, a decision is made (avoiding the argument all together), and action can be taken based on the result. Skip the argument, skip the line.
-                </p>
-                <p><a data-popup-close="popup-1" href="#">Close</a></p>
-                <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-            </div>
-        </div>
-        <!--Bootstrap sticky footer-->
-        <div class="navbar-fixed-bottom navbar-inverse footer text-center">
-            <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
-        </div>
+    </div>
+    <!--Bootstrap sticky footer-->
+    <div class="navbar-fixed-bottom navbar-inverse footer text-center">
+        <p>&copy; 2017 | <a class="footer-link" href="https://github.com/colinmac17" target="_blank">Colin McAtee</a> | <a class="footer-link" href="https://github.com/jjconoscenti" target="_blank">JJ Conoscenti</a> | <a class="footer-link" href="https://github.com/wjthornberry" target="_blank">Jake Thornberry</a> | <a class="footer-link" href="https://github.com/michael-dimanshtein" target="_blank">Michael Dimanshtein</a> </p>
     </div>
     <!--Load JQuery-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

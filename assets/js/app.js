@@ -407,6 +407,7 @@ auth.onAuthStateChanged(function(user) {
         passGroup.hide();
         signUpBtn.hide();
         loginBtn.hide();
+        $('#guestLogin').hide();
         logOutBtn.show();
         signUpLink.hide();
         $('.all-containers').show();
@@ -421,6 +422,7 @@ auth.onAuthStateChanged(function(user) {
         loginBtn.show();
         signUpBtn.show();
         signUpLink.show();
+        $('#guestLogin').show();
         $('.all-containers').hide();
         $('.sign-up-form').show();
         account.hide();
@@ -473,18 +475,6 @@ function signUpFail2() {
 function signInFail() {
     $('#signInErr').hide();
 }
-
-//Login as Guest Function
-$('#guestLogin').on('click', function(){
-    $('.sign-up-form').hide();
-    $('.all-containers').show();
-});
-//Login or signup after loggin in as guest
-$('#signUpLink').on('click', function() {
-    $('.all-containers').hide();
-    $('.sign-up-form').show();
-});
-
 
 //----- OPEN POP UP
 $('[data-popup-open]').on('click', function(e) {

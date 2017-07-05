@@ -59,7 +59,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login or Sign Up</h4>
+                    <img class="img-responsive center-block" style="max-width:250px;" src="assets/images/purple_logo.png">
+                    <h4 class="form-title">Login or Sign Up</h4>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -75,6 +76,10 @@
                         <button type="submit" class="btn modal-btn btn-success" id="loginBtn"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</button>
                         <button type="submit" class="btn modal-btn btn-primary" id="signUpBtn"><i class="fa fa-user-plus" aria-hidden="true"></i>Sign Up</button>
                         <button type="submit" class="btn modal-btn btn-danger" id="logOutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button>
+                        <p class="text-center" id="guestLogin" data-dismiss="modal"> Continue as Guest</p>
+                        <p id="signUpErr" class="errMsg2">Please enter an email address and password</p>
+                        <p id="signInErr" class="errMsg2">Password or email is incorrect. Please Try again.</p>
+                        <p id="signUpErr2" class="errMsg2">That email is already in use, please use a different email for your account.</p>
                     </form>
                 </div>
                 <div class="modal-footer">
