@@ -40,10 +40,6 @@ margin: 0 auto;
     opacity: 0.7;
 }
 
-.all-containers {
-    display: none;
-}
-
 .location-head,
 .food-head,
 .price-head,

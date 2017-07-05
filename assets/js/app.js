@@ -1,3 +1,71 @@
+// Grabs user location
+window.onload = function() {
+    var startPos;
+    var geoOptions = {
+        timeout: 10 * 1000
+    }
+
+    var geoSuccess = function(position) {
+        startPos = position;
+        document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+        document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+    };
+    var geoError = function(error) {
+        console.log('Error occurred. Error code: ' + error.code);
+        // error.code can be:
+        //   0: unknown error
+        //   1: permission denied
+        //   2: position unavailable (error response from location provider)
+        //   3: timed out
+    };
+
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+};
+
+// // Google Maps Static API
+// https: //maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+//     & markers = color: blue % 7 Clabel: S % 7 C40 .702147, -74.015794 & markers = color: green % 7 Clabel: G % 7 C40 .711614, -74.012318 & markers = color: red % 7 Clabel: C % 7 C40 .718217, -73.998284 & key = AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk
+
+// var DirectionsService = {
+//     DirectionsService.route() {
+//         origin: LatLng | String |,
+//         destination: LatLng | String |,
+//         travelMode: DRIVING,
+//         transitOptions: {
+//                arrivalTime: Date,
+//                departureTime: Date,
+//                modes[]: TransitMode,
+//                routingPreference: TransitRoutePreference
+//            }
+//         drivingOptions: {
+//              departureTime: new Date(),
+//              trafficModel: 'pessimistic'
+//          },
+//         unitSystem: UnitSystem,
+//         waypoints[]: DirectionsWaypoint,
+//         optimizeWaypoints: Boolean,
+//         provideRouteAlternatives: false,
+//         avoidHighways: Boolean,
+//         avoidTolls: Boolean,
+//         region: String
+//     }
+//     unitSystem: google.maps.UnitSystem.IMPERIAL
+// }
+
+// // Display map via API
+// displayMap = function () {
+//     $('#showMap').html('Preparing map!');
+//         // grab user zomato returned address
+//         // convert user zomato returned address into long lat
+//         $.ajax({
+//             url: queryURL,
+//             method: "GET"
+//         }).done(function(response) {
+//             $('#showMap').html('');
+//             var mapResults = response.data;
+//         })
+// }
+
 // load firebase
 var config = {
     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",

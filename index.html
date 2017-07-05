@@ -223,6 +223,13 @@
             </a>
         </div>
     </div>
+    <!--Load Google Map-->
+    <div class="map-container">
+        <div id="themap">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=640x640&maptype=roadmap
+                &format=jpg-baseline&key=AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk" id="showMap">
+        </div>
+    </div>
     <!--error message to show if no restaurants are found in a city-->
     <div id="errDiv">
         <h1 class="errMsg"></h1>
@@ -263,6 +270,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
     <!--Load Bootstrap JS-->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk&callback=initMap">
+    </script>
     <!--Load piecebroker Application-->
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
