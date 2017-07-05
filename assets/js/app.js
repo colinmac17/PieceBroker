@@ -310,19 +310,21 @@ signUpBtn.on('click', function(e) {
     if (email.length < 9) {
         $('#signUpErr').addClass('animated shake');
         $('#signUpErr').show();
-            function removeSignUpFailMessage() {
-                message = setTimeout(signUpFail, 3000);
-            }
-            removeSignUpFailMessage();
+
+        function removeSignUpFailMessage() {
+            message = setTimeout(signUpFail, 3000);
+        }
+        removeSignUpFailMessage();
         return;
     }
     if (pass.length < 6) {
         $('#signUpErr').addClass('animated shake');
         $('#signUpErr').show();
-            function removeSignUpFailMessage() {
-                message = setTimeout(signUpFail, 3000);
-            }
-            removeSignUpFailMessage();
+
+        function removeSignUpFailMessage() {
+            message = setTimeout(signUpFail, 3000);
+        }
+        removeSignUpFailMessage();
         return;
     }
 
@@ -336,6 +338,7 @@ signUpBtn.on('click', function(e) {
         } else {
             $('#signUpErr2').addClass('animated shake');
             $('#signUpErr2').show();
+
             function removeSignUpFailMessage2() {
                 message = setTimeout(signUpFail2, 3000);
             }
@@ -363,14 +366,16 @@ loginBtn.on('click', function(e) {
         if (errorCode === 'auth/wrong-password') {
             $('#signInErr').addClass('animated shake');
             $('#signInErr').show();
+
             function removeSignInFailMessage() {
                 message = setTimeout(signInFail, 3000);
             }
             removeSignInFailMessage();
-        return;
+            return;
         } else {
             $('#signInErr').addClass('animated shake');
             $('#signInErr').show();
+
             function removeSignInFailMessage() {
                 message = setTimeout(signInFail, 3000);
             }
@@ -392,8 +397,6 @@ logOutBtn2.on('click', function(e) {
     //sign up user
     auth.signOut();
 });
-
-
 
 //Firebase User Auth State Changes
 auth.onAuthStateChanged(function(user) {

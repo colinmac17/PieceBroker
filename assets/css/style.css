@@ -17,6 +17,11 @@ body {
   border-radius: 10px;
 }
 
+.user-data-container {
+padding: 10px;
+margin: 0 auto;
+}
+
 #themap {
    display: none;
    width: 600px;
