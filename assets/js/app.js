@@ -237,7 +237,7 @@ $('.budget-gif').on('click', function() {
     recAddress = userResult.location.address;
     recCity = userResult.location.city;
     recCuisine = userResult.cuisines;
-    recBudget = userResult.average_cost_for_two;
+    recBudget = userResult.average_cost_for_two/2;
     recRating = userResult.user_rating.aggregate_rating;
     recDetails = userResult.url;
 
@@ -323,7 +323,7 @@ $('#hungryBtn').on('click', function(e) {
                 recAddress = userResult.location.address;
                 recCity = userResult.location.city;
                 recCuisine = userResult.cuisines;
-                recBudget = userResult.average_cost_for_two;
+                recBudget = userResult.average_cost_for_two/2;
                 recRating = userResult.user_rating.aggregate_rating;
                 recDetails = userResult.url;
 
