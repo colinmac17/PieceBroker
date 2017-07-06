@@ -4,6 +4,8 @@ var userLatitude, userLongitude;
 //gather user location
 if(localStorage.getItem('latitude') !== null){
     console.log('user data already stored');
+    userLatitude = JSON.parse(localStorage.getItem('latitude'));
+    userLongitude = JSON.parse(localStorage.getItem('longitude'));
 }else {
     window.onload = function() {
         var startPos;
