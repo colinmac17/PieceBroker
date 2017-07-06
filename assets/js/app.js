@@ -2,7 +2,8 @@
 var userLatitude, userLongitude;
 
 //gather user location
-if (localStorage.getItem('latitude') !== null) {
+if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null
+) {
     console.log('user data already stored');
     userLatitude = JSON.parse(localStorage.getItem('latitude'));
     userLongitude = JSON.parse(localStorage.getItem('longitude'));
@@ -72,6 +73,9 @@ database.ref().once("value", function(snapshot) {
     googleApiKey = sv.googleApiKey;
 });
 
+//array for progress bar messages
+var progressMessages = ['You\'re getting closer to not being in an argument!', 'Having fun yet? Same here!', 'What do you like more - eating or arguing?', 'You\'re a real hero you know that?', 'If you don\'t enjoy arguing, you better go to the restaurant you match with', 'You\'re sooooo close!', 'You\'re lucky you\'re pretty cool', 'The only time to eat diet food is while you\'re waiting for the steak to cook', 'I always cook with wine. Sometimes I even add it to the food', 'Love and food are alike. Can never have enough of either', 'The trouble with eating Italian food is that five or six days later, you’re hungry again', 'Never eat more than you can lift', 'A fruit is a vegetable with looks and money. Plus, if you let fruit rot, it turns into wine, something Brussels sprouts never do', ];
+
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -95,8 +99,10 @@ $('#submitBtn').on('click', function(e) {
     }
     // Get Zomato Data and store cityID in a variable
     else {
+        var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('.location-container').hide();
         $('.loader').show();
+        $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
             url: queryURL,
@@ -119,8 +125,10 @@ $('#submitBtn').on('click', function(e) {
 
 //Get User Choice for Cuisine
 $(".gif").on("click", function() {
+    var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('.foodType-container').hide();
     $('.loader').show();
+    $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
     $('#budgetProgressMsg').show();
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
@@ -279,9 +287,10 @@ $('#hungryBtn').on('click', function(e) {
     }
     //Get Zomato data for random restaurants
     else {
-
+        var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('.location-container').hide();
         $('.loader').show();
+        $('#hungryMsg').text(progressMessages[progressMsgRandNum]);
         $('#hungryProgressMsg').show();
 
         $.ajax({
