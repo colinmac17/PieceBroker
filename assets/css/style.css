@@ -74,9 +74,9 @@ margin: 0 auto;
 }
 
 .budget-title {
-    color: #3e3e3e;
-    font-weight: 900;
-    font-size: 20px;
+    color: #fffff0;
+    /*font-weight: 900;
+    font-size: 20px;*/
 }
 
 #locationInput {
