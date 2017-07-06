@@ -2,65 +2,68 @@
 var userLatitude, userLongitude;
 
 //gather user location
-window.onload = function() {
-    var startPos;
-    var geoOptions = {
-        timeout: 10 * 1000
-    }
-
-    var geoSuccess = function(position) {
-        startPos = position;
-        userLatitude = startPos.coords.latitude;
-        userLongitude = startPos.coords.longitude;
-    };
-    var geoError = function(error) {
-        console.log('Error occurred. Error code: ' + error.code);
-        // error.code can be:
-        //   0: unknown error
-        //   1: permission denied
-        //   2: position unavailable (error response from location provider)
-        //   3: timed out
-    };
-
-    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-};
-
-function calculateRoute(userLat, userLong, destLat, destLong) {
-    // Center initialized to Naples, Italy
-    var myOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(userLat, userLong),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    // Draw the map
-    var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
-
-    var directionsService = new google.maps.DirectionsService();
-    var directionsRequest = {
-        origin: {
-            lat: userLat,
-            lng: userLong
-        },
-        destination: {
-            lat: destLat,
-            lng: destlong
-        },
-        travelMode: google.maps.DirectionsTravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC
-    };
-    directionsService.route(
-        directionsRequest,
-        function(response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                new google.maps.DirectionsRenderer({
-                    map: mapObject,
-                    directions: response
-                });
-            } else
-                alert('error with map');
+if(){
+    
+}else {
+    window.onload = function() {
+        var startPos;
+        var geoOptions = {
+            timeout: 10 * 1000
         }
-    );
+
+        var geoSuccess = function(position) {
+            startPos = position;
+            userLatitude = startPos.coords.latitude;
+            userLongitude = startPos.coords.longitude;
+        };
+        var geoError = function(error) {
+            console.log('Error occurred. Error code: ' + error.code);
+            // error.code can be:
+            //   0: unknown error
+            //   1: permission denied
+            //   2: position unavailable (error response from location provider)
+            //   3: timed out
+        };
+
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+    };
 }
+// function calculateRoute(userLat, userLong, destLat, destLong) {
+//     // Center initialized to Naples, Italy
+//     var myOptions = {
+//         zoom: 10,
+//         center: new google.maps.LatLng(userLat, userLong),
+//         mapTypeId: google.maps.MapTypeId.ROADMAP
+//     };
+//     // Draw the map
+//     var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+
+//     var directionsService = new google.maps.DirectionsService();
+//     var directionsRequest = {
+//         origin: {
+//             lat: userLat,
+//             lng: userLong
+//         },
+//         destination: {
+//             lat: destLat,
+//             lng: destlong
+//         },
+//         travelMode: google.maps.DirectionsTravelMode.DRIVING,
+//         unitSystem: google.maps.UnitSystem.METRIC
+//     };
+//     directionsService.route(
+//         directionsRequest,
+//         function(response, status) {
+//             if (status == google.maps.DirectionsStatus.OK) {
+//                 new google.maps.DirectionsRenderer({
+//                     map: mapObject,
+//                     directions: response
+//                 });
+//             } else
+//                 alert('error with map');
+//         }
+//     );
+// }
 
 // var DirectionsService = {
 //     DirectionsService.route() {
@@ -82,7 +85,7 @@ function calculateRoute(userLat, userLong, destLat, destLong) {
 //     unitSystem: google.maps.UnitSystem.IMPERIAL
 // };
 
-var googleQueryURL;
+// var googleQueryURL;
 
 // // Display map via API
 // function displayMap() {
@@ -299,8 +302,14 @@ $('.budget-gif').on('click', function() {
     addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
 
     $('.price-container').hide();
-   calculateRoute(userLatitude, userLongitude, destLatitude, destLongitude);
     $('.results-container').show();
+    //set static map
+    var map = $('#themap');
+    var imgSrc = `https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap
+                &format=jpg-baseline&markers=color:red%7Clabel:A%7C${userLatitude},${userLongitude}&markers=color:blue%7Clabel:B%7C${destLatitude},${destLongitude}&path=color:blue|weight:4|${userLatitude},${userLongitude}|${destLatitude},${destLongitude}&key=${googleApiKey}`;
+    $('.map-title').show();
+    $('#showMap').attr('src', imgSrc);
+    map.show();
 });
 
 //I'm Feeling Hungry click function
@@ -391,6 +400,13 @@ $('#hungryBtn').on('click', function(e) {
                 //push data to firebase
                 addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
                 $('.results-container').show();
+                //set static map
+                var map = $('#themap');
+                var imgSrc = `https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap
+                &format=jpg-baseline&markers=color:red%7Clabel:A%7C${userLatitude},${userLongitude}&markers=color:blue%7Clabel:B%7C${destLatitude},${destLongitude}&path=color:blue|weight:4|${userLatitude},${userLongitude}|${destLatitude},${destLongitude}&key=${googleApiKey}`;
+                $('.map-title').show();
+                $('#showMap').attr('src', imgSrc);
+                map.show();
             });
         });
     }

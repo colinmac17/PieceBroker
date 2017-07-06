@@ -28,9 +28,11 @@ margin: 0 auto;
 
 #themap {
    display: none;
-   width: 600px;
-   height: 400px;
-   background-color: grey;
+   margin-bottom: 100px;
+}
+
+.map-title {
+    display: none;
 }
 
 .form-title {
