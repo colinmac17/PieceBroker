@@ -4,22 +4,22 @@ body {
 }
 
 .sign-up-form {
-    width:320px;
-  background: #3421f5;
-  color: #fffff0;
-  position:absolute;
-  top:50%;
-  left:50%;
-  padding:20px;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  border-radius: 10px;
+    width: 320px;
+    background: #3421f5;
+    color: #fffff0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
 .user-data-container {
-padding: 10px;
-margin: 0 auto;
+    padding: 10px;
+    margin: 0 auto;
 }
 
 .modal-header {
@@ -27,8 +27,8 @@ margin: 0 auto;
 }
 
 #themap {
-   display: none;
-   margin-bottom: 100px;
+    display: none;
+    margin-bottom: 100px;
 }
 
 .map-title {
@@ -72,7 +72,7 @@ margin: 0 auto;
 }
 
 .cuisine-title {
-    color:#fffff0;
+    color: #fffff0;
 }
 
 .budget-title {
@@ -137,6 +137,7 @@ margin: 0 auto;
     color: dodgerblue;
 }
 
+
 /* panels */
 
 .panel > .panel-heading {
@@ -155,6 +156,7 @@ margin: 0 auto;
 .panel-heading {
     font-size: 20px;
 }
+
 
 /* page - about */
 
@@ -184,6 +186,7 @@ margin: 0 auto;
     line-height: 30px;
     margin-bottom: 50px;
 }
+
 
 /* containers */
 
@@ -221,9 +224,11 @@ margin: 0 auto;
     margin-bottom: 100px;
 }
 
+
 /* buttons */
 
-#logOutBtn, #myAccount {
+#logOutBtn,
+#myAccount {
     display: none;
 }
 
@@ -311,6 +316,7 @@ margin: 0 auto;
     text-decoration: none;
 }
 
+
 /* Outer */
 
 .popup {
@@ -356,6 +362,7 @@ margin: 0 auto;
     background: snow;
 }
 
+
 /* messages */
 
 #failMsg,
@@ -375,10 +382,11 @@ margin: 0 auto;
 }
 
 .errMsg2 {
-    color:red;
-    margin-top:10px;
-    font-size:12px;
+    color: red;
+    margin-top: 10px;
+    font-size: 12px;
 }
+
 
 /* GIFs */
 
@@ -394,14 +402,14 @@ margin: 0 auto;
     cursor: pointer;
     opacity: 0.7;
 }
- 
+
 .row-center {
     text-align: center;
 }
 
-.col-center{
+.col-center {
     display: inline-block;
-    float:none;
+    float: none;
 }
 
 .gif-black {
@@ -417,6 +425,7 @@ margin: 0 auto;
     font-weight: 900;
 }
 
+
 /* pop-ups */
 
 .popup h1 {
@@ -424,10 +433,11 @@ margin: 0 auto;
     font-weight: 900;
 }
 
+
 /* modals */
 
 .modal-title {
-    color:#3421f5;
+    color: #3421f5;
     font-weight: 900;
     font-size: 20px;
 }
@@ -507,8 +517,8 @@ th {
     .form-title {
         font-size: 16px;
     }
-
-    #signUpBtn, #loginBtn {
+    #signUpBtn,
+    #loginBtn {
         font-size: 12px;
         padding: 5px;
         margin: 0 auto;
@@ -541,8 +551,7 @@ th {
         padding: 30px;
         font-size: 8px;
     }
-
     .sign-up-form {
-        width:300px;
+        width: 300px;
     }
 }
