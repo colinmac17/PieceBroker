@@ -17,7 +17,10 @@ body {
     border-radius: 10px;
 }
 
-#cuisineProgressMsg, #resultProgressMsg, #budgetProgressMsg, #hungryProgressMsg {
+#cuisineProgressMsg,
+#resultProgressMsg,
+#budgetProgressMsg,
+#hungryProgressMsg {
     display: none;
 }
 
@@ -53,7 +56,15 @@ body {
 .location-head,
 .food-head,
 .price-head,
-.about-head,
+.about-head
+{
+    background: #3421f5;
+    color: #fffff0;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
 .results-head {
     background: #3421f5;
     color: #fffff0;
@@ -127,10 +138,17 @@ body {
     list-style-type: none;
 }
 
+#restaurantRec {
+    margin-top: 20px;
+    background: lightgrey;
+    border-radius: 5px;
+}
+
 .result {
     color: #3421f5;
     font-weight: 900;
     font-size: 20px;
+    padding: 5px;
 }
 
 .data {
@@ -276,6 +294,23 @@ body {
 #resultsBtn:hover {
     background: #C63D0F;
     color: #fffff0;
+    text-decoration: none;
+}
+
+.result-link {
+    text-decoration: none;
+}
+
+.link-btn {
+    width: 300px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.link-btn-2 {
+    max-width: 500px;
+    padding: 20px;
+    font-size: 20px;
 }
 
 #helpBtn {
@@ -479,6 +514,12 @@ th {
     color: #3421f5;
     font-weight: 900;
     font-size: 14px;
+}
+
+@media screen and (max-width:991px) {
+    .result-gif {
+        display: none;
+    }
 }
 
 @media screen and (max-width:565px) {
