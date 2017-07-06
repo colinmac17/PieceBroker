@@ -1,69 +1,104 @@
-// // Grabs user location
-// window.onload = function() {
-//     var startPos;
-//     var geoOptions = {
-//         timeout: 10 * 1000
-//     }
+//set global var for user latitude and longitude
+var userLatitude, userLongitude;
 
-//     var geoSuccess = function(position) {
-//         startPos = position;
-//         document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-//         document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-//     };
-//     var geoError = function(error) {
-//         console.log('Error occurred. Error code: ' + error.code);
-//         // error.code can be:
-//         //   0: unknown error
-//         //   1: permission denied
-//         //   2: position unavailable (error response from location provider)
-//         //   3: timed out
-//     };
+//gather user location
+window.onload = function() {
+    var startPos;
+    var geoOptions = {
+        timeout: 10 * 1000
+    }
 
-//     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-// };
+    var geoSuccess = function(position) {
+        startPos = position;
+        userLatitude = startPos.coords.latitude;
+        userLongitude = startPos.coords.longitude;
+    };
+    var geoError = function(error) {
+        console.log('Error occurred. Error code: ' + error.code);
+        // error.code can be:
+        //   0: unknown error
+        //   1: permission denied
+        //   2: position unavailable (error response from location provider)
+        //   3: timed out
+    };
 
-// // Google Maps Static API
-// https: //maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-//     & markers = color: blue % 7 Clabel: S % 7 C40 .702147, -74.015794 & markers = color: green % 7 Clabel: G % 7 C40 .711614, -74.012318 & markers = color: red % 7 Clabel: C % 7 C40 .718217, -73.998284 & key = AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+};
+
+function calculateRoute(userLat, userLong, destLat, destLong) {
+    // Center initialized to Naples, Italy
+    var myOptions = {
+        zoom: 10,
+        center: new google.maps.LatLng(userLat, userLong),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // Draw the map
+    var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRequest = {
+        origin: {
+            lat: userLat,
+            lng: userLong
+        },
+        destination: {
+            lat: destLat,
+            lng: destlong
+        },
+        travelMode: google.maps.DirectionsTravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
+    };
+    directionsService.route(
+        directionsRequest,
+        function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                new google.maps.DirectionsRenderer({
+                    map: mapObject,
+                    directions: response
+                });
+            } else
+                alert('error with map');
+        }
+    );
+}
 
 // var DirectionsService = {
 //     DirectionsService.route() {
-//         origin: LatLng | String |,
-//         destination: LatLng | String |,
+//         status: 'OK',
+//         origin: {
+//             lat: userLatitude,
+//             lng: userLongitude
+//         },
+//         destination: {
+//             lat: destLatitude,
+//             lng: destLongitude
+//         },
 //         travelMode: DRIVING,
-//         transitOptions: {
-//                arrivalTime: Date,
-//                departureTime: Date,
-//                modes[]: TransitMode,
-//                routingPreference: TransitRoutePreference
-//            }
-//         drivingOptions: {
-//              departureTime: new Date(),
-//              trafficModel: 'pessimistic'
-//          },
 //         unitSystem: UnitSystem,
-//         waypoints[]: DirectionsWaypoint,
-//         optimizeWaypoints: Boolean,
 //         provideRouteAlternatives: false,
-//         avoidHighways: Boolean,
-//         avoidTolls: Boolean,
-//         region: String
-//     }
+//         avoidHighways: false,
+//         avoidTolls: false
+//     },
 //     unitSystem: google.maps.UnitSystem.IMPERIAL
-// }
+// };
+
+var googleQueryURL;
 
 // // Display map via API
-// displayMap = function () {
+// function displayMap() {
+//     googleQueryURL = `https://crossorigin.me/https://maps.googleapis.com/maps/api/directions/json?origin=$(userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&key=${googleApiKey}`;
+
 //     $('#showMap').html('Preparing map!');
-//         // grab user zomato returned address
-//         // convert user zomato returned address into long lat
-//         $.ajax({
-//             url: queryURL,
-//             method: "GET"
-//         }).done(function(response) {
-//             $('#showMap').html('');
-//             var mapResults = response.data;
-//         })
+//     // grab user zomato returned address
+//     // convert user zomato returned address into long lat
+//     $.ajax({
+//         url: googleQueryURL,
+//         method: "GET"
+//     }).done(function(response) {
+//         $('#showMap').html('');
+//         var mapResults = response;
+//         console.log(mapResults);
+//     });
 // }
 
 // load firebase
@@ -77,7 +112,7 @@ var config = {
 };
 
 //define apiKey variable as global to use in AJAX calls
-var apiKey;
+var apiKey, googleApiKey;
 
 // initialize app
 firebase.initializeApp(config);
@@ -85,8 +120,8 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
-// userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating
-var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails;
+// userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating, restaurant latitude, restaurant longitude
+var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails, destLatitude, destLongitude;
 
 //set global vars for cityID, cuisineID 
 var cityID, cuisineID, userBudget, restaurantID;
@@ -101,7 +136,9 @@ database.ref().once("value", function(snapshot) {
     var sv = snapshot.val();
     //set value of apiKey
     apiKey = sv.apiKey;
+    googleApiKey = sv.googleApiKey;
 });
+
 
 // gather user input
 $('#submitBtn').on('click', function(e) {
@@ -237,9 +274,20 @@ $('.budget-gif').on('click', function() {
     recAddress = userResult.location.address;
     recCity = userResult.location.city;
     recCuisine = userResult.cuisines;
-    recBudget = userResult.average_cost_for_two/2;
+    recBudget = userResult.average_cost_for_two / 2;
     recRating = userResult.user_rating.aggregate_rating;
     recDetails = userResult.url;
+
+
+
+    //get latitude and longitude data from Zomato for Google maps
+    destLatitude = userResult.location.latitude;
+    destLongitude = userResult.location.longitude;
+
+    googleQueryURL = `https://crossorigin.me/https://maps.googleapis.com/maps/api/directions/json?origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&key=${googleApiKey}`;
+    console.log(googleQueryURL);
+
+    console.log(`Latitude: ${destLatitude}, Longitude: ${destLongitude} `);
 
     //add data to results page
     $('#recName').text(recName);
@@ -251,6 +299,7 @@ $('.budget-gif').on('click', function() {
     addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
 
     $('.price-container').hide();
+   calculateRoute(userLatitude, userLongitude, destLatitude, destLongitude);
     $('.results-container').show();
 });
 
@@ -323,9 +372,15 @@ $('#hungryBtn').on('click', function(e) {
                 recAddress = userResult.location.address;
                 recCity = userResult.location.city;
                 recCuisine = userResult.cuisines;
-                recBudget = userResult.average_cost_for_two/2;
+                recBudget = userResult.average_cost_for_two / 2;
                 recRating = userResult.user_rating.aggregate_rating;
                 recDetails = userResult.url;
+
+                //get latitude and longitude data from Zomato for Google maps
+                destLatitude = userResult.location.latitude;
+                destLongitude = userResult.location.longitude;
+
+                console.log(`Latitude: ${destLatitude}, Longitude: ${destLongitude} `);
 
                 //add data to results page
                 $('#recName').text(recName);
