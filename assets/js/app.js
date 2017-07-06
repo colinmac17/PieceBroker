@@ -171,6 +171,7 @@ $('#submitBtn').on('click', function(e) {
     else {
         $('.location-container').hide();
         $('.loader').show();
+        $('#cuisineProgressMsg').show();
         $.ajax({
             url: queryURL,
             method: 'GET',
@@ -179,6 +180,7 @@ $('#submitBtn').on('click', function(e) {
             }
         }).done(function(response) {
             $('.loader').hide();
+            $('#cuisineProgressMsg').hide();
             //confirm that user has entered in a city
             console.log(response);
             cityID = response.location_suggestions[0].id;
@@ -193,6 +195,7 @@ $('#submitBtn').on('click', function(e) {
 $(".gif").on("click", function() {
     $('.foodType-container').hide();
     $('.loader').show();
+    $('#budgetProgressMsg').show();
     cuisineID = $(this).attr("data-id");
     console.log(cuisineID);
 
@@ -207,6 +210,7 @@ $(".gif").on("click", function() {
     }).done(function(response) {
         console.log(response);
         $('.loader').hide();
+        $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
             if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
@@ -306,6 +310,7 @@ $('.budget-gif').on('click', function() {
     addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
 
     $('.price-container').hide();
+    $('#resultProgressMsg').show();
     $('.results-container').show();
     //set static map
     var map = $('#themap');
@@ -403,6 +408,7 @@ $('#hungryBtn').on('click', function(e) {
 
                 //push data to firebase
                 addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
+                $('#resultProgressMsg').show();
                 $('.results-container').show();
                 //set static map
                 var map = $('#themap');
