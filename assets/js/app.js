@@ -2,8 +2,8 @@
 var userLatitude, userLongitude;
 
 //gather user location
-if(){
-    
+if(localStorage.getItem('latitude') !== null){
+    console.log('user data already stored');
 }else {
     window.onload = function() {
         var startPos;
@@ -15,6 +15,8 @@ if(){
             startPos = position;
             userLatitude = startPos.coords.latitude;
             userLongitude = startPos.coords.longitude;
+            localStorage.setItem('latitude', userLatitude);
+            localStorage.setItem('longitude', userLongitude);
         };
         var geoError = function(error) {
             console.log('Error occurred. Error code: ' + error.code);
