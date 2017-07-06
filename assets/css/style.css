@@ -28,9 +28,11 @@ margin: 0 auto;
 
 #themap {
    display: none;
-   width: 600px;
-   height: 400px;
-   background-color: grey;
+   margin-bottom: 100px;
+}
+
+.map-title {
+    display: none;
 }
 
 .form-title {
@@ -167,7 +169,8 @@ margin: 0 auto;
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 506px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .title {
@@ -211,7 +214,7 @@ margin: 0 auto;
 .results-container {
     display: none;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 
 .history-container {
@@ -227,13 +230,14 @@ margin: 0 auto;
 .contact-btn {
     border: none;
     outline: 0;
-    display: inline-block;
+    /*display: inline-block;*/
     padding: 8px;
     color: white;
     background-color: #5e5e5e;
-    text-align: center;
+    /*text-align: center;*/
     cursor: pointer;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .contact-btn:hover {
