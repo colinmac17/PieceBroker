@@ -17,7 +17,7 @@ body {
     border-radius: 10px;
 }
 
-#cuisineProgressMsg, #resultProgressMsg, #budgetProgressMsg {
+#cuisineProgressMsg, #resultProgressMsg, #budgetProgressMsg, #hungryProgressMsg {
     display: none;
 }
 

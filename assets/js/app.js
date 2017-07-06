@@ -356,6 +356,7 @@ $('#hungryBtn').on('click', function(e) {
 
         $('.location-container').hide();
         $('.loader').show();
+        $('#hungryProgressMsg').show();
 
         $.ajax({
             url: locationURL,
@@ -374,6 +375,7 @@ $('#hungryBtn').on('click', function(e) {
                     'user-key': apiKey
                 }
             }).done(function(response) {
+                $('#hungryProgressMsg').hide();
                 $('.loader').hide();
                 //get random restaurant name
                 userResult = response.restaurants[randNumRestaurant].restaurant;
