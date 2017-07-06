@@ -167,7 +167,8 @@ margin: 0 auto;
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 506px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .title {
@@ -234,6 +235,7 @@ margin: 0 auto;
     text-align: center;
     cursor: pointer;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .contact-btn:hover {
