@@ -198,6 +198,14 @@
     <!-- result screen -->
     <!-- header -->
     <div class="container text-center results-container">
+        <div class="text-center center-block" id="resultProgressMsg">
+            <h3> Argument Complete!</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                    100%
+                </div>
+            </div>
+        </div>
         <div class="row content">
             <div class="col-xs-12">
                 <div class="result-head">
@@ -249,6 +257,23 @@
     </div>
     <!--Loader to show between data search-->
     <div class="loader center-block text-center"></div>
+    <!--Progress Bar messages to show under Loader-->
+    <div class="text-center center-block" id="cuisineProgressMsg">
+        <h3> You're getting closer to not being in an argument!</h3>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width:33.33%">
+                33%
+            </div>
+        </div>
+    </div>
+    <div class="text-center center-block" id="budgetProgressMsg">
+        <h3> You're getting closer to not being in an argument!</h3>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width:66.67%">
+                66%
+            </div>
+        </div>
+    </div>
     <!--Help Btn-->
     <i id="helpBtn" class="fa fa-question-circle fa-4x" data-popup-open="popup-1"></i>
     <!--Pop up Help Modal-->

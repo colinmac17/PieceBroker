@@ -17,6 +17,10 @@ body {
     border-radius: 10px;
 }
 
+#cuisineProgressMsg, #resultProgressMsg, #budgetProgressMsg {
+    display: none;
+}
+
 .user-data-container {
     padding: 10px;
     margin: 0 auto;
@@ -216,7 +220,7 @@ body {
 
 .results-container {
     display: none;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
