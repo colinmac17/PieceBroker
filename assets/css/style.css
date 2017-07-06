@@ -214,7 +214,7 @@ margin: 0 auto;
 .results-container {
     display: none;
     margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 
 .history-container {
