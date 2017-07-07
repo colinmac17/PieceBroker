@@ -123,7 +123,7 @@ $('#submitBtn').on('click', function(e) {
     //Set Zomato Endpoint
     var queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
     //Error message if user does not input data
-    if (location.length < 1) {
+    if (location.length < 1 || parseInt(location) !== 'string') {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
 
@@ -309,7 +309,7 @@ $('#hungryBtn').on('click', function(e) {
     //Set Zomato Endpoint
     var locationURL = `https://developers.zomato.com/api/v2.1/cities?q=${location}`;
     //Error message if user does not input data
-    if (location.length < 1) {
+    if (location.length < 1 || parseInt(location) !== 'string') {
         $('#failMsg').addClass('animated shake');
         $('#failMsg').show();
 
