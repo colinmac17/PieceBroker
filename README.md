@@ -23,4 +23,3 @@ Jake Thornberry: [@wjthornberry](https://github.com/wjthornberry) |
 Michael Dimanshtein: [@michael-dimanshtein](https://github.com/michael-dimanshtein)
 
 
-
