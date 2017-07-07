@@ -27,7 +27,7 @@ database.ref().once("value", function(snapshot) {
     googleApiKey = sv.googleApiKey;
     mapQuestApiKey = sv.mapQuestApiKey;
 });
-
+window.onload = function() {
 //gather user location
 if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
     console.log('user data already stored');
@@ -52,7 +52,6 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
     });
 } else {
     console.log(mapQuestApiKey);
-    window.onload = function() {
         var startPos;
         var geoOptions = {
             timeout: 10 * 1000
@@ -92,8 +91,8 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
         };
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-    };
-}
+    }
+};
 
 // userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating, restaurant latitude, restaurant longitude
 var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails, destLatitude, destLongitude;

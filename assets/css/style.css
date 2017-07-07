@@ -3,6 +3,12 @@ body {
     background: snow;
 }
 
+input[type=text] {
+    color: dodgerblue;
+    font-weight: 900;
+    font-size: 20px;
+}
+
 .sign-up-form {
     width: 320px;
     background: #3421f5;
