@@ -56,7 +56,8 @@ body {
 .location-head,
 .food-head,
 .price-head,
-.about-head
+.about-head,
+.results-head
 {
     background: #3421f5;
     color: #fffff0;
@@ -65,7 +66,7 @@ body {
     max-width: 500px;
 }
 
-.results-head {
+.history-head {
     background: #3421f5;
     color: #fffff0;
     padding: 5px;

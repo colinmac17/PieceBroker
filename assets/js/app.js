@@ -1,13 +1,57 @@
-//set global var for user latitude and longitude
-var userLatitude, userLongitude;
+//set global var for user latitude and longitude, city and state
+var userLatitude, userLongitude, userCity, userState;
+//set global vars for API Keys
+var apiKey, googleApiKey, mapQuestApiKey;
+
+// load firebase
+var config = {
+    apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
+    authDomain: "piecebroker-65733.firebaseapp.com",
+    databaseURL: "https://piecebroker-65733.firebaseio.com",
+    projectId: "piecebroker-65733",
+    storageBucket: "piecebroker-65733.appspot.com",
+    messagingSenderId: "189574691729"
+};
+
+// initialize app
+firebase.initializeApp(config);
+
+// reference database
+var database = firebase.database();
+
+//get API Key from Firebase
+database.ref().once("value", function(snapshot) {
+    var sv = snapshot.val();
+    //set value of apiKey
+    apiKey = sv.apiKey;
+    googleApiKey = sv.googleApiKey;
+    mapQuestApiKey = sv.mapQuestApiKey;
+});
 
 //gather user location
-if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null
-) {
+if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
     console.log('user data already stored');
+    console.log(mapQuestApiKey);
     userLatitude = JSON.parse(localStorage.getItem('latitude'));
     userLongitude = JSON.parse(localStorage.getItem('longitude'));
+
+    //Map Quest Reverse Geocoding API to get user Location
+    var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
+    console.log(mapQuestUrl)
+
+    $.ajax({
+        url: mapQuestUrl,
+        method: 'GET'
+    }).done(function(response) {
+        console.log(response);
+        userCity = response.results[0].locations[0].adminArea5;
+        userState = response.results[0].locations[0].adminArea3;
+        console.log(`${userCity}, ${userState}`);
+        $('#locationInput').val(`${userCity}, ${userState}`);
+
+    });
 } else {
+    console.log(mapQuestApiKey);
     window.onload = function() {
         var startPos;
         var geoOptions = {
@@ -32,28 +76,20 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
     };
+    //Map Quest Reverse Geocoding API to get user Location
+    var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
+    console.log(mapQuestUrl);
+    $.ajax({
+        url: mapQuestUrl,
+        method: 'GET'
+    }).done(function(response) {
+        console.log(response);
+        userCity = response.results[0].locations[0].adminArea5;
+        userState = response.results[0].locations[0].adminArea3;
+        console.log(`${userCity}, ${userState}`);
+        $('#locationInput').val(`${userCity}, ${userState}`);
+    });
 }
-
-
-// load firebase
-var config = {
-    apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
-    authDomain: "piecebroker-65733.firebaseapp.com",
-    databaseURL: "https://piecebroker-65733.firebaseio.com",
-    projectId: "piecebroker-65733",
-    storageBucket: "piecebroker-65733.appspot.com",
-    messagingSenderId: "189574691729"
-};
-
-//define apiKey variable as global to use in AJAX calls
-var apiKey, googleApiKey;
-
-// initialize app
-firebase.initializeApp(config);
-
-// reference database
-var database = firebase.database();
-
 // userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating, restaurant latitude, restaurant longitude
 var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails, destLatitude, destLongitude;
 
@@ -65,16 +101,8 @@ var cheapRestaurants = [];
 var medRestaurants = [];
 var expensiveRestaurants = [];
 
-//get API Key from Firebase
-database.ref().once("value", function(snapshot) {
-    var sv = snapshot.val();
-    //set value of apiKey
-    apiKey = sv.apiKey;
-    googleApiKey = sv.googleApiKey;
-});
-
 //array for progress bar messages
-var progressMessages = ['You\'re getting closer to not being in an argument!', 'Having fun yet? Same here!', 'What do you like more - eating or arguing?', 'You\'re a real hero you know that?', 'If you don\'t enjoy arguing, you better go to the restaurant you match with', 'You\'re sooooo close!', 'You\'re lucky you\'re pretty cool', 'The only time to eat diet food is while you\'re waiting for the steak to cook', 'I always cook with wine. Sometimes I even add it to the food', 'Love and food are alike. Can never have enough of either', 'The trouble with eating Italian food is that five or six days later, you’re hungry again', 'Never eat more than you can lift', 'A fruit is a vegetable with looks and money. Plus, if you let fruit rot, it turns into wine, something Brussels sprouts never do', ];
+var progressMessages = ['You\'re getting closer to not being in an argument!', 'Having fun yet? Same here!', 'What do you like more - eating or arguing?', 'You\'re a real hero you know that?', 'If you don\'t enjoy arguing, you better go to the restaurant you match with', 'You\'re sooooo close!', 'You\'re lucky you\'re pretty cool', 'The only time to eat diet food is while you\'re waiting for the steak to cook', 'I always cook with wine. Sometimes I even add it to the food', 'Love and food are alike. Can never have enough of either', 'The trouble with eating Italian food is that five or six days later, you’re hungry again', 'Never eat more than you can lift', 'A fruit is a vegetable with looks and money. Plus, if you let fruit rot, it turns into wine, something Brussels sprouts never do'];
 
 
 // gather user input
@@ -229,8 +257,6 @@ $('.budget-gif').on('click', function() {
     destLatitude = userResult.location.latitude;
     destLongitude = userResult.location.longitude;
 
-    googleQueryURL = `https://crossorigin.me/https://maps.googleapis.com/maps/api/directions/json?origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&key=${googleApiKey}`;
-    console.log(googleQueryURL);
 
     console.log(`Latitude: ${destLatitude}, Longitude: ${destLongitude} `);
 
