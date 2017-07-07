@@ -9,6 +9,11 @@ input[type=text] {
     font-size: 20px;
 }
 
+#locationLoad {
+    display: none;
+    color: dodgerblue;
+}
+
 .sign-up-form {
     width: 320px;
     background: #3421f5;

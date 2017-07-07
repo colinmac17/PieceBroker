@@ -30,6 +30,7 @@ database.ref().once("value", function(snapshot) {
 window.onload = function() {
 //gather user location
 if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
+    $('#locationLoad').show();
     console.log('user data already stored');
     console.log(mapQuestApiKey);
     userLatitude = JSON.parse(localStorage.getItem('latitude'));
@@ -47,8 +48,8 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
         userCity = response.results[0].locations[0].adminArea5;
         userState = response.results[0].locations[0].adminArea3;
         console.log(`${userCity}, ${userState}`);
+        $('#locationLoad').hide();
         $('#locationInput').val(`${userCity}, ${userState}`);
-
     });
 } else {
     console.log(mapQuestApiKey);
@@ -58,6 +59,7 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
         }
 
         var geoSuccess = function(position) {
+            $('#locationLoad').show();
             startPos = position;
             //set user latitude
             userLatitude = startPos.coords.latitude;
@@ -78,6 +80,7 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
                 userState = response.results[0].locations[0].adminArea3;
                 console.log(`${userCity}, ${userState}`);
                 //place user city and state in input box
+                $('#locationLoad').hide();
                 $('#locationInput').val(`${userCity}, ${userState}`);
             });
         };
