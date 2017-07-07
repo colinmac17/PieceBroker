@@ -9,6 +9,9 @@ input[type=text] {
     font-size: 20px;
 }
 
+#userHistory{
+    margin-left: 4px;
+}
 #locationLoad {
     display: none;
     color: dodgerblue;
