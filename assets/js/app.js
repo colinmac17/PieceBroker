@@ -57,9 +57,8 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
         var geoOptions = {
             timeout: 10 * 1000
         }
-
+        $('#locationLoad').show();
         var geoSuccess = function(position) {
-            $('#locationLoad').show();
             startPos = position;
             //set user latitude
             userLatitude = startPos.coords.latitude;
@@ -86,6 +85,7 @@ if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude
         };
         var geoError = function(error) {
             console.log('Error occurred. Error code: ' + error.code);
+            $('#locationLoad').hide();
             // error.code can be:
             //   0: unknown error
             //   1: permission denied
