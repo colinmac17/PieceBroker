@@ -50,7 +50,6 @@ input[type=text] {
 
 .emailForm {
     margin-top: 20px;
-    max-width: 500px;
 }
 
 .modal-header {
@@ -311,6 +310,15 @@ input[type=text] {
     border: white;
     font-size: 20px;
     color: #fffff0;
+}
+
+.email-btn {
+    padding: 5px;
+    background: gray;
+    border-radius: 5px;
+    font-size: 16px;
+    color:#fffff0;
+    border: none;
 }
 
 #submitBtn:hover,

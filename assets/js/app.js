@@ -289,6 +289,15 @@ $('.budget-gif').on('click', function() {
     map.show();
 });
 
+// //send email to user with result
+// Email.send("piecebroker@gmail.com",
+//     "to@them.com",
+//     "This is a subject",
+//     "this is the body",
+//     "smtp.yourisp.com",
+//     "username",
+//     "password");
+
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
     e.preventDefault();
