@@ -9,6 +9,10 @@ input[type=text] {
     font-size: 20px;
 }
 
+.navbar {
+    background: #3421f5;
+}
+
 #userHistory {
     margin-left: 4px;
 }
@@ -42,6 +46,11 @@ input[type=text] {
 .user-data-container {
     padding: 10px;
     margin: 0 auto;
+}
+
+.emailForm {
+    margin-top: 20px;
+    max-width: 500px;
 }
 
 .modal-header {
@@ -128,8 +137,8 @@ input[type=text] {
     margin-right: 5px;
 }
 
-.navbar-inverse .navbar-nav>li>a {
-    color: snow;
+.navbar-default .navbar-nav>li>a {
+    color: white;
 }
 
 .footer {
