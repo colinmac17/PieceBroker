@@ -10,7 +10,7 @@ input[type=text] {
 }
 
 .navbar {
-    background: #3421f5;
+    background: #e6e6e6;
 }
 
 #userHistory {
@@ -66,7 +66,7 @@ input[type=text] {
 }
 
 .form-title {
-    color: #000009;
+    color: #fffff0;
     font-weight: 900;
     font-size: 24px;
 }
@@ -110,7 +110,10 @@ input[type=text] {
 }
 
 .cuisine-title {
-    color: #fffff0;
+    color: #3421f5;
+    font-weight: 900;
+    margin-top: 5px;
+    font-size: 20px;
 }
 
 .budget-title {
@@ -129,7 +132,6 @@ input[type=text] {
     margin-top: 13px;
     font-size: 16px;
     cursor: pointer;
-    opacity: 0.7;
 }
 
 .fa {
@@ -137,20 +139,24 @@ input[type=text] {
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: white;
+    color: #3421f5;
+    font-weight: 900;
+    font-size: 18px;
+    opacity:0.9;
 }
 
 .footer {
     padding: 10px;
+    background: #e6e6e6;
 }
 
 .footer p {
     margin-top: 5px;
-    color: #fffff0;
+    color: #3421f5;
 }
 
 .footer-link {
-    color: #fffff0;
+    color: #3421f5;
 }
 
 .footer-link:hover {
@@ -470,7 +476,8 @@ input[type=text] {
 .budget-gif {
     width: 80%;
     height: 80%;
-    margin: 20px auto;
+    margin: 5px auto;
+    border-radius: 5px;
 }
 
 .gif:hover,
@@ -489,10 +496,11 @@ input[type=text] {
 }
 
 .gif-black {
-    height: 200px;
+    height: 210px;
     width: 200px;
-    background: #3e3e3e;
+    background: #e6e6e6;
     margin: 10px 10px 10px 10px;
+    border-radius: 5px;
     /*padding: 5px 5px 5px 5px;*/
 }
 
@@ -510,7 +518,7 @@ input[type=text] {
 }
 
 
-/* modals */
+/* s */
 
 .modal-title {
     color: #3421f5;
