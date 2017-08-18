@@ -1,0 +1,23 @@
+{
+  "name": "PieceBroker",
+  "version": "1.0.0",
+  "description": "Piece Broker is an app that helps people make decisions about food.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinmac17/PieceBroker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colinmac17/PieceBroker/issues"
+  },
+  "homepage": "https://github.com/colinmac17/PieceBroker#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
