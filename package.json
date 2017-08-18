@@ -11,13 +11,19 @@
     "url": "git+https://github.com/colinmac17/PieceBroker.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Colin McAtee, JJ Conoscenti, Jake Thornberry, Douglas Balkin, Katie McCarthy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/colinmac17/PieceBroker/issues"
   },
   "homepage": "https://github.com/colinmac17/PieceBroker#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.1",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "sequelize": "^4.5.0"
   }
 }
