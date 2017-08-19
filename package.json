@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/colinmac17/PieceBroker#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.14.1",
