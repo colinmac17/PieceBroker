@@ -22,6 +22,7 @@ app.set("view engine", "handlebars");
 
 var routes = require('./controllers/usercontroller');
 app.use('/', routes);
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function() {
