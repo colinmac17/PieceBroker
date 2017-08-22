@@ -1,3 +1,4 @@
+//Controller for the User Model
 var express = require('express');
 
 var router = express.Router();
