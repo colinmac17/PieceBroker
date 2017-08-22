@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
     results.associate = function(models) {
         // We're saying that a result should belong to a user
         // A result can't be created without a user due to the foreign key constraint
-        results.belongsTo(models.user_info, {
+        results.belongsTo(models.users, {
           foreignKey: {
             allowNull: false
           }

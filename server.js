@@ -20,8 +20,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// var routes = require('./controllers/usercontroller');
-// app.use('/', routes);
+var routes = require('./controllers/usercontroller');
+app.use('/', routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
