@@ -61,4 +61,4 @@ typings/
 
 .idea
 
-config/config.json
+#config/config.json
