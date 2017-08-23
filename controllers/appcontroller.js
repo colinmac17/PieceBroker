@@ -1,6 +1,6 @@
 //Controller for the User Model
 var express = require('express');
-
+var passport = require('passport');
 var router = express.Router();
 
 //Use models to add CRUD methods to routes
