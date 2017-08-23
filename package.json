@@ -25,6 +25,7 @@
     "express-handlebars": "^3.0.0",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.1",
+    "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "sequelize": "^4.3.1"

@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
-        city: {
+        cuisine_type: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        type: {
+        city: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -32,6 +32,14 @@ module.exports = function(sequelize, DataTypes) {
         rating: {
             type: DataTypes.DECIMAL(10, 2),
             allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
+        saved: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
             validate: {
                 len: [1]
             }
