@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/colinmac17/PieceBroker#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "connect-ensure-login": "^0.1.1",
     "dotenv": "^4.0.0",
@@ -30,6 +31,7 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.3.1"
   }
 }
