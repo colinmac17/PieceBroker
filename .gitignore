@@ -62,3 +62,5 @@ typings/
 .idea
 
 #config/config.json
+
+materialize_sandbox/
