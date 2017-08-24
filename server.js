@@ -1,9 +1,6 @@
 var express = require('express');
 var expressHandlebars = require('express-handlebars');
-var bodyParser = require('body-parser');
-var passport = require('passport');
-var fBookStrategy = require('passport-facebook').Strategy;
-var googleStrategy = require('passport-google-oauth').Strategy;
+require('dotenv').config();
 
 //create express app
 var app = express();
@@ -15,12 +12,6 @@ var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
 app.use(express.static('./public'));
-
-//Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
