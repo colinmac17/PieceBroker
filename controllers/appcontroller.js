@@ -7,31 +7,35 @@ var router = express.Router();
 var db = require('../models');
 
 //Home Page
-router.get('/', function(req, res){
+router.get('/', function(req, res) {
     res.render('index');
 });
 //Team page
-router.get('/team', function(req, res){
+router.get('/team', function(req, res) {
     res.render('team');
 });
 //Main Application
-router.get('/app', function(req, res){
+router.get('/app', function(req, res) {
     res.render('app');
 });
 //User Profile Page
 router.get('/profile',
     require('connect-ensure-login').ensureLoggedIn(),
-    function(req, res){
-    res.render('profile', { user: req.user });
-});
+    function(req, res) {
+        res.render('profile', { user: req.user });
+    });
 //Facebook Authentication routes
 router.get('/auth/facebook',
-passport.authenticate('facebook'));
+    passport.authenticate('facebook'));
 
-router.get('/login/facebook/return', 
+router.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
-    res.redirect('/');
+        res.redirect('/');
+    });
+
+router.get('/results', function(req, res) {
+    res.render("resultspage");
 });
 
 //export router
