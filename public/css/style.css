@@ -14,11 +14,21 @@ main {
     height: 64px;
 }
 
-input[type=text] {
+/* input[type=text] {
     color: dodgerblue;
-    font-weight: 900;
+    font-weight: 600; 
     font-size: 20px;
-}
+} */
+
+/* label focus color */
+.input-field input:focus + label {
+    color: red !important;
+  }
+  /* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid dodgerblue !important;
+    box-shadow: 0 1px 0 0 dodgerblue !important
+  }
 
 .navbar {
     background: #e6e6e6;
@@ -133,11 +143,15 @@ input[type=text] {
     font-size: 20px;*/
 }
 
-#locationInput {
+/* #locationInput {
     margin-top: 5px;
     padding: 20px;
     border-radius: 10px;
-}
+} */
+
+.section.no-pad-bot {
+    padding-bottom: 0;
+  }
 
 .nav-link {
     margin-top: 13px;
@@ -338,12 +352,19 @@ input[type=text] {
     border: none;
 }
 
-#submitBtn:hover,
+/* #submitBtn:hover, */
 #hungryBtn:hover,
 #resultsBtn:hover {
     background: #C63D0F;
     color: #fffff0;
     text-decoration: none;
+}
+
+#submitBtn {
+    vertical-align: baseline;
+    position: relative;
+    top: 5px;
+    /* right: 10px; */
 }
 
 .result-link {
