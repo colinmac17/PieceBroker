@@ -1,7 +1,14 @@
 //User Model
 module.exports = function(sequelize, DataTypes) {
     var users = sequelize.define('users', {
-        name: {
+        fist_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [2]
+            }
+        },
+        last_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -20,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [5]
+                len: [6]
             }
         }
     });
