@@ -1,5 +1,6 @@
 var express = require('express');
 var expressHandlebars = require('express-handlebars');
+var passport = require('passport');
 require('dotenv').config();
 
 //create express app
@@ -16,6 +17,8 @@ app.use(express.static('./public'));
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+require('./config/passport')(passport, db.user);
 
 var routes = require('./controllers/appcontroller');
 app.use('/', routes);
