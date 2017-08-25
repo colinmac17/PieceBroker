@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 //Home & Signup Page
-router.get('/', function(req, res){
+router.get('/home', function(req, res){
     res.render('index');
 });
 //Signup page

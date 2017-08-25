@@ -66,3 +66,5 @@ typings/
 materialize_sandbox/
 
 Wireframes/
+
+public/js/legacy_app.js
