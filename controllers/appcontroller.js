@@ -5,11 +5,12 @@ var router = express.Router();
 var session = require('express-session');
 require('dotenv').config();
 var bodyParser = require('body-parser');
-var authController = require('./authcontroller');
-
 var app = express();
+
 //Use models to add CRUD methods to routes
 var db = require('../models');
+//Load in authController to create auth routes
+var authController = require('./authcontroller');
 
 
   //Sets up the Express app to handle data parsing
@@ -23,7 +24,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 //Home & Signup Page
-router.get('/', authController.signup);
+router.get('/', function(req, res){
+    res.render('index');
+});
+//Signup page
+router.get('/signup', authController.signup);
 
 //Login Page
 router.get('/login', authController.signin);
@@ -41,7 +46,13 @@ router.get('/profile', isLoggedIn, authController.userpage);
 
 router.get('/logout', authController.logout);
 
-router.post('/signin', passport.authenticate('local-signin',{
+router.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/profile',
+        failureRedirect: '/signup'
+    }
+));
+
+router.post('/login', passport.authenticate('local-signin',{
       successRedirect: '/profile',
       failureRedirect: '/login'
     }
@@ -51,8 +62,9 @@ router.post('/signin', passport.authenticate('local-signin',{
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
+    if (req.isAuthenticated()) {
         return next();
-
-    res.redirect('/signin');
+    } else {
+        res.redirect('/login');
+    }
 }
