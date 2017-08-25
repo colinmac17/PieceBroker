@@ -3,6 +3,30 @@ var userLatitude, userLongitude, userCity, userState;
 //set global vars for API Keys
 var apiKey, googleApiKey, mapQuestApiKey;
 
+// load firebase
+var config = {
+    apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
+    authDomain: "piecebroker-65733.firebaseapp.com",
+    databaseURL: "https://piecebroker-65733.firebaseio.com",
+    projectId: "piecebroker-65733",
+    storageBucket: "piecebroker-65733.appspot.com",
+    messagingSenderId: "189574691729"
+};
+
+// initialize app
+firebase.initializeApp(config);
+
+// reference database
+var database = firebase.database();
+
+//get API Key from Firebase
+database.ref().once("value", function(snapshot) {
+    var sv = snapshot.val();
+    //set value of apiKey
+    apiKey = sv.apiKey;
+    googleApiKey = sv.googleApiKey;
+    mapQuestApiKey = sv.mapQuestApiKey;
+});
 window.onload = function() {
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
@@ -250,6 +274,9 @@ $('.budget-gif').on('click', function() {
     $('#recRating').text(recRating);
     $('#recLink').attr('href', recDetails);
 
+    //push data to firebase
+    addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
+
     $('.price-container').hide();
     $('#resultProgressMsg').show();
     $('.results-container').show();
@@ -261,6 +288,15 @@ $('.budget-gif').on('click', function() {
     $('#showMap').attr('src', imgSrc);
     map.show();
 });
+
+// //send email to user with result
+// Email.send("piecebroker@gmail.com",
+//     "to@them.com",
+//     "This is a subject",
+//     "this is the body",
+//     "smtp.yourisp.com",
+//     "username",
+//     "password");
 
 //I'm Feeling Hungry click function
 $('#hungryBtn').on('click', function(e) {
@@ -351,6 +387,8 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recRating').text(recRating);
                 $('#recLink').attr('href', recDetails);
 
+                //push data to firebase
+                addItemToFirebase(recName, recAddress, recCity, recCuisine, recBudget, recRating);
                 $('#resultProgressMsg').show();
                 $('.results-container').show();
                 //set static map
@@ -364,6 +402,180 @@ $('#hungryBtn').on('click', function(e) {
         });
     }
 });
+
+// show firebase data in user history table
+database.ref().on('child_added', function(childSnapshot) {
+    var sv = childSnapshot.val();
+    //append elements to DOM, except for APIKEY
+    if (sv.recName !== undefined) {
+        $('.active').removeClass('active');
+        $('.table-striped').prepend(`<tbody><tr><td class="td">${sv.recName}</td><td id="tdAddress" class="td">${sv.recAddress}</td><td class="td">${sv.recCity}</td><td class="td">${sv.recCuisine}</td><td id="tdBudget" class="td">$${sv.recBudget}</td><td class="td">${sv.recRating}</td></tr></tbody>`);
+    }
+});
+
+
+//Get user auth data from DOM
+var txtEmail = $('#email');
+var txtPassword = $('#pwd');
+var loginBtn = $('#loginBtn');
+var signUpBtn = $('#signUpBtn');
+var logOutBtn = $('#logOutBtn');
+var logOutBtn2 = $('#logOutBtn2');
+var account = $('#myAccount');
+var signUpLink = $('#signUpLink');
+var passGroup = $('#passGroup');
+var emailGroup = $('#emailGroup');
+
+//store user auth
+var auth = firebase.auth();
+
+signUpBtn.on('click', function(e) {
+    e.preventDefault();
+    //get email and password
+    var email = txtEmail.val();
+    var pass = txtPassword.val();
+    $('#email').val('');
+    $('#pwd').val('');
+    //validate user email and password
+    if (email.length < 9) {
+        $('#signUpErr').addClass('animated shake');
+        $('#signUpErr').show();
+
+        function removeSignUpFailMessage() {
+            message = setTimeout(signUpFail, 3000);
+        }
+        removeSignUpFailMessage();
+        return;
+    }
+    if (pass.length < 6) {
+        $('#signUpErr').addClass('animated shake');
+        $('#signUpErr').show();
+
+        function removeSignUpFailMessage() {
+            message = setTimeout(signUpFail, 3000);
+        }
+        removeSignUpFailMessage();
+        return;
+    }
+
+    //Sign up new users and log them in
+    auth.createUserWithEmailAndPassword(email, pass).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+        } else {
+            $('#signUpErr2').addClass('animated shake');
+            $('#signUpErr2').show();
+
+            function removeSignUpFailMessage2() {
+                message = setTimeout(signUpFail2, 3000);
+            }
+            removeSignUpFailMessage2();
+        }
+
+    });
+
+});
+
+
+//sign in existing users
+loginBtn.on('click', function(e) {
+    e.preventDefault();
+    //get email and password
+    var email = txtEmail.val();
+    var pass = txtPassword.val();
+    $('#email').val('');
+    $('#pwd').val('');
+    //login user
+    auth.signInWithEmailAndPassword(email, pass).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+            $('#signInErr').addClass('animated shake');
+            $('#signInErr').show();
+
+            function removeSignInFailMessage() {
+                message = setTimeout(signInFail, 3000);
+            }
+            removeSignInFailMessage();
+            return;
+        } else {
+            $('#signInErr').addClass('animated shake');
+            $('#signInErr').show();
+
+            function removeSignInFailMessage() {
+                message = setTimeout(signInFail, 3000);
+            }
+            removeSignInFailMessage();
+        }
+    });
+});
+
+//Log current user out
+logOutBtn.on('click', function(e) {
+    e.preventDefault();
+    //sign up user
+    auth.signOut();
+});
+
+//Log current user out
+logOutBtn2.on('click', function(e) {
+    e.preventDefault();
+    //sign up user
+    auth.signOut();
+});
+
+//Firebase User Auth State Changes
+auth.onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        console.log(user);
+        var email = user.email;
+        var uid = user.uid;
+        $('.sign-up-form').hide();
+        emailGroup.hide();
+        passGroup.hide();
+        signUpBtn.hide();
+        loginBtn.hide();
+        $('#guestLogin').hide();
+        logOutBtn.show();
+        signUpLink.hide();
+        account.show();
+    } else {
+        // User is signed out.
+        console.log('user is not logged in');
+        $('.modal-header').show();
+        emailGroup.show();
+        passGroup.show();
+        logOutBtn.hide();
+        loginBtn.show();
+        signUpBtn.show();
+        signUpLink.show();
+        $('#guestLogin').show();
+        $('.sign-up-form').show();
+        account.hide();
+    }
+});
+
+// function to add items to firebase
+function addItemToFirebase(name, address, city, cuisine, budget, rating) {
+    if (recName && recAddress && recCuisine && recBudget && recRating) {
+        database.ref().push({
+            recName: name,
+            recAddress: address,
+            recCity: city,
+            recCuisine: cuisine,
+            recBudget: budget,
+            recRating: rating
+        });
+        console.log(`Name: ${recName} Address: ${recAddress} Cuisine: ${recCuisine} Budget: ${recBudget} Rating: ${recRating}`);
+    } else {
+        console.log('data missing in firebase');
+    };
+}
 
 //Function to hide fail message
 function hideFailMessage() {
@@ -381,6 +593,18 @@ function medFail() {
 
 function expFail() {
     $('#expErrMsg').hide();
+}
+
+function signUpFail() {
+    $('#signUpErr').hide();
+}
+
+function signUpFail2() {
+    $('#signUpErr2').hide();
+}
+
+function signInFail() {
+    $('#signInErr').hide();
 }
 
 //----- OPEN POP UP
