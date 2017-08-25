@@ -1,7 +1,17 @@
 <div class="container form-container">
-    <h2 class="center">Sign In</h2>
+    <h2 class="center">SIGN UP TO SKIP THE ARGUMENT</h2>
 <div class="row">
-    <form class="col s12" id="signin" method="POST" action="/login">
+    <form class="col s12" id="signup" name="signup" method="POST" action="/signup">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="first_name" id="firstName" type="text" class="validate" required>
+          <label for="firstNamee">First</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="last_name" id="lastName" type="text" class="validate" required>
+          <label for="lastName">Last Name</label>
+        </div>
+      </div>
       <div class="row">
         <div class="input-field col s12">
           <input name="email" id="userEmail" type="email" class="validate" required>
@@ -16,7 +26,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <button class="btn btn-large btn-register waves-effect waves-light" type="submit">Login
+          <button class="btn btn-large btn-register waves-effect waves-light" type="submit">Register
             <i class="material-icons right">done</i>
           </button>
         </div>
