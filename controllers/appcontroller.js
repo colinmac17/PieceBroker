@@ -12,17 +12,6 @@ var db = require('../models');
 //Load in authController to create auth routes
 var authController = require('./authcontroller');
 
-
-  //Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-
 //Home & Signup Page
 router.get('/home', function(req, res){
     res.render('index');
