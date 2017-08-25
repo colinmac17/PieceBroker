@@ -1,5 +1,20 @@
-#budgetPage i.large.material-icons {
+#whatsUrBudget i.large.material-icons {
     color: #0A6D14;
+    display: initial;
+}
+
+#whatsUrBudget div.col.s4.offset-s4.center-align {
+    color: white;
+    font-size: 24px;
+}
+
+#whatsUrBudget div.card-panel.blue {
+margin-top: 80px;
+margin-bottom: 90px;
+}
+
+div#moneySigns.container {
+    border: width 10 border-style color black;
 }
 
 
