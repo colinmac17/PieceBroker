@@ -22,17 +22,19 @@ module.exports = function(passport, users){
         {
             emailField: 'email',
             passwordField: 'password',
-            passReqCallback: true //allows us to pass back the entire request to the callback
+            passReqToCallback: true //allows us to pass back the entire request to the callback
         },
         function(req, email, password, done) {
             Users.findOne({where: {email:email}}).then(function(users){
                 if (users) {
                     return done(null, false, {message: 'that email is already taken'});
                 } else {
-                    var data = {};
-                    data.email = email;
-                    data.password = password;
-                    data.name = req.body.name;
+                    var data = {
+                        email: email,
+                        password: password,
+                        first_name: req.body.first_name,
+                        last_name: req.body.last_name
+                    };
 
                 Users.create(data).then(function(newUser, created){
                     if(!newUser){
