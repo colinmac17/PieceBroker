@@ -1,6 +1,6 @@
 //Results Model
 module.exports = function(sequelize, DataTypes) {
-    var results = sequelize.define('results', {
+    var Result = sequelize.define('result', {
         restaurant_name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -46,14 +46,14 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    results.associate = function(models) {
+    Result.associate = function(models) {
         // We're saying that a result should belong to a user
         // A result can't be created without a user due to the foreign key constraint
-        results.belongsTo(models.users, {
+        Result.belongsTo(models.user, {
           foreignKey: {
             allowNull: false
           }
         });
       };
-    return results;
+    return Result;
 };

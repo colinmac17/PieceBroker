@@ -1,7 +1,7 @@
 //User Model
 module.exports = function(sequelize, DataTypes) {
-    var users = sequelize.define('users', {
-        fist_name: {
+    var User = sequelize.define('user', {
+        first_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -31,11 +31,11 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    users.associate = function(models) {
-        users.hasMany(models.results, {
+    User.associate = function(models) {
+        User.hasMany(models.result, {
             //if a user is deleted, delete all of their results
             onDelete: "cascade"
         });
     };
-    return users;
+    return User;
 };
