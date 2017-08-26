@@ -14,12 +14,15 @@
 <body>
     {{!--nav bar--}}
     <nav>
-      <div class="nav-wrapper blue darken-1">
+      <div class="navbar-fixed">
+      <div class="nav-wrapper blue darken-1" role="navigation">
         <a href="/" class="brand-logo left"><img src="images/whitelogo.png"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/profile">My History</a></li>
         </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
+      </div>
       </div>
     </nav>
    
@@ -32,11 +35,11 @@
     <footer class="page-footer blue darken-1">
           <div class="container blue darken-1">
             <div class="row">
-              <div class="col l6 s12 blue darken-1">
+              <div class="col s6 blue darken-1">
                 <h5 class="white-text">PieceBroker</h5>
                 <p class="grey-text text-lighten-4">Find food fast and skip the argument.</p>
               </div>
-              <div class="col l4 offset-l2 s12 blue darken-1">
+              <div class="col l4 offset-l2 s6 blue darken-1">
                 <h5 class="white-text">Team GitHubs</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="https://github.com/dbalkin77">Doug Balkin</a></li>
@@ -56,8 +59,10 @@
         </footer>
 
     <!-- Compiled and minified JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <script src="js/materialize.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
