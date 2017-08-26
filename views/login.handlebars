@@ -1,0 +1,26 @@
+<div class="container form-container">
+    <h2 class="center">Sign In</h2>
+<div class="row">
+    <form class="col s12" id="signin" method="POST" action="/login">
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="email" id="userEmail" type="email" class="validate" required>
+          <label for="userEmail">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="userPass" name="password" type="password" class="validate" minlength="6" required>
+          <label for="userPass">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="btn btn-large btn-register waves-effect waves-light" type="submit">Login
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
