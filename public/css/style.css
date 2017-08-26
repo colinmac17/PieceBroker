@@ -10,6 +10,10 @@ main {
     flex: 1 0 auto;
 }
 
+.carousel .carousel-item>img {
+    width: 150%;
+}
+
 .nav-wrapper .brand-logo img {
     height: 64px;
 }
