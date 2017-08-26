@@ -27,6 +27,7 @@ database.ref().once("value", function(snapshot) {
     googleApiKey = sv.googleApiKey;
     mapQuestApiKey = sv.mapQuestApiKey;
 });
+console.log(apiKey);
 
 window.onload = function() {
     //gather user location
