@@ -3,7 +3,6 @@ var userLatitude, userLongitude, userCity, userState;
 //set global vars for API Keys
 var apiKey, googleApiKey, mapQuestApiKey;
 
-load firebase
 var config = {
     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
     authDomain: "piecebroker-65733.firebaseapp.com",
@@ -13,7 +12,6 @@ var config = {
     messagingSenderId: "189574691729"
 };
 
-initialize app
 firebase.initializeApp(config);
 
 // reference database
