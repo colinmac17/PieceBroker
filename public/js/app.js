@@ -4,29 +4,29 @@ var userLatitude, userLongitude, userCity, userState;
 var apiKey, googleApiKey, mapQuestApiKey;
 
 // load firebase
-var config = {
-    apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
-    authDomain: "piecebroker-65733.firebaseapp.com",
-    databaseURL: "https://piecebroker-65733.firebaseio.com",
-    projectId: "piecebroker-65733",
-    storageBucket: "piecebroker-65733.appspot.com",
-    messagingSenderId: "189574691729"
-};
+// var config = {
+//     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
+//     authDomain: "piecebroker-65733.firebaseapp.com",
+//     databaseURL: "https://piecebroker-65733.firebaseio.com",
+//     projectId: "piecebroker-65733",
+//     storageBucket: "piecebroker-65733.appspot.com",
+//     messagingSenderId: "189574691729"
+// };
 
 // initialize app
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
-// reference database
-var database = firebase.database();
+// // reference database
+// var database = firebase.database();
 
 //get API Key from Firebase
-database.ref().once("value", function(snapshot) {
-    var sv = snapshot.val();
-    //set value of apiKey
-    apiKey = sv.apiKey;
-    googleApiKey = sv.googleApiKey;
-    mapQuestApiKey = sv.mapQuestApiKey;
-});
+// database.ref().once("value", function(snapshot) {
+//     var sv = snapshot.val();
+//     //set value of apiKey
+//     apiKey = sv.apiKey;
+//     googleApiKey = sv.googleApiKey;
+//     mapQuestApiKey = sv.mapQuestApiKey;
+// });
 
 window.onload = function() {
     //gather user location
@@ -107,7 +107,7 @@ var cityID, cuisineID, userBudget, restaurantID;
 //set empty arrays for restaurant types
 var cheapRestaurants = [];
 var medRestaurants = [];
-var expensiveRestaurants = [];
+var expensiveRestaurants = [{restaurant: 'taco bell'}];
 
 //array for progress bar messages
 var progressMessages = ['You\'re getting closer to not being in an argument!', 'Having fun yet? Same here!', 'What do you like more - eating or arguing?', 'You\'re a real hero you know that?', 'If you don\'t enjoy arguing, you better go to the restaurant you match with', 'You\'re sooooo close!', 'You\'re lucky you\'re pretty cool', 'The only time to eat diet food is while you\'re waiting for the steak to cook', 'I always cook with wine. Sometimes I even add it to the food', 'Love and food are alike. Can never have enough of either', 'The trouble with eating Italian food is that five or six days later, you’re hungry again', 'Never eat more than you can lift', 'A fruit is a vegetable with looks and money. Plus, if you let fruit rot, it turns into wine, something Brussels sprouts never do'];
@@ -198,8 +198,9 @@ $(".gif").on("click", function() {
     });
 });
 
-$('.btn btn-large green').on('click', function() {
-    userBudget = $(this).attr("data-id");
+$('.btn-large').on('click', function() {
+    // userBudget = $(this).attr("data-id");
+    console.log('click');
 
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
@@ -241,7 +242,7 @@ $('.btn btn-large green').on('click', function() {
             removeExpMessage();
         }
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
-        userResult = expensiveRestaurants[expensiveRandNum].restaurant;
+        userResult = expensiveRestaurants[0].restaurant;
         console.log(userResult);
     }
 
@@ -423,3 +424,4 @@ $('[data-popup-close]').on('click', function(e) {
     $('.footer').show();
     e.preventDefault();
 });
+
