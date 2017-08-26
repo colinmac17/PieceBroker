@@ -423,3 +423,9 @@ $('[data-popup-close]').on('click', function(e) {
     $('.footer').show();
     e.preventDefault();
 });
+
+// Init Carousel Slider
+
+$('.carousel.carousel-slider').carousel({fullWidth:true});
+
+
