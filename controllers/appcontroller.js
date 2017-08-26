@@ -12,13 +12,8 @@ var db = require('../models');
 //Load in authController to create auth routes
 var authController = require('./authcontroller');
 
-<<<<<<< HEAD
-//Home Page
-router.get('/', function(req, res) {
-=======
 //Home & Signup Page
-router.get('/', function(req, res){
->>>>>>> 2a10f9eedf80c70bae86cb0a0898cca2cc4d8fd7
+router.get('/', function(req, res) {
     res.render('index');
 });
 //Signup page
@@ -36,7 +31,6 @@ router.get('/app', function(req, res) {
     res.render('app');
 });
 //User Profile Page
-<<<<<<< HEAD
 router.get('/profile',
     require('connect-ensure-login').ensureLoggedIn(),
     function(req, res) {
@@ -55,23 +49,19 @@ router.get('/login/facebook/return',
 router.get('/results', function(req, res) {
     res.render("resultspage");
 });
-=======
 router.get('/profile', isLoggedIn, authController.userpage);
 
 router.get('/logout', authController.logout);
 
 router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile',
-        failureRedirect: '/signup'
-    }
-));
+    successRedirect: '/profile',
+    failureRedirect: '/signup'
+}));
 
-router.post('/login', passport.authenticate('local-signin',{
-      successRedirect: '/profile',
-      failureRedirect: '/login'
-    }
-));
->>>>>>> 2a10f9eedf80c70bae86cb0a0898cca2cc4d8fd7
+router.post('/login', passport.authenticate('local-signin', {
+    successRedirect: '/profile',
+    failureRedirect: '/login'
+}));
 
 //export router
 module.exports = router;
