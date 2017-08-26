@@ -13,7 +13,7 @@ var db = require('../models');
 var authController = require('./authcontroller');
 
 //Home & Signup Page
-router.get('/', function(req, res){
+router.get('/', function(req, res) {
     res.render('index');
 });
 //Signup page
@@ -23,29 +23,45 @@ router.get('/signup', authController.signup);
 router.get('/login', authController.signin);
 
 //Team page
-router.get('/team', function(req, res){
+router.get('/team', function(req, res) {
     res.render('team');
 });
 //Main Application
-router.get('/app', function(req, res){
+router.get('/app', function(req, res) {
     res.render('app');
 });
 //User Profile Page
+router.get('/profile',
+    require('connect-ensure-login').ensureLoggedIn(),
+    function(req, res) {
+        res.render('profile', { user: req.user });
+    });
+//Facebook Authentication routes
+router.get('/auth/facebook',
+    passport.authenticate('facebook'));
+
+router.get('/login/facebook/return',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/');
+    });
+
+router.get('/results', function(req, res) {
+    res.render("resultspage");
+});
 router.get('/profile', isLoggedIn, authController.userpage);
 
 router.get('/logout', authController.logout);
 
 router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile',
-        failureRedirect: '/signup'
-    }
-));
+    successRedirect: '/profile',
+    failureRedirect: '/signup'
+}));
 
-router.post('/login', passport.authenticate('local-signin',{
-      successRedirect: '/profile',
-      failureRedirect: '/login'
-    }
-));
+router.post('/login', passport.authenticate('local-signin', {
+    successRedirect: '/profile',
+    failureRedirect: '/login'
+}));
 
 //export router
 module.exports = router;
