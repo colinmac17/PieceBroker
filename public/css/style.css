@@ -14,21 +14,27 @@ main {
     height: 64px;
 }
 
+
 /* input[type=text] {
     color: dodgerblue;
     font-weight: 600; 
     font-size: 20px;
 } */
 
+
 /* label focus color */
-.input-field input:focus + label {
+
+.input-field input:focus+label {
     color: red !important;
-  }
-  /* label underline focus color */
+}
+
+
+/* label underline focus color */
+
 .input-field input:focus {
     border-bottom: 1px solid dodgerblue !important;
     box-shadow: 0 1px 0 0 dodgerblue !important
-  }
+}
 
 .navbar {
     background: #e6e6e6;
@@ -143,6 +149,7 @@ main {
     font-size: 20px;*/
 }
 
+
 /* #locationInput {
     margin-top: 5px;
     padding: 20px;
@@ -151,7 +158,7 @@ main {
 
 .section.no-pad-bot {
     padding-bottom: 0;
-  }
+}
 
 .nav-link {
     margin-top: 13px;
@@ -167,7 +174,7 @@ main {
     color: #3421f5;
     font-weight: 900;
     font-size: 18px;
-    opacity:0.9;
+    opacity: 0.9;
 }
 
 .footer {
@@ -216,7 +223,7 @@ main {
 
 /* panels */
 
-.panel > .panel-heading {
+.panel>.panel-heading {
     background-color: #3421f5;
     color: #fffff0;
 }
@@ -348,11 +355,17 @@ main {
     background: gray;
     border-radius: 5px;
     font-size: 16px;
-    color:#fffff0;
+    color: #fffff0;
     border: none;
 }
 
+#info-button {
+    background-color: #ffab40;
+}
+
+
 /* #submitBtn:hover, */
+
 #hungryBtn:hover,
 #resultsBtn:hover {
     background: #C63D0F;
