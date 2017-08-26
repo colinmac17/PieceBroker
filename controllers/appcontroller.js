@@ -13,7 +13,7 @@ var db = require('../models');
 var authController = require('./authcontroller');
 
 //Home & Signup Page
-router.get('/', function(req, res){
+router.get('/', function(req, res){ 
     res.render('index');
 });
 //Signup page
