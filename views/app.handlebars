@@ -1,3 +1,20 @@
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Here's your result!</h4>
+      <p>We hope your next meal is peaceful</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Order via GrubHub</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Get Directions</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Call an Order</a>
+    </div>
+  </div>
+
 <!--1st screen: location search container-->
 <div class="section no-pad-bot" id="app-banner">
     <div class="container">
@@ -20,8 +37,31 @@
 
 
     <!--3rd screen: Budget preference container-->
+  <div class="container text-center" id="whatsUrBudget">
+    <div class="row">
+        <div class="col s10 offset-s1 m4 offset-m4">
+            <div class="card blue">
+                <div class="card-content white-text">
+                    <h4 class="center-align">What's your budget?</h4>
+                </div>
+            </div>
+        </div>
+    </div>   
 
+    <div class="row center-align" id="moneySigns">
+        <button class="btn btn-large green" data-id="cheap">$</button>
+        <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
+        
+        <button class="btn btn-large green" data-id="medium">$$</button>
+        <p class="errMsg" id="medErrMsg">Sorry, there are no medium-priced restaurants for your selection</p>
+        
+        <button class="btn btn-large green" data-id="expensive">$$$</button>
+        <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection</p>
+    </div>    
+</div>
 
 
 
     <!--4th screen: Results-->
+{{!--User will be navigated to the results page -- resultspage.handlebars--}}
+
