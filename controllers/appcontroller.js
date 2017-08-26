@@ -30,21 +30,6 @@ router.get('/team', function(req, res) {
 router.get('/app', function(req, res) {
     res.render('app');
 });
-//User Profile Page
-router.get('/profile',
-    require('connect-ensure-login').ensureLoggedIn(),
-    function(req, res) {
-        res.render('profile', { user: req.user });
-    });
-//Facebook Authentication routes
-router.get('/auth/facebook',
-    passport.authenticate('facebook'));
-
-router.get('/login/facebook/return',
-    passport.authenticate('facebook', { failureRedirect: '/login' }),
-    function(req, res) {
-        res.redirect('/');
-    });
 
 router.get('/results', function(req, res) {
     res.render("resultspage");
