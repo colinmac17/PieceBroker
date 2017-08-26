@@ -3,7 +3,7 @@ var userLatitude, userLongitude, userCity, userState;
 //set global vars for API Keys
 var apiKey, googleApiKey, mapQuestApiKey;
 
-// load firebase
+load firebase
 var config = {
     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
     authDomain: "piecebroker-65733.firebaseapp.com",
@@ -13,13 +13,13 @@ var config = {
     messagingSenderId: "189574691729"
 };
 
-// initialize app
+initialize app
 firebase.initializeApp(config);
 
 // reference database
 var database = firebase.database();
 
-//get API Key from Firebase
+get API Key from Firebase
 database.ref().once("value", function(snapshot) {
     var sv = snapshot.val();
     //set value of apiKey
@@ -193,13 +193,14 @@ $(".gif").on("click", function() {
             }
         }
 
-        $('.price-container').fadeIn();
+        $('#whatsUrBudget').fadeIn();
         return cuisineID;
     });
 });
 
-$('.budget-gif').on('click', function() {
+$('.btn-large').on('click', function() {
     userBudget = $(this).attr("data-id");
+   
 
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
@@ -275,7 +276,7 @@ $('.budget-gif').on('click', function() {
     $('#recRating').text(recRating);
     $('#recLink').attr('href', recDetails);
 
-    $('.price-container').hide();
+    $('#whatsUrBudget').hide();
     $('#resultProgressMsg').show();
     $('.results-container').show();
     //set static map
@@ -423,3 +424,4 @@ $('[data-popup-close]').on('click', function(e) {
     $('.footer').show();
     e.preventDefault();
 });
+
