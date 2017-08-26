@@ -193,12 +193,12 @@ $(".gif").on("click", function() {
             }
         }
 
-        $('.price-container').fadeIn();
+        $('#whatsUrBudget').fadeIn();
         return cuisineID;
     });
 });
 
-$('.budget-gif').on('click', function() {
+$('.btn btn-large green').on('click', function() {
     userBudget = $(this).attr("data-id");
 
     if (userBudget === 'cheap') {
@@ -275,7 +275,7 @@ $('.budget-gif').on('click', function() {
     $('#recRating').text(recRating);
     $('#recLink').attr('href', recDetails);
 
-    $('.price-container').hide();
+    $('#whatsUrBudget').hide();
     $('#resultProgressMsg').show();
     $('.results-container').show();
     //set static map
