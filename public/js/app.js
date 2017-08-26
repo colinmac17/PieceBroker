@@ -107,7 +107,7 @@ var cityID, cuisineID, userBudget, restaurantID;
 //set empty arrays for restaurant types
 var cheapRestaurants = [];
 var medRestaurants = [];
-var expensiveRestaurants = [{restaurant: 'taco bell'}];
+var expensiveRestaurants = [];
 
 //array for progress bar messages
 var progressMessages = ['You\'re getting closer to not being in an argument!', 'Having fun yet? Same here!', 'What do you like more - eating or arguing?', 'You\'re a real hero you know that?', 'If you don\'t enjoy arguing, you better go to the restaurant you match with', 'You\'re sooooo close!', 'You\'re lucky you\'re pretty cool', 'The only time to eat diet food is while you\'re waiting for the steak to cook', 'I always cook with wine. Sometimes I even add it to the food', 'Love and food are alike. Can never have enough of either', 'The trouble with eating Italian food is that five or six days later, you’re hungry again', 'Never eat more than you can lift', 'A fruit is a vegetable with looks and money. Plus, if you let fruit rot, it turns into wine, something Brussels sprouts never do'];
@@ -199,8 +199,8 @@ $(".gif").on("click", function() {
 });
 
 $('.btn-large').on('click', function() {
-    // userBudget = $(this).attr("data-id");
-    console.log('click');
+    userBudget = $(this).attr("data-id");
+   
 
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
@@ -242,7 +242,7 @@ $('.btn-large').on('click', function() {
             removeExpMessage();
         }
         var expensiveRandNum = Math.floor(Math.random() * expensiveRestaurants.length);
-        userResult = expensiveRestaurants[0].restaurant;
+        userResult = expensiveRestaurants[expensiveRandNum].restaurant;
         console.log(userResult);
     }
 
