@@ -17,7 +17,6 @@ firebase.initializeApp(config);
 // reference database
 var database = firebase.database();
 
-get API Key from Firebase
 database.ref().once("value", function(snapshot) {
     var sv = snapshot.val();
     //set value of apiKey
