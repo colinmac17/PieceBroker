@@ -23,7 +23,8 @@ Demo: https://www.youtube.com/watch?v=7YXRhRzLPQA
 * [MySQL](https://www.mysql.com/) - Database creation and mgmt
 * [Heroku](https://www.heroku.com/) - App deployment and hosting
 * [Passport](http://passportjs.org/) - Authentication for Express-based web applications
-* need to add more here once project complete
+* [Googlemaps API](https://developers.google.com/maps/web/) - Maps
+* [Zomato API](https://developers.zomato.com/api) - Zomato restaurant information
 
 ----------------------------------------------------------------------------------------
 ## Developed By
