@@ -26,7 +26,6 @@ Demo: https://www.youtube.com/watch?v=7YXRhRzLPQA
 * [Googlemaps API](https://developers.google.com/maps/web/) - Maps
 * [Zomato API](https://developers.zomato.com/api) - Zomato restaurant information
 
-----------------------------------------------------------------------------------------
 ## Developed By
 
 * Douglas Balkin: [@dbalkin77](https://github.com/dbalkin77) 
@@ -34,4 +33,3 @@ Demo: https://www.youtube.com/watch?v=7YXRhRzLPQA
 * Colin McAtee: [@colinmac17](https://github.com/colinmac17) 
 * Katie McCarthy: [@mccarthinator](https://github.com/mccarthinator) 
 * Jake Thornberry: [@wjthornberry](https://github.com/wjthornberry) 
-----------------------------------------------------------------------------------------
