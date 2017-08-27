@@ -51,12 +51,9 @@ database.ref().once("value", function(snapshot) {
 });
 
 window.onload = function() {
-      $('.carousel').carousel();
-
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
-        $('#budget-container').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
