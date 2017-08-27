@@ -288,7 +288,7 @@ main {
     padding: 0 16px;
 }
 
-.foodType-container {
+#foodType-container {
     display: none;
 }
 
