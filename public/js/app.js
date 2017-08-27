@@ -29,6 +29,7 @@ window.onload = function() {
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
+        $('#budget-container').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
@@ -134,7 +135,7 @@ $('#submitBtn').on('click', function(e) {
     // Get Zomato Data and store cityID in a variable
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
-        $('.location-container').hide();
+        $('#location-container').hide();
         $('.loader').show();
         $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
