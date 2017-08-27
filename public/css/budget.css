@@ -1,3 +1,7 @@
+#budget-container {
+    display: none;
+}
+
 #budget-container div.col.s4.offset-s4.center-align {
     color: white;
     font-size: 20px;
