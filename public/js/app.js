@@ -3,7 +3,6 @@ var userLatitude, userLongitude, userCity, userState;
 //set global vars for API Keys
 var apiKey, googleApiKey, mapQuestApiKey;
 
-load firebase
 var config = {
     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
     authDomain: "piecebroker-65733.firebaseapp.com",
@@ -13,13 +12,11 @@ var config = {
     messagingSenderId: "189574691729"
 };
 
-initialize app
 firebase.initializeApp(config);
 
 // reference database
 var database = firebase.database();
 
-get API Key from Firebase
 database.ref().once("value", function(snapshot) {
     var sv = snapshot.val();
     //set value of apiKey
@@ -32,6 +29,7 @@ window.onload = function() {
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
+        $('#budget-container').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
@@ -137,8 +135,8 @@ $('#submitBtn').on('click', function(e) {
     // Get Zomato Data and store cityID in a variable
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
-        $('.location-container').hide();
-        $('.loader').show();
+        $('#location-container').hide();
+        $('#loader').show();
         $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
@@ -148,7 +146,7 @@ $('#submitBtn').on('click', function(e) {
                 'user-key': apiKey
             }
         }).done(function(response) {
-            $('.loader').hide();
+            $('#loader').hide();
             $('#cuisineProgressMsg').hide();
             //confirm that user has entered in a city
             console.log(response);
@@ -180,7 +178,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
-        $('.loader').hide();
+        $('#loader').hide();
         $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
@@ -193,7 +191,7 @@ $(".gif").on("click", function() {
             }
         }
 
-        $('#whatsUrBudget').fadeIn();
+        $('#budget-container').fadeIn();
         return cuisineID;
     });
 });
@@ -276,7 +274,7 @@ $('.btn-large').on('click', function() {
     $('#recRating').text(recRating);
     $('#recLink').attr('href', recDetails);
 
-    $('#whatsUrBudget').hide();
+    $('#budget-container').hide();
     $('#resultProgressMsg').show();
     $('.results-container').show();
     //set static map
@@ -323,7 +321,7 @@ $('#hungryBtn').on('click', function(e) {
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('.location-container').hide();
-        $('.loader').show();
+        $('#loader').show();
         $('#hungryMsg').text(progressMessages[progressMsgRandNum]);
         $('#hungryProgressMsg').show();
 
@@ -345,7 +343,7 @@ $('#hungryBtn').on('click', function(e) {
                 }
             }).done(function(response) {
                 $('#hungryProgressMsg').hide();
-                $('.loader').hide();
+                $('#loader').hide();
                 //get random restaurant name
                 userResult = response.restaurants[randNumRestaurant].restaurant;
                 console.log(userResult);
