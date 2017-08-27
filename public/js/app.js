@@ -261,6 +261,19 @@ $('.btn-large').on('click', function() {
     recRating = userResult.user_rating.aggregate_rating;
     recDetails = userResult.url;
 
+    var resultsData = {
+        restaurant_name: recName,
+        cuisine_type: recCuisine,
+        city: recCity,
+        budget: recBudget,
+        rating: recRating
+    };
+
+    //Ajax post call for results model
+    $.post('/results', resultsData, function(data){
+        if (data) console.log(data);
+        else console.log('error');
+    });
     //get latitude and longitude data from Zomato for Google maps
     destLatitude = userResult.location.latitude;
     destLongitude = userResult.location.longitude;

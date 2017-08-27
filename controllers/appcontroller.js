@@ -9,6 +9,8 @@ var app = express();
 
 //Use models to add CRUD methods to routes
 var db = require('../models');
+var results = require('../models/results');
+var User = require('../models/user');
 //Load in authController to create auth routes
 var authController = require('./authcontroller');
 
@@ -37,6 +39,12 @@ router.get('/results', function(req, res) {
 
 router.post('/results', function(req, res){
 //Post route for results to DB
+    // results.create(req.resultsData).then(function(newResult,created){
+    //     if(!newResult) return;
+    //     if (newResult) return newResult;
+    // }).catch(function(err){
+    //     console.log(err);
+    // });
 });
 router.get('/profile', isLoggedIn, authController.userpage);
 
