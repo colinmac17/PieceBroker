@@ -52,7 +52,6 @@ window.onload = function() {
             $('#locationInput').val(`${userCity}, ${userState}`);
         });
     } else {
-        console.log(mapQuestApiKey);
         var startPos;
         var geoOptions = {
             timeout: 10 * 1000
@@ -69,15 +68,12 @@ window.onload = function() {
             localStorage.setItem('longitude', userLongitude);
             //Map Quest Reverse Geocoding API to get user Location
             var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
-            console.log(mapQuestUrl);
             $.ajax({
                 url: mapQuestUrl,
                 method: 'GET'
             }).done(function(response) {
-                console.log(response);
                 userCity = response.results[0].locations[0].adminArea5;
                 userState = response.results[0].locations[0].adminArea3;
-                console.log(`${userCity}, ${userState}`);
                 //place user city and state in input box
                 $('#locationLoad').hide();
                 $('#locationInput').val(`${userCity}, ${userState}`);
@@ -86,11 +82,6 @@ window.onload = function() {
         var geoError = function(error) {
             console.log('Error occurred. Error code: ' + error.code);
             $('#locationLoad').hide();
-            // error.code can be:
-            //   0: unknown error
-            //   1: permission denied
-            //   2: position unavailable (error response from location provider)
-            //   3: timed out
         };
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
