@@ -144,11 +144,12 @@ main {
 .loader {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-    display: none;
+    justify-content: center;
+    margin-bottom: 100px;
+    /* display: none; */
     
 	position: fixed;
-	z-index: 100;
+	/* z-index: 100; */
 	top: 0;
 	left: 0;
 	right: 0;

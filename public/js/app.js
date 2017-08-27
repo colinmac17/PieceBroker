@@ -33,6 +33,7 @@ window.onload = function() {
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
+        $('.loader').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
