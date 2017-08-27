@@ -162,7 +162,7 @@ $('#submitBtn').on('click', function(e) {
 });
 
 //Get User Choice for Cuisine
-$(".gif").on("click", function() {
+$(".carousel-item").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
     $('.loader').show();
