@@ -141,12 +141,12 @@ main {
 } */
 
 /* Materialize preloader */
-.preloader-background {
+.loader {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #eee;
-	
+    display: none;
+    
 	position: fixed;
 	z-index: 100;
 	top: 0;
