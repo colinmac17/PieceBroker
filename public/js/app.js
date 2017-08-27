@@ -190,7 +190,7 @@ $(".gif").on("click", function() {
             }
         }
 
-        $('#whatsUrBudget').fadeIn();
+        $('#budget-container').fadeIn();
         return cuisineID;
     });
 });
@@ -273,7 +273,7 @@ $('.btn-large').on('click', function() {
     $('#recRating').text(recRating);
     $('#recLink').attr('href', recDetails);
 
-    $('#whatsUrBudget').hide();
+    $('#budget-container').hide();
     $('#resultProgressMsg').show();
     $('.results-container').show();
     //set static map
