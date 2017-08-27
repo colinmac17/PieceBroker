@@ -34,6 +34,10 @@ router.get('/app', function(req, res) {
 router.get('/results', function(req, res) {
     res.render("resultspage");
 });
+
+router.post('/results', function(req, res){
+//Post route for results to DB
+});
 router.get('/profile', isLoggedIn, authController.userpage);
 
 router.get('/logout', authController.logout);
