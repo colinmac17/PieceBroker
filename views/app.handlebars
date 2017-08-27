@@ -20,6 +20,17 @@
     <div class="container">
         <br></br>
         <h3 class="header center">Where do you want to eat?</h3>
+        <div class="preloader-wrapper small active" id="loader">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
         <div class="row center input-field">
             <!--User form-->
             <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
@@ -29,6 +40,7 @@
             <p class="errMsg" id="failMsg">Please enter a valid city</p>
             <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
             <h2 id="locationLoad" class="animated bounce">...Finding your location</h2>
+
         </div>
     </div>
 </div>
