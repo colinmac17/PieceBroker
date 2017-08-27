@@ -57,6 +57,7 @@ main {
     border-radius: 10px;
 }
 
+#loader,
 #cuisineProgressMsg,
 #resultProgressMsg,
 #budgetProgressMsg,
