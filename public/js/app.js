@@ -51,12 +51,9 @@ database.ref().once("value", function(snapshot) {
 });
 
 window.onload = function() {
-      $('.carousel').carousel();
-
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
-        $('#budget-container').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
@@ -163,7 +160,7 @@ $('#submitBtn').on('click', function(e) {
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('#location-container').hide();
-        $('#loader').show();
+        $('.loader').show();
         $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
@@ -173,13 +170,13 @@ $('#submitBtn').on('click', function(e) {
                 'user-key': apiKey
             }
         }).done(function(response) {
-            $('#loader').hide();
+            $('.loader').hide();
             $('#cuisineProgressMsg').hide();
             //confirm that user has entered in a city
             console.log(response);
             cityID = response.location_suggestions[0].id;
             console.log(cityID);
-            $('.foodType-container').show();
+            $('#foodType-container').show();
             return cityID;
         });
     }
@@ -188,7 +185,7 @@ $('#submitBtn').on('click', function(e) {
 //Get User Choice for Cuisine
 $(".gif").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
-    $('.foodType-container').hide();
+    $('#foodType-container').hide();
     $('.loader').show();
     $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
     $('#budgetProgressMsg').show();
@@ -205,7 +202,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
-        $('#loader').hide();
+        $('.loader').hide();
         $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
@@ -226,7 +223,6 @@ $(".gif").on("click", function() {
 $('.btn-large').on('click', function() {
     userBudget = $(this).attr("data-id");
    
-
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
         if (cheapRestaurants.length === 0) {
@@ -286,12 +282,9 @@ $('.btn-large').on('click', function() {
     recRating = userResult.user_rating.aggregate_rating;
     recDetails = userResult.url;
 
-
-
     //get latitude and longitude data from Zomato for Google maps
     destLatitude = userResult.location.latitude;
     destLongitude = userResult.location.longitude;
-
 
     console.log(`Latitude: ${destLatitude}, Longitude: ${destLongitude} `);
 
@@ -303,7 +296,7 @@ $('.btn-large').on('click', function() {
 
     $('#budget-container').hide();
     $('#resultProgressMsg').show();
-    $('.results-container').show();
+    $('#results-container').show();
     //set static map
     var map = $('#themap');
     var imgSrc = `https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap
@@ -347,8 +340,8 @@ $('#hungryBtn').on('click', function(e) {
     //Get Zomato data for random restaurants
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
-        $('.location-container').hide();
-        $('#loader').show();
+        $('#location-container').hide();
+        $('.loader').show();
         $('#hungryMsg').text(progressMessages[progressMsgRandNum]);
         $('#hungryProgressMsg').show();
 
@@ -370,7 +363,7 @@ $('#hungryBtn').on('click', function(e) {
                 }
             }).done(function(response) {
                 $('#hungryProgressMsg').hide();
-                $('#loader').hide();
+                $('.loader').hide();
                 //get random restaurant name
                 userResult = response.restaurants[randNumRestaurant].restaurant;
                 console.log(userResult);
@@ -403,7 +396,7 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recLink').attr('href', recDetails);
 
                 $('#resultProgressMsg').show();
-                $('.results-container').show();
+                $('#results-container').show();
                 //set static map
                 var map = $('#themap');
                 var imgSrc = `https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap
