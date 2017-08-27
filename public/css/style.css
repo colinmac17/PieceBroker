@@ -57,7 +57,6 @@ main {
     border-radius: 10px;
 }
 
-#loader,
 #cuisineProgressMsg,
 #resultProgressMsg,
 #budgetProgressMsg,
@@ -129,6 +128,13 @@ main {
     display: none;
     margin-top: 130px;
     margin-bottom: 100px;
+}
+
+
+#loader-container {
+    margin-top: 130px;
+    margin-bottom: 100px;
+    display: none;
 }
 
 .cuisine-title {
