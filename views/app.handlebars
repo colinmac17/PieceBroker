@@ -16,7 +16,7 @@
   </div>
 
 <!--1st screen: location search container-->
-<div class="section no-pad-bot" id="app-banner">
+<div class="section no-pad-bot" id="location-container">
     <div class="container">
         <br></br>
         <h3 class="header center">Where do you want to eat?</h3>
@@ -26,18 +26,77 @@
             <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
         </div>
         <div class="row center">
+            <p class="errMsg" id="failMsg">Please enter a valid city</p>
             <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
+            <h2 id="locationLoad" class="animated bounce">...Finding your location</h2>
+
         </div>
     </div>
 </div>
 
-    <!--2nd screen: Pick cuisine type container-->
+<!--2nd screen: Pick cuisine type container-->
+
+    <!--2nd screen: Pick food type container-->
+    <div class="container text-center foodType-container">
+        <div class="row content">
+            <!--      <div class="col-xs-12"> -->
+            <div class="food-head center-block text-center">
+                <h1>What looks good?</h1>
+            </div>
+            <!-- </div> -->
+        </div>
+        <!-- row of gifs -->
+        <div class="container gif-container text-center">
+            <div class="row row-center">
+                <!--Mexican-->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <p class="cuisine-title">Mexican</p>
+                    <img src="./images/mexican-optimize.gif" class="gif img-responsive" data-id="73">
+                </div>
+                <!-- Italian -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <p class="cuisine-title">Italian</p>
+                    <img src="./images/italianoptimize.gif" class="gif img-responsive" data-id="55">
+                </div>
+                <!-- American -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <p class="cuisine-title">American</p>
+                    <img src="./images/american-optimize.gif" class="gif img-responsive" data-id="1">
+                </div>
+                <!-- Chinese -->
+                <div class="col-xs-6 col-md-4 col-xl-2 text-center gif-black col-center">
+                    <p class="cuisine-title">Chinese</p>
+                    <img src="./images/chinese-optimize.gif" class="gif img-responsive" data-id="25">
+                </div>
+            </div>
+            <div class="row row-center">
+                <!-- Indian -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <p class="cuisine-title">Indian</p>
+                    <img src="./images/INDIANdownsized.gif" class="gif img-responsive" data-id="148">
+                </div>
+                <!-- Mediterranean -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <p class="cuisine-title">Mediterranean</p>
+                    <img src="./images/med-optimize (1).gif" class="gif img-responsive" data-id="70">
+                </div>
+                <!-- Sushi -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <p class="cuisine-title">Sushi</p>
+                    <img src="./images/sushi-optimize (1).gif" class="gif img-responsive" data-id="177">
+                </div>
+                <!-- Vegetarian -->
+                <div class="col-xs-6 col-md-3 col-xl text-center gif-black col-center">
+                    <p class="cuisine-title">Vegeterian</p>
+                    <img src="./images/vegetarian-optimize (1).gif" class="gif img-responsive" data-id="308">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-
-
-    <!--3rd screen: Budget preference container-->
-  <div class="container text-center" id="whatsUrBudget">
+<!--3rd screen: Budget preference container-->
+<div class="container text-center" id="budget-container">
     <div class="row">
         <div class="col s10 offset-s1 m4 offset-m4">
             <div class="card blue">
@@ -60,8 +119,6 @@
     </div>    
 </div>
 
-
-
-    <!--4th screen: Results-->
+<!--4th screen: Results-->
 {{!--User will be navigated to the results page -- resultspage.handlebars--}}
 
