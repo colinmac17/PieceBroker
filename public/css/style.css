@@ -126,7 +126,7 @@ main {
     border-radius: 5px;
 }
 
-.loader {
+/* .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #3421f5;
@@ -138,6 +138,21 @@ main {
     display: none;
     margin-top: 130px;
     margin-bottom: 100px;
+} */
+
+/* Materialize preloader */
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eee;
+	
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;	
 }
 
 
