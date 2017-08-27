@@ -141,7 +141,7 @@ $('#submitBtn').on('click', function(e) {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('#location-container').hide();
         $('.loader').show();
-        $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
+        $('#cuisineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
             url: queryURL,
