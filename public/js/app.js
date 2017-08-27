@@ -33,6 +33,7 @@ window.onload = function() {
     //gather user location
     if (localStorage.getItem('latitude') !== null || localStorage.getItem('longitude') !== null) {
         $('#locationLoad').show();
+        $('.loader').hide();
         console.log('user data already stored');
         console.log(mapQuestApiKey);
         userLatitude = JSON.parse(localStorage.getItem('latitude'));
@@ -140,7 +141,7 @@ $('#submitBtn').on('click', function(e) {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('#location-container').hide();
         $('.loader').show();
-        $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
+        $('#cuisineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
             url: queryURL,
