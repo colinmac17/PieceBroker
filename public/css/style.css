@@ -156,7 +156,6 @@ main {
 	bottom: 0;	
 }
 
-
 #loader-container {
     margin-top: 130px;
     margin-bottom: 100px;
@@ -388,6 +387,8 @@ main {
 
 #info-button {
     background-color: #ffab40;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 
