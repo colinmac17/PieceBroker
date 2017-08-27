@@ -42,7 +42,9 @@
     <a><img class="carousel-item" data-id="177" src="/images/updatedFood/Sushi.jpeg" alt=""></a>
     <a><img class="carousel-item" data-id="308" src="/images/updatedFood/Vegetarian.jpeg" alt=""></a>
     <a><img class="carousel-item" data-id="70" src="/images/updatedFood/Mediteranian.jpg" alt=""></a>
-    <a><img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese.jpeg" alt=""></a>
+    <a><img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese.jpeg" alt="">
+    <!--This last closing <a> tag must be on a separate line, otherwise it breaks JT 8/27/17-->
+    </a>
 </div>
 
 <!--3rd screen: Budget preference container-->
@@ -69,21 +71,14 @@
     </div>    
 </div>
 
-<!--Load Google Map-->
-<div class="container map-container">
-    <h1 class="map-title text-center">Directions</h1>
-    <div class="map-container">
-        <div id="themap">
-            <img class="img-responsive center-block" src="" id="showMap">
-        </div>
-    </div>
-</div>
 <!--error message to show if no restaurants are found in a city-->
 <div id="errDiv">
     <h1 class="errMsg"></h1>
 </div>
+
 <!--Loader to show between data search-->
 <div class="loader center-block text-center"></div>
+
 <!--Progress Bar messages to show under Loader-->
 <div class="container text-center center-block" id="cuisineProgressMsg">
     <h3 id="cusineMsg"></h3>
