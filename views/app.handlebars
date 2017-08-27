@@ -1,19 +1,19 @@
 
-  <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Here's your result!</h4>
-      <p>We hope your next meal is peaceful</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Order via GrubHub</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Get Directions</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Call an Order</a>
-    </div>
-  </div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+    <h4>Here's your result!</h4>
+    <p>We hope your next meal is peaceful</p>
+</div>
+<div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Order via GrubHub</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Get Directions</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Call an Order</a>
+</div>
+</div>
 
 <!--1st screen: location search container-->
 <div class="section no-pad-bot" id="location-container">
@@ -89,4 +89,45 @@
 
 <!--4th screen: Results-->
 {{!--User will be navigated to the results page -- resultspage.handlebars--}}
+
+<!--Load Google Map-->
+<div class="container map-container">
+    <h1 class="map-title text-center">Directions</h1>
+    <div class="map-container">
+        <div id="themap">
+            <img class="img-responsive center-block" src="" id="showMap">
+        </div>
+    </div>
+</div>
+<!--error message to show if no restaurants are found in a city-->
+<div id="errDiv">
+    <h1 class="errMsg"></h1>
+</div>
+<!--Loader to show between data search-->
+<div class="loader center-block text-center"></div>
+<!--Progress Bar messages to show under Loader-->
+<div class="container text-center center-block" id="cuisineProgressMsg">
+    <h3 id="cusineMsg"></h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="33.33" aria-valuemin="0" aria-valuemax="100" style="width:33.33%">
+            33%
+        </div>
+    </div>
+</div>
+<div class="container text-center center-block" id="budgetProgressMsg">
+    <h3 id="budgetMsg"></h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width:66.67%">
+            66%
+        </div>
+    </div>
+</div>
+<div class="container text-center center-block" id="hungryProgressMsg">
+    <h3 id="hungryMsg"></h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+            90%
+        </div>
+    </div>
+</div>
 
