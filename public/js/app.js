@@ -160,7 +160,7 @@ $('#submitBtn').on('click', function(e) {
     else {
         var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
         $('#location-container').hide();
-        $('#loader').show();
+        $('.loader').show();
         $('#cusineMsg').text(progressMessages[progressMsgRandNum]);
         $('#cuisineProgressMsg').show();
         $.ajax({
@@ -170,7 +170,7 @@ $('#submitBtn').on('click', function(e) {
                 'user-key': apiKey
             }
         }).done(function(response) {
-            $('#loader').hide();
+            $('.loader').hide();
             $('#cuisineProgressMsg').hide();
             //confirm that user has entered in a city
             console.log(response);
@@ -202,7 +202,7 @@ $(".gif").on("click", function() {
         }
     }).done(function(response) {
         console.log(response);
-        $('#loader').hide();
+        $('.loader').hide();
         $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
@@ -223,7 +223,6 @@ $(".gif").on("click", function() {
 $('.btn-large').on('click', function() {
     userBudget = $(this).attr("data-id");
    
-
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
         if (cheapRestaurants.length === 0) {
@@ -283,12 +282,9 @@ $('.btn-large').on('click', function() {
     recRating = userResult.user_rating.aggregate_rating;
     recDetails = userResult.url;
 
-
-
     //get latitude and longitude data from Zomato for Google maps
     destLatitude = userResult.location.latitude;
     destLongitude = userResult.location.longitude;
-
 
     console.log(`Latitude: ${destLatitude}, Longitude: ${destLongitude} `);
 
