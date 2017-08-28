@@ -169,9 +169,7 @@ main {
 	bottom: 0;	
 }
 
-.progress1 {
-    /* margin-top: 275px; */
-    color: dodgerblue;
+.progress {
     position: fixed;
     bottom: 0;
     margin-bottom: 70px;
