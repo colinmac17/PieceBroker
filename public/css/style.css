@@ -374,6 +374,12 @@ main {
     background-color: #ffab40;
 }
 
+#backButton {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
 
 /* #submitBtn:hover, */
 
