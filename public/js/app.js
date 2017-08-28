@@ -28,6 +28,7 @@ database.ref().once("value", function(snapshot) {
     googleApiKey = sv.googleApiKey;
     mapQuestApiKey = sv.mapQuestApiKey;
 });
+$('.loader').hide();
 // Only ask user for location if they are on the app
 if (window.location.pathname === '/app') {
     console.log('on app');
@@ -35,7 +36,6 @@ if (window.location.pathname === '/app') {
         //gather user location
         if (sessionStorage.getItem('latitude') !== null || sessionStorage.getItem('longitude') !== null) {
             $('#locationLoad').show();
-            $('.loader').hide();
             userLatitude = JSON.parse(sessionStorage.getItem('latitude'));
             userLongitude = JSON.parse(sessionStorage.getItem('longitude'));
     
@@ -57,6 +57,7 @@ if (window.location.pathname === '/app') {
                 timeout: 10 * 1000
             }
             $('#locationLoad').show();
+            $('.loader').hide();
             var geoSuccess = function(position) {
                 startPos = position;
                 //set user latitude
