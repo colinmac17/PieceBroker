@@ -264,7 +264,7 @@ $('.btn-large').on('click', function() {
         saved: false
     };
 
-    $.post('/results', resultsData, function(data){
+    $.post('/user', resultsData, function(data){
         //
         console.log(data);
     });
@@ -376,7 +376,7 @@ $('#hungryBtn').on('click', function(e) {
                     saved: false
                 };
 
-                $.post('/results', resultsData, function(data){
+                $.post('/user', resultsData, function(data){
                     //
                     console.log(data);
                 });
