@@ -374,10 +374,17 @@ main {
     background-color: #ffab40;
 }
 
-#backButton {
+#backButton1 {
     position: fixed;
     bottom: 0;
     margin-bottom: 10px;
+}
+
+#backButton2 {
+    position: inherit;
+    bottom: 0;
+    margin-bottom: 5px;
+    margin-top: 40px;
 }
 
 
