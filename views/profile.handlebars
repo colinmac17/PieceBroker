@@ -1,6 +1,6 @@
 <div class="container profile-container">
     {{!--CAN WE ADD THE PERSON'S NAME HERE?--}}
-    <h4 class="center">MARK'S PROFILE!</h4>
+    <h4 class="center">Welcome back {{user.first_name}}!</h4>
     
 
     {{!--User Info Area--}}
@@ -8,7 +8,7 @@
     <div class="col s6">
         <ul class="collection with-header">
             <li class="collection-header"><h4>My Info</h4></li>
-            <li class="collection-item"><i class="material-icons left">account_circle</i><span id="userEmail">Email</span></li>
+            <li class="collection-item"><i class="material-icons left">account_circle</i><span id="userEmail">{{user.email}}</span></li>
             <li class="collection-item"><i class="material-icons left">security</i><span id="password">Password</span></li>
         </ul>
     </div>
