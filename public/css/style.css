@@ -169,6 +169,14 @@ main {
 	bottom: 0;	
 }
 
+.progress1 {
+    /* margin-top: 275px; */
+    color: dodgerblue;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 70px;
+}
+
 #loader-container {
     margin-top: 130px;
     margin-bottom: 100px;
@@ -318,6 +326,7 @@ main {
 
 #foodType-container {
     display: none;
+    
 }
 
 .location-container {

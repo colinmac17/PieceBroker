@@ -16,52 +16,56 @@
 </div>
 
 <!--1st screen: location search container-->
-<div class="section no-pad-bot" id="location-container">
-    <div class="container">
-        <br></br>
-        <h3 class="header center">Where do you want to eat?</h3>
-        <div class="row center input-field">
-            <!--User form-->
-            <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
-            <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
-        </div>
-        <div class="row center">
-            <p class="errMsg" id="failMsg">Please enter a valid city</p>
-            <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
-            <p id="locationLoad" class="animated bounce">...Finding your location</p>
-        </div>
+<div class="container" id="location-container">
+    <br></br>
+    <h3 class="header center">Where do you want to eat?</h3>
+    <div class="row center input-field">
+        <!--User form-->
+        <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
+        <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
+    </div>
+    <div class="row center">
+        <p class="errMsg" id="failMsg">Please enter a valid city</p>
+        <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
+        <p id="locationLoad" class="animated bounce">...Finding your location</p>
     </div>
 </div>
 
 <!--2nd screen: Pick cuisine type container-->
-<div class="carousel" id="foodType-container">
-    <a>
-        <img class="carousel-item" data-id="55" src="/images/updatedFood/Italian_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="1" src="/images/updatedFood/Americana_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="148" src="/images/updatedFood/Indian_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="73" src="/images/updatedFood/Mexican_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="177" src="/images/updatedFood/Sushi.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="308" src="/images/updatedFood/Vegetarian.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="70" src="/images/updatedFood/Mediteranian_Updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese_updated.jpg" alt="">
-    </a>
-{{!-- back button 1 --}}
+<div class="carousel container" id="foodType-container">
     <div class="row center">
-        <a class="waves-effect waves-light btn" id="backButton1" onclick="location.reload()">Restart</a>
+        <a>
+            <img class="carousel-item" data-id="55" src="/images/updatedFood/Italian_updated.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="1" src="/images/updatedFood/Americana_updated.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="148" src="/images/updatedFood/Indian_updated.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="73" src="/images/updatedFood/Mexican_updated.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="177" src="/images/updatedFood/Sushi.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="308" src="/images/updatedFood/Vegetarian.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="70" src="/images/updatedFood/Mediteranian_Updated.jpg" alt="">
+        </a>
+        <a>
+            <img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese_updated.jpg" alt="">
+        </a>
+    </div>
+    <div class="row center">
+        <!-- back button 1 -->
+        <div class="row progress col s10 offset-s1 m4 offset-m4 center">
+            <a class="waves-effect waves-light btn" id="backButton1" onclick="location.reload()">Restart</a>
+            <!-- progress bar -->
+            <div class="determinate" style="width: 33%"></div>
+        </div>
     </div>
 </div>
 
@@ -87,7 +91,7 @@
         <button class="btn btn-large green" data-id="expensive">$$$</button>
         <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection</p>
     
-    {{!-- back button 2 --}}
+        <!-- back button 2 -->
         <div class="row center">
             <a class="waves-effect waves-light btn" id="backButton2" onclick="location.reload()">Restart</a>
         </div>
