@@ -35,13 +35,23 @@ router.get('/results', function(req, res) {
     res.render("results");
 });
 
-router.post('/results', function(req, res){
+router.post('/user', function(req, res){
 //Post route for results to DB
-console.log('body: ' + JSON.stringify(req.body));
-    res.send(req.body);
+    // db.result.create(req.body).then(function(result){
+    //     console.log('body: ' + JSON.stringify(req.body));
+    //     res.send(req.body);
+    // });
 });
 
-router.get('/profile', isLoggedIn, authController.userpage);
+router.get('/profile', isLoggedIn, function(req, res){
+    db.user.findOne({
+        where: {
+          id: req.user.id
+        }
+        }).then(function(data){
+        res.render('profile', {user: data});
+      });
+});
 
 router.get('/logout', authController.logout);
 
