@@ -32,12 +32,15 @@ router.get('/app', function(req, res) {
 });
 
 router.get('/results', function(req, res) {
-    res.render("resultspage");
+    res.render("results");
 });
 
 router.post('/results', function(req, res){
 //Post route for results to DB
+console.log('body: ' + JSON.stringify(req.body));
+    res.send(req.body);
 });
+
 router.get('/profile', isLoggedIn, authController.userpage);
 
 router.get('/logout', authController.logout);

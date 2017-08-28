@@ -28,68 +28,72 @@ database.ref().once("value", function(snapshot) {
     googleApiKey = sv.googleApiKey;
     mapQuestApiKey = sv.mapQuestApiKey;
 });
-
-window.onload = function() {
-    //gather user location
-    if (sessionStorage.getItem('latitude') !== null || sessionStorage.getItem('longitude') !== null) {
-        $('#locationLoad').show();
-        $('.loader').hide();
-        userLatitude = JSON.parse(sessionStorage.getItem('latitude'));
-        userLongitude = JSON.parse(sessionStorage.getItem('longitude'));
-
-        //Map Quest Reverse Geocoding API to get user Location
-        var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
-
-        $.ajax({
-            url: mapQuestUrl,
-            method: 'GET'
-        }).done(function(response) {
-            userCity = response.results[0].locations[0].adminArea5;
-            userState = response.results[0].locations[0].adminArea3;
-            $('#locationLoad').hide();
-            $('#locationInput').val(`${userCity}, ${userState}`);
-        });
-    } else {
-        var startPos;
-        var geoOptions = {
-            timeout: 10 * 1000
-        }
-        $('#locationLoad').show();
-        var geoSuccess = function(position) {
-            startPos = position;
-            //set user latitude
-            userLatitude = startPos.coords.latitude;
-            //set user longitude
-            userLongitude = startPos.coords.longitude;
-            //push these values into local storage
-            sessionStorage.setItem('latitude', userLatitude);
-            sessionStorage.setItem('longitude', userLongitude);
+// Only ask user for location if they are on the app
+if (window.location.pathname === '/app') {
+    console.log('on app');
+    window.onload = function() {
+        //gather user location
+        if (sessionStorage.getItem('latitude') !== null || sessionStorage.getItem('longitude') !== null) {
+            $('#locationLoad').show();
+            $('.loader').hide();
+            userLatitude = JSON.parse(sessionStorage.getItem('latitude'));
+            userLongitude = JSON.parse(sessionStorage.getItem('longitude'));
+    
             //Map Quest Reverse Geocoding API to get user Location
             var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
+    
             $.ajax({
                 url: mapQuestUrl,
                 method: 'GET'
             }).done(function(response) {
                 userCity = response.results[0].locations[0].adminArea5;
                 userState = response.results[0].locations[0].adminArea3;
-                //place user city and state in input box
                 $('#locationLoad').hide();
                 $('#locationInput').val(`${userCity}, ${userState}`);
             });
-        };
-        var geoError = function(error) {
-            console.log('Error occurred. Error code: ' + error.code);
-            $('#locationLoad').hide();
-            // error.code can be:
-            //   0: unknown error
-            //   1: permission denied
-            //   2: position unavailable (error response from location provider)
-            //   3: timed out
-        };
+        } else {
+            var startPos;
+            var geoOptions = {
+                timeout: 10 * 1000
+            }
+            $('#locationLoad').show();
+            var geoSuccess = function(position) {
+                startPos = position;
+                //set user latitude
+                userLatitude = startPos.coords.latitude;
+                //set user longitude
+                userLongitude = startPos.coords.longitude;
+                //push these values into local storage
+                sessionStorage.setItem('latitude', userLatitude);
+                sessionStorage.setItem('longitude', userLongitude);
+                //Map Quest Reverse Geocoding API to get user Location
+                var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
+                $.ajax({
+                    url: mapQuestUrl,
+                    method: 'GET'
+                }).done(function(response) {
+                    userCity = response.results[0].locations[0].adminArea5;
+                    userState = response.results[0].locations[0].adminArea3;
+                    //place user city and state in input box
+                    $('#locationLoad').hide();
+                    $('#locationInput').val(`${userCity}, ${userState}`);
+                });
+            };
+            var geoError = function(error) {
+                console.log('Error occurred. Error code: ' + error.code);
+                $('#locationLoad').hide();
+                // error.code can be:
+                //   0: unknown error
+                //   1: permission denied
+                //   2: position unavailable (error response from location provider)
+                //   3: timed out
+            };
+    
+            navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+        }
+    };
+}
 
-        navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-    }
-};
 
 // userResult, restaurant name, restaurant address, restaurant cuisine type, restaurant budget, restaurant rating, restaurant latitude, restaurant longitude
 var userResult, recName, recAddress, recCity, recCuisine, recBudget, recRating, recDetails, destLatitude, destLongitude;
@@ -250,6 +254,21 @@ $('.btn-large').on('click', function() {
     destLatitude = userResult.location.latitude;
     destLongitude = userResult.location.longitude;
 
+    //Data for Results Model
+    var resultsData = {
+        restaurant_name: recName,
+        cuisine_type: recCuisine,
+        city: recCity,
+        budget: recBudget,
+        rating: recRating,
+        saved: false
+    };
+
+    $.post('/results', resultsData, function(data){
+        //
+        console.log(data);
+    });
+
     //add data to results page
     $('#recName').text(recName);
     $('#recAddress').text(recAddress);
@@ -346,6 +365,21 @@ $('#hungryBtn').on('click', function(e) {
                 //get latitude and longitude data from Zomato for Google maps
                 destLatitude = userResult.location.latitude;
                 destLongitude = userResult.location.longitude;
+
+                //Data for Results Model
+                var resultsData = {
+                    restaurant_name: recName,
+                    cuisine_type: recCuisine,
+                    city: recCity,
+                    budget: recBudget,
+                    rating: recRating,
+                    saved: false
+                };
+
+                $.post('/results', resultsData, function(data){
+                    //
+                    console.log(data);
+                });
 
                 //add data to results page
                 $('#recName').text(recName);
