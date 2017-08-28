@@ -11,20 +11,25 @@
     <link rel="stylesheet" href="css/budget.css">
     <title>Piecebroker</title>
 </head>
-<body>
-    {{!--nav bar--}}
-    <nav>
-      <div class="navbar-fixed">
-      <div class="nav-wrapper blue darken-1" role="navigation">
-        <a href="/" class="brand-logo left"><img src="images/whitelogo.png"></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/signup">Sign Up</a></li>
-          <li><a href="/profile">My History</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="material-icons">menu</i></a>
-      </div>
-      </div>
-    </nav>
+<body>      
+      {{!-- navbar --}}
+      <nav>
+        <div class="navbar-fixed">
+          <div class="nav-wrapper blue darken-1" role="navigation">
+              <a href="/" class="brand-logo left"><img src="images/whitelogo.png"></a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="/signup">Sign Up</a></li>
+                  <li><a href="/profile">My History</a></li>
+                </ul>
+          </div>
+        </div>
+                <ul class="side-nav right" id="mobile-demo">
+                  <li><a href="/" class="brand-logo left"><img src="images/whitelogo.png"></a></li>
+                  <li><a href="/signup">Sign Up</a></li>
+                  <li><a href="/profile">My History</a></li>
+                </ul>
+      </nav>
    
     <main>
     {{{body}}}
