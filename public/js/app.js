@@ -367,21 +367,21 @@ $('#hungryBtn').on('click', function(e) {
                 //get latitude and longitude data from Zomato for Google maps
                 destLatitude = userResult.location.latitude;
                 destLongitude = userResult.location.longitude;
+                
+                    //Data for Results Model
+                    var resultsData = {
+                        restaurant_name: recName,
+                        cuisine_type: recCuisine,
+                        city: recCity,
+                        budget: recBudget,
+                        rating: recRating,
+                        saved: false
+                    };
 
-                //Data for Results Model
-                var resultsData = {
-                    restaurant_name: recName,
-                    cuisine_type: recCuisine,
-                    city: recCity,
-                    budget: recBudget,
-                    rating: recRating,
-                    saved: false
-                };
-              
-                $.post('/user', resultsData, function(data) {
-                    //
-                    console.log(data);
-                });
+                    $.post('/app', resultsData, function(data) {
+                        //
+                        console.log(data);
+                    });
 
                 //add data to results page
                 $('#recName').text(recName);

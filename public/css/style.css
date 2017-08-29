@@ -41,6 +41,10 @@ div.card-action.center.page1 {
     cursor: pointer;
 }
 
+.card-image:hover {
+    opacity: 0.7;
+}
+
 .card-title-team {
     position: absolute;
     top: 255px;
