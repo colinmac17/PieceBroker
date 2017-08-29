@@ -273,7 +273,10 @@ $('.btn-large').on('click', function() {
     $('#recName').text(recName);
     $('#recAddress').text(recAddress);
     $('#recRating').text(recRating);
-    $('#recLink').attr('href', recDetails);
+    $('#recDetails').attr("href", recDetails);
+    $('#recCuisine').text(recCuisine);
+    $('#recBudget').text(recBudget);
+
 
     $('#budget-container').hide();
     $('#resultProgressMsg').show();
@@ -395,9 +398,10 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recName').text(recName);
                 $('#recAddress').text(recAddress);
                 $('#recRating').text(recRating);
-                $('#recLink').attr('href', recDetails);
+                $('#recDetails').attr('href', recDetails);
                 $('#recCuisine').text(recCuisine);
                 $('#recBudget').text(recBudget);
+
 
                 $('#resultProgressMsg').show();
                 $('#results-container').show();

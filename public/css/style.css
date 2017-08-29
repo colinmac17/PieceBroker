@@ -257,7 +257,7 @@ main {
     color: #3e3e3e;
 }
 
-#recLink {
+#recDetails {
     color: dodgerblue;
 }
 
@@ -342,7 +342,7 @@ main {
     margin-bottom: 100px;
 }
 
-.results-container {
+#results-container {
     display: none;
     margin-top: 20px;
     margin-bottom: 10px;

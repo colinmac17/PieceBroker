@@ -94,6 +94,60 @@
     </div>    
 </div>
 
+{{!--RESULTS--}}
+{{!--Title above table for Results--}}
+<div class="container" id="results-container">
+    <div class="row">
+        <div class="col s4 center-align">
+            <p class="blue-text center-align" id="heres-your-result">Here's your result:</p>
+        </div>
+    </div>
+
+    {{!--Results Table--}}
+    <div class="row results-table">
+        <table class="responsive-table center-align">
+            <thead>
+            <tr>
+                <th><span class="black-text center-align">Restaurant Name</span></th>
+                <th><span class="black-text center-align">Address</span></th>
+                <th><span class="black-text center-align">Cuisine Type</span></th>
+                <th><span class="black-text center-align">Cost</span></th>
+                <th><span class="black-text center-align">Rating</span></th>
+                <th><span class="black-text center-align">Link</span></th>
+            </tr>
+            </thead>
+
+            <tbody class="table-body center-align"> 
+            <tr>
+                <td id=""><span class="green-text text-darken-1 data" id="recName"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recAddress"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recCuisine"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recBudget"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recRating"></span></td>
+                <td id=""><a class="green-text text-darken-1 data" id="recDetails">Click for menu</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {{!--Holds button--}}
+    <div class="row button-container center-align">
+        <div class="col s4">
+            <a class="waves-effect waves-light btn blue darken-1" id="directionsButton">GET DIRECTIONS</a>
+        </div>
+    </div>
+
+    {{!--Google Maps Container--}}
+    <div class="container google-map-container" id="googleMapContainer">
+        <div class="row">
+            <div class="col s12 m8 l10">
+                <img class="responsive-img" src="/images/jj-conoscenti.jpeg">
+            </div>
+        </div>
+    </div>
+</div>
+{{!--END OF RESULTS--}}
+
 <!--error message to show if no restaurants are found in a city-->
 <div id="errDiv">
     <h1 class="errMsg"></h1>
