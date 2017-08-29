@@ -139,6 +139,7 @@ main {
     border-radius: 5px;
 }
 
+
 /* .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -153,20 +154,21 @@ main {
     margin-bottom: 100px;
 } */
 
+
 /* Materialize preloader */
+
 .loader {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin-bottom: 100px;
     /* display: none; */
-    
-	position: fixed;
-	/* z-index: 100; */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;	
+    position: fixed;
+    /* z-index: 100; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #loader-container {
@@ -309,6 +311,10 @@ main {
     margin-bottom: 50px;
 }
 
+.flow-text {
+    font-size: 16px;
+}
+
 
 /* containers */
 
@@ -352,6 +358,10 @@ main {
 #logOutBtn,
 #myAccount {
     display: none;
+}
+
+#directionsButton {
+    background-color: #ffab40;
 }
 
 .contact-btn {
