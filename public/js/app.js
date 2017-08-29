@@ -284,6 +284,7 @@ $('.btn-large').on('click', function() {
 
 
     $('#budget-container').hide();
+    $('#progress2').hide();
     $('#resultProgressMsg').show();
     $('#results-container').show();
     //set static map

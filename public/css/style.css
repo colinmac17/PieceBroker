@@ -219,10 +219,10 @@ div.card-action.center.page1 {
     font-size: 20px;
 } 
 
-/* #budget-container div.card.blue {
-margin-top: 80px;
-margin-bottom: 50px;
-} */
+#budget-container div.card.blue {
+    margin: auto;
+    margin-bottom: 10px;
+}
 
 /* #budget-container .btn.btn-large.green {
 font-size: 30px;
@@ -405,7 +405,14 @@ margin-bottom: 10px;
     display: inline-block;
     max-width: 300px;
     display: none; 
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
 }
+
+/* text-align: center;
+width: 30%;
+margin: auto; */
 
 .flow-text {
     font-size: 16px;
