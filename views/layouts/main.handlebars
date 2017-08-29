@@ -19,13 +19,15 @@
               <a href="/" class="brand-logo left"><img src="images/whitelogo.png"></a>
               <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="/app">Find Food</a></li>
                   <li><a href="/signup">Sign Up</a></li>
-                   <li><a href="/login">Login</a></li>
+                  <li><a href="/login">Login</a></li>
                   <li><a href="/profile">My History</a></li>
                 </ul>
           </div>
         </div>
             <ul class="side-nav right" id="mobile-demo">
+              <li><a href="/app">Find Food</a></li>
               <li><a href="/signup">Sign Up</a></li>
               <li><a href="/login">Login</a></li>
               <li><a href="/profile">My History</a></li>
@@ -34,6 +36,28 @@
    
     <main>
     {{{body}}}
+    <!--error message to show if no restaurants are found in a city-->
+      <div id="errDiv">
+          <h1 class="errMsg"></h1>
+      </div>
+      <!--Loader to show between data search-->
+      {{!-- <div class="loader center-block text-center"></div> --}}
+      <!--Preloader to show between views-->
+      <div class="preloader-background loader">
+          <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                      <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </main>
 
     {{!--//footer--}}

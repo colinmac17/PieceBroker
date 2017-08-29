@@ -34,37 +34,77 @@
 </div>
 
 <!--2nd screen: Pick cuisine type container-->
-<div class="carousel" id="foodType-container">
-    <a>
-        <img class="carousel-item" data-id="55" src="/images/updatedFood/Italian_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="1" src="/images/updatedFood/Americana_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="148" src="/images/updatedFood/Indian_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="73" src="/images/updatedFood/Mexican_updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="177" src="/images/updatedFood/Sushi.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="308" src="/images/updatedFood/Vegetarian.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="70" src="/images/updatedFood/Mediteranian_Updated.jpg" alt="">
-    </a>
-    <a>
-        <img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese_updated.jpg" alt="">
-    </a>
-{{!-- back button 1 --}}
-    <div class="row center">
-        <a class="waves-effect waves-light btn" id="backButton1" onclick="location.reload()">Restart</a>
-    </div>
-</div>
+    <div class="container" id="foodType-container">
+      <div class="row">
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="73">
+              <img src="/images/updatedFood/Italian_updated.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="1">
+              <img src="/images/updatedFood/Americana_updated.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
 
+    <div class="row">
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="55">
+              <img src="/images/updatedFood/Indian_updated.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="73">
+              <img src="/images/updatedFood/mexican.jpeg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="row">
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="177">
+              <img src="/images/updatedFood/Sushi.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="308">
+              <img src="/images/updatedFood/Vegetarian.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="70">
+              <img src="/images/updatedFood/Mediteranian_Updated.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="card">
+            <div class="card-image" data-id="25">
+              <img src="/images/updatedFood/Chinese_updated.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+      
 <!--3rd screen: Budget preference container-->
 <div class="container text-center" id="budget-container">
     <div class="row">
@@ -93,6 +133,60 @@
         </div>
     </div>    
 </div>
+
+{{!--RESULTS--}}
+{{!--Title above table for Results--}}
+<div class="container" id="results-container">
+    <div class="row">
+        <div class="col s4 center-align">
+            <p class="blue-text center-align" id="heres-your-result">Here's your result:</p>
+        </div>
+    </div>
+
+    {{!--Results Table--}}
+    <div class="row results-table">
+        <table class="responsive-table center-align">
+            <thead>
+            <tr>
+                <th><span class="black-text center-align">Restaurant Name</span></th>
+                <th><span class="black-text center-align">Address</span></th>
+                <th><span class="black-text center-align">Cuisine Type</span></th>
+                <th><span class="black-text center-align">Cost</span></th>
+                <th><span class="black-text center-align">Rating</span></th>
+                <th><span class="black-text center-align">Link</span></th>
+            </tr>
+            </thead>
+
+            <tbody class="table-body center-align"> 
+            <tr>
+                <td id=""><span class="green-text text-darken-1 data" id="recName"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recAddress"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recCuisine"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recBudget"></span></td>
+                <td id=""><span class="green-text text-darken-1 data" id="recRating"></span></td>
+                <td id=""><a class="green-text text-darken-1 data" id="recDetails">Click for menu</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {{!--Holds button--}}
+    <div class="row button-container center-align">
+        <div class="col s4">
+            <a class="waves-effect waves-light btn blue darken-1" id="directionsButton">GET DIRECTIONS</a>
+        </div>
+    </div>
+
+    {{!--Google Maps Container--}}
+    <div class="container google-map-container" id="googleMapContainer">
+        <div class="row">
+            <div class="col s12 m8 l10">
+                <img class="responsive-img" id="showMap"src="/images/jj-conoscenti.jpeg">
+            </div>
+        </div>
+    </div>
+</div>
+{{!--END OF RESULTS--}}
 
 <!--error message to show if no restaurants are found in a city-->
 <div id="errDiv">
