@@ -396,6 +396,8 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recAddress').text(recAddress);
                 $('#recRating').text(recRating);
                 $('#recLink').attr('href', recDetails);
+                $('#recCuisine').text(recCuisine);
+                $('#recBudget').text(recBudget);
 
                 $('#resultProgressMsg').show();
                 $('#results-container').show();

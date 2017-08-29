@@ -352,6 +352,10 @@ main {
     margin-bottom: 100px;
 }
 
+#googleMapContainer {
+    display: none;
+}
+
 
 /* buttons */
 
