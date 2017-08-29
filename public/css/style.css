@@ -10,8 +10,8 @@ main {
     flex: 1 0 auto;
 }
 
-.carousel .carousel-item>img {
-    width: 150%;
+.card {
+    width: 85%;
 }
 
 .card-image {
