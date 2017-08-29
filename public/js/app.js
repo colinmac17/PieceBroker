@@ -3,7 +3,6 @@ var userLatitude, userLongitude, userCity, userState;
 //set global vars for API Keys
 var apiKey, googleApiKey, mapQuestApiKey;
 
-
 //load firebase
 var config = {
     apiKey: "AIzaSyAFKkASmjO04PGg2KbBEOAlThg1rwd8Pkk",
@@ -265,7 +264,7 @@ $('.btn-large').on('click', function() {
         saved: false
     };
 
-    $.post('/user', resultsData, function(data){
+    $.post('/app', resultsData, function(data){
         //
         console.log(data);
     });
@@ -374,9 +373,19 @@ $('#hungryBtn').on('click', function(e) {
                     city: recCity,
                     budget: recBudget,
                     rating: recRating,
-                    saved: false
+                    saved: false,
+                    userId: req.body.id
                 };
 
+                // $.ajax({
+                //     url: '/user',
+                //     method: 'POST',
+                //     headers: {
+                //         Cookie: 
+                //     }
+                // }).done(function(){
+
+                //});
                 $.post('/user', resultsData, function(data){
                     //
                     console.log(data);
