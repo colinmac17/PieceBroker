@@ -169,17 +169,6 @@ main {
 	bottom: 0;	
 }
 
-#progress1 {
-    max-width: 400px;
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 70px;
-}
-
-#progress2 {
-    max-width: 400px;
-}
-
 #loader-container {
     margin-top: 130px;
     margin-bottom: 100px;
@@ -319,9 +308,25 @@ main {
     line-height: 30px;
     margin-bottom: 50px;
 }
-
+/* progress bar */
+.progress {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    margin: .5rem 0 1rem 0;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    max-width: 300px;
+}
 
 /* containers */
+
+.container_centered {
+    text-align: center;
+}
 
 .location-container {
     max-width: 500px;
@@ -565,7 +570,7 @@ main {
 .errMsg {
     color: red;
     margin-top: 5px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .errMsg2 {

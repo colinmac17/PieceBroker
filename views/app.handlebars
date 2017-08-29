@@ -32,7 +32,7 @@
 </div>
 
 <!--2nd screen: Pick cuisine type container-->
-<div class="carousel container" id="foodType-container">
+<div class="carousel container_centered" id="foodType-container">
     <div class="row center">
         <a>
             <img class="carousel-item" data-id="55" src="/images/updatedFood/Italian_updated.jpg" alt="">
@@ -59,22 +59,20 @@
             <img class="carousel-item" data-id="25" src="/images/updatedFood/Chinese_updated.jpg" alt="">
         </a>
     </div>
-    <div class="row center">
-        <!-- back button 1 -->
-        <div class="row col s10 offset-s1 m4 offset-m4 center">
-            <a class="waves-effect waves-light btn" id="backButton1" onclick="location.reload()">Restart</a>
-        </div>
+    <div class="container container_centered">
         <!-- progress bar -->
-        <div class="row col s10 offset-s1 m4 offset-m4 center">
-            <div class="progress" id="progress1">
-                <div class="determinate" style="width: 33%"></div>
-            </div>
+        <div class="progress" id="progress1">
+            <div class="determinate" style="width: 33%"></div>
         </div>
+    </div>
+    <!-- back button 2 -->
+    <div class="row center">
+        <a class="waves-effect waves-light btn" id="backButton2" onclick="location.reload()">Restart</a>
     </div>
 </div>
 
 <!--3rd screen: Budget preference container-->
-<div class="container text-center" id="budget-container">
+<div class="container text-center" id="budget-container" style="display: block">
     <div class="row">
         <div class="col s10 offset-s1 m4 offset-m4">
             <div class="card blue">
@@ -93,15 +91,14 @@
         <p class="errMsg" id="medErrMsg">Sorry, there are no medium-priced restaurants for your selection</p>
         
         <button class="btn btn-large green" data-id="expensive">$$$</button>
-        <p class="errMsg" id="expErrMsg">Sorry, there are no expensive restaurants for your selection</p>
+        <p class="errMsg" id="expErrMsg">Uh oh, we can't seem find any restaurants.</p>
     </div>
-    <div class="container">
+    <div class="container container_centered">
         <!-- progress bar -->
-        <!-- <div class="row col s10 offset-s1 m4 offset-m4 center-align"> -->
-            <div class="progress" id="progress2">
-                <div class="determinate" style="width: 66%"></div>
-            </div>
+        <div class="progress" id="progress2">
+            <div class="determinate" style="width: 66%"></div>
         </div>
+    </div>
         <!-- back button 2 -->
         <div class="row center">
             <a class="waves-effect waves-light btn" id="backButton2" onclick="location.reload()">Restart</a>
@@ -111,11 +108,8 @@
 
 <!--error message to show if no restaurants are found in a city-->
 <div id="errDiv">
-    <h1 class="errMsg"></h1>
+    <p class="errMsg"></p>
 </div>
-
-<!--Loader to show between data search-->
-{{!-- <div class="loader center-block text-center"></div> --}}
 
 <!--Preloader to show between views-->
 <div class="preloader-background loader">
