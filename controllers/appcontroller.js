@@ -15,7 +15,6 @@ var authController = require('./authcontroller');
 //Home & Signup Page
 router.get('/', function(req, res) {
     res.render('index');
-    console.log(req.cookies);
 });
 
 //Signup page
@@ -30,7 +29,6 @@ router.get('/team', function(req, res) {
 });
 //Main Application
 router.get('/app', isLoggedIn, function(req, res) {
-    console.log(req.session.passport.user);
     res.render('app');
 });
 // Results page
@@ -43,18 +41,34 @@ router.post('/app', function(req, res){
     req.body.userId = req.user.id;
     //Creat row for user result
     db.result.create(req.body).then(function(result){
-        console.log('body: ' + JSON.stringify(req.body));
         res.send(req.body);
     });
 });
 
 router.get('/profile', isLoggedIn, function(req, res) {
+    var hbsObj = {};
     db.user.findOne({
         where: {
             id: req.user.id
         }
     }).then(function(data) {
-        res.render('profile', { user: data });
+        hbsObj.user = data;
+    });
+    db.result.findAll({
+        where: {
+            userId: req.user.id
+        }
+    }).then(function(resultData){
+        hbsObj.result = resultData;
+        // var allResults = [];
+        // resultData.forEach(function(result){
+        //     allResults.push(result.dataValues);
+        // });
+        // for (var i = 0; i < resultData.length; i ++) {
+        //     hbsObj.result[i] = resultData[i];
+        // }
+        console.log(hbsObj.result);
+        res.render('profile', hbsObj);
     });
 });
 
