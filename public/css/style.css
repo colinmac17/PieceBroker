@@ -360,6 +360,10 @@ main {
     display: none;
 }
 
+#directionsButton {
+    background-color: #ffab40;
+}
+
 .contact-btn {
     border: none;
     outline: 0;

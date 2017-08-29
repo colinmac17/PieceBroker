@@ -33,7 +33,7 @@ router.get('/app', isLoggedIn, function(req, res) {
     console.log(req.session.passport.user);
     res.render('app');
 });
-
+// Results page
 router.get('/results', function(req, res) {
     res.render("results");
 });
@@ -48,14 +48,14 @@ router.post('/app', function(req, res){
     });
 });
 
-router.get('/profile', isLoggedIn, function(req, res){
+router.get('/profile', isLoggedIn, function(req, res) {
     db.user.findOne({
         where: {
-          id: req.user.id
+            id: req.user.id
         }
-        }).then(function(data){
-        res.render('profile', {user: data});
-      });
+    }).then(function(data) {
+        res.render('profile', { user: data });
+    });
 });
 
 router.get('/logout', authController.logout);
