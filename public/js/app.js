@@ -11,7 +11,7 @@ var config = {
     projectId: "piecebroker-65733",
     storageBucket: "piecebroker-65733.appspot.com",
     messagingSenderId: "189574691729"
-  };
+};
 
 // initialize app
 firebase.initializeApp(config);
@@ -37,10 +37,10 @@ if (window.location.pathname === '/app') {
             $('#locationLoad').show();
             userLatitude = JSON.parse(sessionStorage.getItem('latitude'));
             userLongitude = JSON.parse(sessionStorage.getItem('longitude'));
-    
+
             //Map Quest Reverse Geocoding API to get user Location
             var mapQuestUrl = `https://www.mapquestapi.com/geocoding/v1/reverse?key=2WVKqO9NXOy5IwHWVq4vzZZK5PZ5YjcK&location=${userLatitude}%2C${userLongitude}&outFormat=json&thumbMaps=false`;
-    
+
             $.ajax({
                 url: mapQuestUrl,
                 method: 'GET'
@@ -88,7 +88,7 @@ if (window.location.pathname === '/app') {
                 //   2: position unavailable (error response from location provider)
                 //   3: timed out
             };
-    
+
             navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
         }
     };
@@ -156,7 +156,7 @@ $('#submitBtn').on('click', function(e) {
 });
 
 //Get User Choice for Cuisine
-$(".carousel-item").on("click", function() {
+$(".card-image").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
     $('.loader').show();
@@ -193,7 +193,7 @@ $(".carousel-item").on("click", function() {
 
 $('.btn-large').on('click', function() {
     userBudget = $(this).attr("data-id");
-   
+
     if (userBudget === 'cheap') {
         //check if there is a cheap restaurant
         if (cheapRestaurants.length === 0) {
@@ -264,7 +264,7 @@ $('.btn-large').on('click', function() {
         saved: false
     };
 
-    $.post('/app', resultsData, function(data){
+    $.post('/app', resultsData, function(data) {
         //
         console.log(data);
     });
@@ -273,7 +273,10 @@ $('.btn-large').on('click', function() {
     $('#recName').text(recName);
     $('#recAddress').text(recAddress);
     $('#recRating').text(recRating);
-    $('#recLink').attr('href', recDetails);
+    $('#recDetails').attr("href", recDetails);
+    $('#recCuisine').text(recCuisine);
+    $('#recBudget').text(recBudget);
+
 
     $('#budget-container').hide();
     $('#resultProgressMsg').show();
@@ -375,8 +378,8 @@ $('#hungryBtn').on('click', function(e) {
                     rating: recRating,
                     saved: false
                 };
-
-                $.post('/app', resultsData, function(data){
+              
+                $.post('/user', resultsData, function(data) {
                     //
                     console.log(data);
                 });
@@ -385,7 +388,10 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recName').text(recName);
                 $('#recAddress').text(recAddress);
                 $('#recRating').text(recRating);
-                $('#recLink').attr('href', recDetails);
+                $('#recDetails').attr('href', recDetails);
+                $('#recCuisine').text(recCuisine);
+                $('#recBudget').text(recBudget);
+
 
                 $('#resultProgressMsg').show();
                 $('#results-container').show();
@@ -399,6 +405,13 @@ $('#hungryBtn').on('click', function(e) {
             });
         });
     }
+});
+
+// Show Google Map function
+$('#directionsButton').on('click', function(e) {
+    e.preventDefault();
+    $('#googleMapContainer').show();
+
 });
 
 //Function to hide fail message
