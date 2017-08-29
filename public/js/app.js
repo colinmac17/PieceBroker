@@ -150,6 +150,7 @@ $('#submitBtn').on('click', function(e) {
             //confirm that user has entered in a city
             cityID = response.location_suggestions[0].id;
             $('#foodType-container').show();
+            $('#progress1').show();
             return cityID;
         });
     }

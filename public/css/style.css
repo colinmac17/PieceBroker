@@ -348,6 +348,40 @@ div.card-action.center.page1 {
     text-align: center;
     display: inline-block;
     max-width: 300px;
+    display: none;
+    text-align: center;
+}
+
+#progress1 {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    /* margin: .5rem 0 1rem 0; */
+    /* margin: auto; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    overflow: hidden;
+    /* text-align: center; */
+    display: block;
+    max-width: 300px;
+    display: inline-block; 
+}
+
+#progress2 {
+    position: fixed;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    margin: .5rem 0 1rem 0;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    max-width: 300px;
+    display: none; 
 }
 
 .flow-text {
@@ -357,6 +391,8 @@ div.card-action.center.page1 {
 
 .container_centered {
     text-align: center;
+    width: 50%;
+    margin: auto;
 }
 
 .location-container {
@@ -365,7 +401,9 @@ div.card-action.center.page1 {
 }
 
 #foodType-container {
-    display: none;   
+    display: none;  
+    margin: auto;
+    width: 50%;
 }
 
 .about-container {

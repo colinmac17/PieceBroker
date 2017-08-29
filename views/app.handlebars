@@ -33,15 +33,21 @@
 
 <!--2nd screen: Pick cuisine type container-->
     <div class="container" id="foodType-container">
+        <!--progress bar-->
+<div class="container container_centered">
+    <div class="progress" id="progress1">
+        <div class="determinate" style="width: 33%"></div>
+    </div>
+</div>
       <div class="row">
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="73">
               <img src="/images/updatedFood/Italian_updated.jpg">
             </div>
           </div>
         </div>
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="1">
               <img src="/images/updatedFood/Americana_updated.jpg">
@@ -51,14 +57,14 @@
       </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="55">
               <img src="/images/updatedFood/Indian_updated.jpg">
             </div>
           </div>
         </div>
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="73">
               <img src="/images/updatedFood/mexican.jpeg">
@@ -68,14 +74,14 @@
       </div>
 
      <div class="row">
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="177">
               <img src="/images/updatedFood/Sushi.jpg">
             </div>
           </div>
         </div>
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="308">
               <img src="/images/updatedFood/Vegetarian.jpg">
@@ -85,14 +91,14 @@
       </div>
 
     <div class="row">
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="70">
               <img src="/images/updatedFood/Mediteranian_Updated.jpg">
             </div>
           </div>
         </div>
-        <div class="col s6">
+        <div class="col s6 centering-cards">
           <div class="card">
             <div class="card-image" data-id="25">
               <img src="/images/updatedFood/Chinese_updated.jpg">
@@ -104,7 +110,7 @@
  </div>
       
 <!--3rd screen: Budget preference container-->
-<div class="container text-center" id="budget-container" style="display: block">
+<div class="container text-center" id="budget-container">
     <div class="row">
         <div class="col s10 offset-s1 m4 offset-m4">
             <div class="card blue">
@@ -125,8 +131,8 @@
         <button class="btn btn-large green" data-id="expensive">$$$</button>
         <p class="errMsg" id="expErrMsg">Uh oh, we can't seem find any restaurants.</p>
     </div>
+    <!-- progress bar -->
     <div class="container container_centered">
-        <!-- progress bar -->
         <div class="progress" id="progress2">
             <div class="determinate" style="width: 66%"></div>
         </div>
