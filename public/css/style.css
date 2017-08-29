@@ -27,12 +27,19 @@ main {
     max-width: 400px;
 }
 
+
+.centering-cards {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
 div.card-action.center.page1 {
     flex: auto;
 }
 
 .card {
-    width: 85%;
+    width: 100%;
 }
 
 .card-image {
@@ -433,7 +440,6 @@ margin: auto; */
 #foodType-container {
     display: none;  
     margin: auto;
-    width: 50%;
 }
 
 .about-container {
