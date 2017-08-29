@@ -10,8 +10,20 @@ main {
     flex: 1 0 auto;
 }
 
-.carousel .carousel-item>img {
-    width: 150%;
+.centering-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-home {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card {
+    width: 85%;
 }
 
 .card-image {
@@ -257,7 +269,7 @@ main {
     color: #3e3e3e;
 }
 
-#recLink {
+#recDetails {
     color: dodgerblue;
 }
 
@@ -342,7 +354,7 @@ main {
     margin-bottom: 100px;
 }
 
-.results-container {
+#results-container {
     display: none;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -350,6 +362,10 @@ main {
 
 .history-container {
     margin-bottom: 100px;
+}
+
+#googleMapContainer {
+    display: none;
 }
 
 
