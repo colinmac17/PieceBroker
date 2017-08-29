@@ -10,13 +10,39 @@ main {
     flex: 1 0 auto;
 }
 
-.carousel .carousel-item>img {
-    width: 150%;
+.center.welcome {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.centering-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-home {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+div.card-action.center.page1 {
+    flex: auto;
+}
+
+.card {
+    width: 85%;
 }
 
 .card-image {
     position: relative;
-    width: 100%
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-image:hover {
+    opacity: 0.7;
 }
 
 .card-title-team {
@@ -139,6 +165,7 @@ main {
     border-radius: 5px;
 }
 
+
 /* .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
@@ -153,20 +180,21 @@ main {
     margin-bottom: 100px;
 } */
 
+
 /* Materialize preloader */
+
 .loader {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin-bottom: 100px;
     /* display: none; */
-    
-	position: fixed;
-	/* z-index: 100; */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;	
+    position: fixed;
+    /* z-index: 100; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #loader-container {
@@ -255,7 +283,7 @@ main {
     color: #3e3e3e;
 }
 
-#recLink {
+#recDetails {
     color: dodgerblue;
 }
 
@@ -322,6 +350,9 @@ main {
     max-width: 300px;
 }
 
+.flow-text {
+    font-size: 16px;
+}
 /* containers */
 
 .container_centered {
@@ -347,7 +378,7 @@ main {
     margin-bottom: 100px;
 }
 
-.results-container {
+#results-container {
     display: none;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -357,12 +388,20 @@ main {
     margin-bottom: 100px;
 }
 
+#googleMapContainer {
+    display: none;
+}
+
 
 /* buttons */
 
 #logOutBtn,
 #myAccount {
     display: none;
+}
+
+#directionsButton {
+    background-color: #ffab40;
 }
 
 .contact-btn {
@@ -411,8 +450,8 @@ main {
 
 #info-button {
     background-color: #ffab40;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 #backButton1 {

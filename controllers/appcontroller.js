@@ -16,6 +16,7 @@ var authController = require('./authcontroller');
 router.get('/', function(req, res) {
     res.render('index');
 });
+
 //Signup page
 router.get('/signup', authController.signup);
 
@@ -27,30 +28,40 @@ router.get('/team', function(req, res) {
     res.render('team');
 });
 //Main Application
-router.get('/app', function(req, res) {
+router.get('/app', isLoggedIn, function(req, res) {
     res.render('app');
 });
-
+// Results page
 router.get('/results', function(req, res) {
     res.render("results");
 });
 
-router.post('/user', function(req, res){
-//Post route for results to DB
-    // db.result.create(req.body).then(function(result){
-    //     console.log('body: ' + JSON.stringify(req.body));
-    //     res.send(req.body);
-    // });
+router.post('/app', function(req, res){
+    // add userId to passing object
+    req.body.userId = req.user.id;
+    //Creat row for user result
+    db.result.create(req.body).then(function(result){
+        res.send(req.body);
+    });
 });
 
-router.get('/profile', isLoggedIn, function(req, res){
+router.get('/profile', isLoggedIn, function(req, res) {
+    var hbsObj = {};
     db.user.findOne({
         where: {
-          id: req.user.id
+            id: req.user.id
         }
-        }).then(function(data){
-        res.render('profile', {user: data});
-      });
+    }).then(function(data) {
+        hbsObj.user = data;
+    });
+    db.result.findAll({
+        where: {
+            userId: req.user.id
+        }
+    }).then(function(resultData){
+        hbsObj.result = resultData;
+        res.render('profile', hbsObj);
+    });
 });
 
 router.get('/logout', authController.logout);
