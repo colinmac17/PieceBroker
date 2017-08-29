@@ -169,10 +169,15 @@ main {
 	bottom: 0;	
 }
 
-.progress {
+#progress1 {
+    max-width: 400px;
     position: fixed;
     bottom: 0;
     margin-bottom: 70px;
+}
+
+#progress2 {
+    max-width: 400px;
 }
 
 #loader-container {
