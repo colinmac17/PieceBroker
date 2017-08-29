@@ -27,6 +27,10 @@ main {
     max-width: 400px;
 }
 
+div.card-action.center.page1 {
+    flex: auto;
+}
+
 .card {
     width: 85%;
 }
