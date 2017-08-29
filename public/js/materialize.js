@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function() {
     //add Materialize js here
-    $(".button-collapse").sideNav();
+    $('.carousel').carousel();
+    $(".button-collapse").sideNav({edge: 'right', menuWidth: 150});
+    $('.modal').modal();
 });

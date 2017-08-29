@@ -21,7 +21,7 @@ app.use(express.static('./public'));
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.text());
   app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-  
+
   app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
@@ -31,9 +31,9 @@ app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 require('./config/passport')(passport, db.user);
-
 var routes = require('./controllers/appcontroller');
 app.use('/', routes);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

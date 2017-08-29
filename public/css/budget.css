@@ -1,3 +1,7 @@
+/* #budget-container {
+    display: none;
+}
+
 #budget-container div.col.s4.offset-s4.center-align {
     color: white;
     font-size: 20px;
@@ -13,7 +17,8 @@ font-size: 30px;
 height: 100px;
 margin-right: 15px;
 margin-left: 10px;
-}
+margin-bottom: 10px;
+} */
 
 
 
