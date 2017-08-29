@@ -283,7 +283,7 @@ $('.btn-large').on('click', function() {
     $('#results-container').show();
     //set static map
     var map = $('#googleMapContainer');
-    var imgSrc = `https://maps.googleapis.com/maps/api/directions/json?origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&key=${googleApiKey}`;
+    var imgSrc = `https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&avoid=tolls|highways`;
     $('.map-title').show();
     $('#showMap').attr('src', imgSrc);
     map.show();
