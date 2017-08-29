@@ -376,19 +376,9 @@ $('#hungryBtn').on('click', function(e) {
                     city: recCity,
                     budget: recBudget,
                     rating: recRating,
-                    saved: false,
-                    userId: req.body.id
+                    saved: false
                 };
-
-                // $.ajax({
-                //     url: '/user',
-                //     method: 'POST',
-                //     headers: {
-                //         Cookie: 
-                //     }
-                // }).done(function(){
-
-                //});
+              
                 $.post('/user', resultsData, function(data) {
                     //
                     console.log(data);
