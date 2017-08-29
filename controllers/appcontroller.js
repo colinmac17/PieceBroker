@@ -30,27 +30,27 @@ router.get('/team', function(req, res) {
 router.get('/app', function(req, res) {
     res.render('app');
 });
-
+// Results page
 router.get('/results', function(req, res) {
     res.render("results");
 });
 
-router.post('/user', function(req, res){
-//Post route for results to DB
+router.post('/user', function(req, res) {
+    //Post route for results to DB
     // db.result.create(req.body).then(function(result){
     //     console.log('body: ' + JSON.stringify(req.body));
     //     res.send(req.body);
     // });
 });
 
-router.get('/profile', isLoggedIn, function(req, res){
+router.get('/profile', isLoggedIn, function(req, res) {
     db.user.findOne({
         where: {
-          id: req.user.id
+            id: req.user.id
         }
-        }).then(function(data){
-        res.render('profile', {user: data});
-      });
+    }).then(function(data) {
+        res.render('profile', { user: data });
+    });
 });
 
 router.get('/logout', authController.logout);
