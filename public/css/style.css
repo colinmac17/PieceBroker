@@ -323,23 +323,17 @@ main {
 
 /* containers */
 
-.about-container {
-    padding: 0 16px;
-}
-
-#foodType-container {
-    display: none;
-    
-}
-
 .location-container {
     max-width: 500px;
     margin-top: 130px;
 }
 
-.gif-container {
-    margin-top: 20px;
-    margin-bottom: 100px;
+#foodType-container {
+    display: none;   
+}
+
+.about-container {
+    padding: 0 16px;
 }
 
 .price-container {
