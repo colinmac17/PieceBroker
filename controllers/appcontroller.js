@@ -60,14 +60,6 @@ router.get('/profile', isLoggedIn, function(req, res) {
         }
     }).then(function(resultData){
         hbsObj.result = resultData;
-        // var allResults = [];
-        // resultData.forEach(function(result){
-        //     allResults.push(result.dataValues);
-        // });
-        // for (var i = 0; i < resultData.length; i ++) {
-        //     hbsObj.result[i] = resultData[i];
-        // }
-        console.log(hbsObj.result);
         res.render('profile', hbsObj);
     });
 });
