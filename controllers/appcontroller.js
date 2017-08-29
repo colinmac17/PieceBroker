@@ -15,7 +15,9 @@ var authController = require('./authcontroller');
 //Home & Signup Page
 router.get('/', function(req, res) {
     res.render('index');
+    console.log(req.cookies);
 });
+
 //Signup page
 router.get('/signup', authController.signup);
 
@@ -27,7 +29,8 @@ router.get('/team', function(req, res) {
     res.render('team');
 });
 //Main Application
-router.get('/app', function(req, res) {
+router.get('/app', isLoggedIn, function(req, res) {
+    console.log(req.session.passport.user);
     res.render('app');
 });
 
@@ -35,12 +38,14 @@ router.get('/results', function(req, res) {
     res.render("results");
 });
 
-router.post('/user', function(req, res){
-//Post route for results to DB
-    // db.result.create(req.body).then(function(result){
-    //     console.log('body: ' + JSON.stringify(req.body));
-    //     res.send(req.body);
-    // });
+router.post('/app', function(req, res){
+    // add userId to passing object
+    req.body.userId = req.user.id;
+    //Creat row for user result
+    db.result.create(req.body).then(function(result){
+        console.log('body: ' + JSON.stringify(req.body));
+        res.send(req.body);
+    });
 });
 
 router.get('/profile', isLoggedIn, function(req, res){
