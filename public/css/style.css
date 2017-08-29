@@ -10,13 +10,35 @@ main {
     flex: 1 0 auto;
 }
 
+.center.welcome {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.centering-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-home {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+div.card-action.center.page1 {
+    flex: auto;
+}
+
 .card {
     width: 85%;
 }
 
 .card-image {
     position: relative;
-    width: 100%
+    width: 100%;
+    cursor: pointer;
 }
 
 .card-title-team {
@@ -414,8 +436,8 @@ main {
 
 #info-button {
     background-color: #ffab40;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 #backButton1 {
