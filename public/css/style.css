@@ -808,14 +808,6 @@ th {
     font-size: 14px;
 }
 
-.monospae {
-    font-family: monospace;
-}
-
-.username {
-    
-}
-
 @media screen and (max-width:991px) {
     .result-gif {
         display: none;
