@@ -27,12 +27,19 @@ main {
     max-width: 400px;
 }
 
+
+.centering-cards {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
 div.card-action.center.page1 {
     flex: auto;
 }
 
 .card {
-    width: 85%;
+    width: 100%;
 }
 
 .card-image {
@@ -210,6 +217,29 @@ div.card-action.center.page1 {
     font-size: 20px;
 }
 
+#budget-container {
+    display: none;
+}
+
+#budget-container div.col.s4.offset-s4.center-align {
+    color: white;
+    font-size: 20px;
+} 
+
+#budget-container div.card.blue {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* #budget-container .btn.btn-large.green {
+font-size: 30px;
+height: 100px;
+margin-right: 15px;
+margin-left: 10px;
+margin-bottom: 10px;
+}  */
+
+
 .budget-title {
     color: #fffff0;
     /*font-weight: 900;
@@ -336,20 +366,70 @@ div.card-action.center.page1 {
     line-height: 30px;
     margin-bottom: 50px;
 }
+/* progress bar */
+.progress {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    margin: .5rem 0 1rem 0;
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    max-width: 300px;
+    display: none;
+    text-align: center;
+}
+
+#progress1 {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    /* margin: .5rem 0 1rem 0; */
+    /* margin: auto; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    overflow: hidden;
+    /* text-align: center; */
+    display: block;
+    max-width: 300px;
+    display: inline-block; 
+}
+
+#progress2 {
+    position: relative;
+    height: 4px;
+    width: 100%;
+    background-color:gray;
+    border-radius: 2px;
+    /* margin: .5rem 0 1rem 0; */
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    max-width: 300px;
+    display: none; 
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+/* text-align: center;
+width: 30%;
+margin: auto; */
 
 .flow-text {
     font-size: 16px;
 }
-
-
 /* containers */
 
-.about-container {
-    padding: 0 16px;
-}
-
-#foodType-container {
-    display: none;
+.container_centered {
+    text-align: center;
+    width: 50%;
+    margin: auto;
 }
 
 .location-container {
@@ -357,9 +437,13 @@ div.card-action.center.page1 {
     margin-top: 130px;
 }
 
-.gif-container {
-    margin-top: 20px;
-    margin-bottom: 100px;
+#foodType-container {
+    display: none;  
+    margin: auto;
+}
+
+.about-container {
+    padding: 0 16px;
 }
 
 .price-container {
@@ -444,18 +528,43 @@ div.card-action.center.page1 {
     margin-bottom: 25px;
 }
 
-#backButton1 {
-    position: fixed;
+.backButton {
+    position: relative;
     bottom: 0;
     margin-bottom: 10px;
+    display: none;
+    margin: auto;
+    text-align: center;
+    width: 30%;
 }
 
+/* #backButton1 {
+    position: relative;
+    bottom: 0;
+    margin-bottom: 10px;
+    display: none;
+} */
+
 #backButton2 {
-    position: inherit;
+    position: relative;
+    bottom: 0;
+    margin-bottom: 10px;
+    display: none;
+    margin: auto;
+    text-align: center;
+    width: 10%;
+    text-align: center;
+    width: 10%;
+    margin: auto;
+}
+
+/* #backButton2 {
+    position: relative;
     bottom: 0;
     margin-bottom: 5px;
     margin-top: 40px;
-}
+    display: none;
+} */
 
 
 /* #submitBtn:hover, */
@@ -599,7 +708,7 @@ div.card-action.center.page1 {
 .errMsg {
     color: red;
     margin-top: 5px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .errMsg2 {
