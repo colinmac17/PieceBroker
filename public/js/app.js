@@ -265,6 +265,7 @@ $('.btn-large').on('click', function() {
         city: recCity,
         budget: recBudget,
         rating: recRating,
+        link: recDetails,
         saved: false
     };
 
@@ -370,13 +371,14 @@ $('#hungryBtn').on('click', function(e) {
                 destLatitude = userResult.location.latitude;
                 destLongitude = userResult.location.longitude;
 
-                //Data for Results Model
+               //Data for Results Model
                 var resultsData = {
                     restaurant_name: recName,
                     cuisine_type: recCuisine,
                     city: recCity,
                     budget: recBudget,
                     rating: recRating,
+                    link: recDetails,
                     saved: false
                 };
 
