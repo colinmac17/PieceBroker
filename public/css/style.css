@@ -263,6 +263,11 @@ margin-bottom: 10px;
     cursor: pointer;
 }
 
+#recDetails:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .fa {
     margin-right: 5px;
 }
@@ -451,7 +456,6 @@ margin: auto; */
 
 #results-container {
     display: none;
-    margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -548,8 +552,6 @@ margin: auto; */
     margin-bottom: 10px;
     display: none;
     margin: auto;
-    text-align: center;
-    width: 10%;
     text-align: center;
     width: 10%;
     margin: auto;
