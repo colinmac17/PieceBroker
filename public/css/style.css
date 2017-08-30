@@ -808,6 +808,10 @@ th {
     font-size: 14px;
 }
 
+#username {
+    padding:5px;
+}
+
 @media screen and (max-width:991px) {
     .result-gif {
         display: none;
