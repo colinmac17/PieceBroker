@@ -30,7 +30,6 @@ database.ref().once("value", function(snapshot) {
 $('.loader').hide();
 // Only ask user for location if they are on the app
 if (window.location.pathname === '/app') {
-    console.log('on app');
     window.onload = function() {
         //gather user location
         if (sessionStorage.getItem('latitude') !== null || sessionStorage.getItem('longitude') !== null) {
