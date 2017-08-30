@@ -36,6 +36,13 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1]
             }
         },
+        link: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+                len: [1]
+            }
+        },
         saved: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

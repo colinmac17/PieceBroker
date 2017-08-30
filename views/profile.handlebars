@@ -23,14 +23,14 @@
                     <th><span class="black-text center-align">Restaurant Name</span></th>
                     <th><span class="black-text center-align">City</span></th>
                     <th><span class="black-text center-align">Cuisine Type</span></th>
-                    <th><span class="black-text center-align">Cost</span></th>
+                    <th><span class="black-text center-align">Avg Cost for 2</span></th>
                     <th><span class="black-text center-align">Rating</span></th>
                 </tr>
             </thead>
             <tbody class="table-body center-align"> 
                 {{#each result}}
                 <tr>
-                    <td id="restResName"><span class="green-text text-darken-1">{{this.dataValues.restaurant_name}}</span></td>
+                    <td id="restResName"><span class="green-text text-darken-1"><a href={{this.dataValues.link}} target="_blank">{{this.dataValues.restaurant_name}}</a></span></td>
                     <td id="restResCity"><span class="green-text text-darken-1">{{this.dataValues.city}}</span></td>
                     <td id="restResCuisine"><span class="green-text text-darken-1">{{this.dataValues.cuisine_type}}</span></td>
                     <td id="restResCost"><span class="green-text text-darken-1">${{this.dataValues.budget}}</span></td>

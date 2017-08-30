@@ -1,4 +1,3 @@
-
 {{!--<!-- Modal Trigger -->
 <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
@@ -33,16 +32,10 @@
 
 <!--2nd screen: Pick cuisine type container-->
 <div class="container" id="foodType-container">
-    <!--progress bar-->
-    <div class="container container_centered">
-        <div class="progress" id="progress1">
-            <div class="determinate" style="width: 33%"></div>
-        </div>
-    </div>
     <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
-                <div class="card-image" data-id="73">
+                <div class="card-image" data-id="55">
                     <img src="/images/updatedFood/Italian_updated.jpg">
                 </div>
             </div>
@@ -59,7 +52,7 @@
     <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
-                <div class="card-image" data-id="55">
+                <div class="card-image" data-id="148">
                     <img src="/images/updatedFood/Indian_updated.jpg">
                 </div>
             </div>
@@ -67,13 +60,13 @@
     <div class="col s6 centering-cards">
         <div class="card">
             <div class="card-image" data-id="73">
-                <img src="/images/updatedFood/mexican.jpeg">
+              <img src="/images/updatedFood/Mexican_updated.jpg">
             </div>
         </div>
     </div>
     </div>
-
-    <div class="row">
+    
+     <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
                 <div class="card-image" data-id="177">
@@ -84,7 +77,7 @@
     <div class="col s6 centering-cards">
         <div class="card">
             <div class="card-image" data-id="308">
-                <img src="/images/updatedFood/Vegetarian.jpg">
+              <img src="/images/updatedFood/Vegetarian_updated.jpg">
             </div>
         </div>
     </div>
@@ -106,6 +99,12 @@
             </div>
         </div>
     </div>
+<!--progress bar-->
+<div class="container container_centered">
+    <div class="progress" id="progress1">
+        <div class="determinate" style="width: 33%"></div>
+    </div>
+</div>
 </div>
 <!-- back button 2 -->
 <div class="row center">
@@ -113,10 +112,6 @@
 </div>
         
 <!--3rd screen: Budget preference container-->
-<!-- progress bar -->
-<div class="progress" id="progress2">
-    <div class="determinate" style="width: 66%"></div>
-</div>
 <div class="container text-center" id="budget-container">
     <div class="row center-align">
         <div class="col s10 offset-s1 m4 offset-m4">
@@ -138,6 +133,10 @@
         <button class="btn btn-large green" data-id="expensive">$$$</button>
         <p class="errMsg" id="expErrMsg">Uh oh, we can't seem find any restaurants.</p>
     </div>
+    <!-- progress bar -->
+<div class="progress" id="progress2">
+    <div class="determinate" style="width: 66%"></div>
+</div>
 </div>
 <!-- back button 2 -->
 <div class="row center button-centered">
@@ -181,17 +180,17 @@
     </div>
 
     {{!--Holds button--}}
-    <div class="row button-container center-align">
+    {{!--<div class="row button-container center-align">
         <div class="col s4">
             <a class="waves-effect waves-light btn blue darken-1" id="directionsButton">GET DIRECTIONS</a>
         </div>
-    </div>
+    </div>--}}
 
     {{!--Google Maps Container--}}
     <div class="container google-map-container" id="googleMapContainer">
         <div class="row">
             <div class="col s12 m8 l10">
-                <img class="responsive-img" id="showMap"src="/images/jj-conoscenti.jpeg">
+                <iframe id="showMap" width="600" height="450" frameborder="0" style="border:0"></iframe>
             </div>
         </div>
     </div>
@@ -219,6 +218,3 @@
         </div>
     </div>
 </div>
-
-
-
