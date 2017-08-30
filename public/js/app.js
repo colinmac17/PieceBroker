@@ -150,6 +150,8 @@ $('#submitBtn').on('click', function(e) {
             //confirm that user has entered in a city
             cityID = response.location_suggestions[0].id;
             $('#foodType-container').show();
+            $('#progress1').show();
+            $('#backButton1').show();
             return cityID;
         });
     }
@@ -160,7 +162,9 @@ $(".card-image").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
     $('.loader').show();
+    $('#backButton1').hide();
     $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
+    $('#progress2').show();
     $('#budgetProgressMsg').show();
     cuisineID = $(this).attr("data-id");
 
@@ -175,6 +179,7 @@ $(".card-image").on("click", function() {
     }).done(function(response) {
         $('.loader').hide();
         $('#budgetProgressMsg').hide();
+        $('#backButton2').show();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
             if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
@@ -279,6 +284,7 @@ $('.btn-large').on('click', function() {
 
 
     $('#budget-container').hide();
+    $('#progress2').hide();
     $('#resultProgressMsg').show();
     $('#results-container').show();
     //set static map
