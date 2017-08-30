@@ -1,16 +1,16 @@
 <div class="container profile-container">
     {{!--CAN WE ADD THE PERSON'S NAME HERE?--}}
-    <h4 class="center">Welcome back {{user.first_name}}!</h4>
+    <h4 class="center monospace">Welcome back <span id="username" class="blue-text z-depth-2">{{user.first_name}}!</span></h4>
     
     {{!--User Info Area--}}
 <div class="row">
     <div class="col m6 s12">
-        <ul class="collection with-header">
+        <ul class="collection with-header z-depth-2">
             <li class="collection-header"><h4>My Info</h4></li>
             <li class="collection-item"><i class="material-icons left">account_circle</i><span id="userEmail">{{user.email}}</span></li>
             <li class="collection-item"><i class="material-icons left">add_location</i><span id="homeTown">{{user.city}}</span></li>
         </ul>
-        <a href="/logout" id="logoutBtn" class="waves-effect waves-light btn red" style="cursor:pointer;">Logout</a>
+        <a href="/logout" id="logoutBtn" class="waves-effect waves-light btn red z-depth-1" style="cursor:pointer;">Logout</a>
     </div>
 </div>
 

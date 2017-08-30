@@ -277,7 +277,7 @@ $('.btn-large').on('click', function() {
     $('#recRating').text(recRating);
     $('#recDetails').attr("href", recDetails);
     $('#recCuisine').text(recCuisine);
-    $('#recBudget').text(recBudget);
+    $('#recBudget').text(`$${recBudget}`);
 
 
     $('#budget-container').hide();

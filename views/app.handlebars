@@ -5,17 +5,18 @@
     <div class="row center input-field">
         <!--User form-->
         <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
-        <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
+        <a class="btn waves-effect waves-light green darken-1 z-depth-2" id="submitBtn">Find Food</a>
     </div>
     <div class="row center">
         <p class="errMsg" id="failMsg">Please enter a valid city</p>
-        <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
+        <a class="btn waves-effect waves-light grey lighten-1 z-depth-2" id="hungryBtn">Feeling hungry?</a>
         <p id="locationLoad" class="animated bounce">...Finding your location</p>
     </div>
 </div>
 <!--End of 1st screen, location search-->
 
 <!--2nd screen: Pick cuisine type container-->
+<br></br>
 <div class="container" id="foodType-container">
     <div class="row">
         <div class="col s6 centering-cards">
@@ -95,6 +96,7 @@
 <!--End of second screen, cuisine type-->
         
 <!--3rd screen: Budget preference container-->
+<br></br>
 <div class="container text-center" id="budget-container">
     <div class="row center-align">
         <div class="col s10 offset-s1 m4 offset-m4">
@@ -131,8 +133,9 @@
 <!--Title above table for Results-->
 <div class="container" id="results-container">
     <div class="row">
-        <div class="col s4 center-align">
-            <p class="blue-text center-align" id="heres-your-result">Here's your result:</p>
+        <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light z-depth-2" id="backButton3" onclick="location.reload()">Try Again</button>
+            <h5 class="blue-text center-align" id="heres-your-result">Here's your result:</h5>
         </div>
     </div>
 
