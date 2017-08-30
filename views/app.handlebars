@@ -1,19 +1,3 @@
-{{!--<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-<div class="modal-content">
-    <h4>Here's your result!</h4>
-    <p>We hope your next meal is peaceful</p>
-</div>
-<div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Order via GrubHub</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Get Directions</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Call an Order</a>
-</div>
-</div>--}}
-
 <!--1st screen: location search container-->
 <div class="container" id="location-container">
     <br></br>
@@ -21,14 +5,15 @@
     <div class="row center input-field">
         <!--User form-->
         <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
-        <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
+        <a class="btn waves-effect waves-light green darken-1 z-depth-2" id="submitBtn">Find Food</a>
     </div>
     <div class="row center">
         <p class="errMsg" id="failMsg">Please enter a valid city</p>
-        <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
+        <a class="btn waves-effect waves-light grey lighten-1 z-depth-2" id="hungryBtn">Feeling hungry?</a>
         <p id="locationLoad" class="animated bounce">...Finding your location</p>
     </div>
 </div>
+<!--End of 1st screen, location search-->
 
 <!--2nd screen: Pick cuisine type container-->
 <br></br>
@@ -49,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
@@ -66,7 +50,6 @@
         </div>
     </div>
     </div>
-    
      <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
@@ -83,7 +66,6 @@
         </div>
     </div>
     </div>
-
     <div class="row">
         <div class="col s6 centering-cards">
             <div class="card">
@@ -106,13 +88,12 @@
             <div class="determinate" style="width: 33%"></div>
         </div>
     </div>
-    <!-- back button -->
-    <div class="row">
-        <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton1" onclick="location.reload()">Restart</button>
-        </div>
-    </div>
 </div>
+<!-- back button 2 -->
+<div class="row center">
+    <a class="waves-effect waves-light btn backButton" id="backButton1" onclick="location.reload()">Restart</a>
+</div>
+<!--End of second screen, cuisine type-->
         
 <!--3rd screen: Budget preference container-->
 <br></br>
@@ -129,38 +110,36 @@
 
     <div class="row center-align" id="moneySigns">
         <button class="btn btn-large green" data-id="cheap">$</button>
-        <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
+        <p class="errMsg" id="cheapErrMsg">Whoops! Can't seem to find any cheap restaurants.</p>
         
         <button class="btn btn-large green" data-id="medium">$$</button>
-        <p class="errMsg" id="medErrMsg">Sorry, there are no medium-priced restaurants for your selection</p>
+        <p class="errMsg" id="medErrMsg">Oh no! We can't find any medium-priced restaurants based on your selection.</p>
         
         <button class="btn btn-large green" data-id="expensive">$$$</button>
-        <p class="errMsg" id="expErrMsg">Uh oh, we can't seem find any restaurants.</p>
+        <p class="errMsg" id="expErrMsg">Uh oh, we can't seem to find any restaurants that match your search.</p>
     </div>
     <!-- progress bar -->
-<div class="progress" id="progress2">
-    <div class="determinate" style="width: 66%"></div>
-</div>
-  <!-- back button -->
-    <div class="row">
-        <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton1" onclick="location.reload()">Restart</button>
-        </div>
+    <div class="progress" id="progress2">
+        <div class="determinate" style="width: 66%"></div>
     </div>
-
 </div>
+<!-- back button 2 -->
+<div class="row center button-centered">
+    <a class="waves-effect waves-light btn backButton" id="backButton2" onclick="location.reload()">Restart</a>
+</div>
+<!--End of 3rd screen, budget-->
 
-{{!--RESULTS--}}
-{{!--Title above table for Results--}}
+<!--Results-->
+<!--Title above table for Results-->
 <div class="container" id="results-container">
     <div class="row">
         <div class="col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton3" onclick="location.reload()">Restart</button>
+            <button class="btn waves-effect waves-light z-depth-2" id="backButton3" onclick="location.reload()">Try Again</button>
             <h5 class="blue-text center-align" id="heres-your-result">Here's your result:</h5>
         </div>
     </div>
 
-    {{!--Results Table--}}
+    <!--Results Table-->
     <div class="row results-table">
         <table class="responsive-table center-align">
             <thead>
@@ -187,14 +166,7 @@
         </table>
     </div>
 
-    {{!--Holds button--}}
-    {{!--<div class="row button-container center-align">
-        <div class="col s4">
-            <a class="waves-effect waves-light btn blue darken-1" id="directionsButton">GET DIRECTIONS</a>
-        </div>
-    </div>--}}
-
-    {{!--Google Maps Container--}}
+    <!--Google Maps Container-->
     <div class="container google-map-container" id="googleMapContainer">
         <div class="row">
             <div class="col s12 m8 l10">
@@ -203,7 +175,7 @@
         </div>
     </div>
 </div>
-{{!--END OF RESULTS--}}
+<!--END OF RESULTS-->
 
 <!--error message to show if no restaurants are found in a city-->
 <div id="errDiv">
