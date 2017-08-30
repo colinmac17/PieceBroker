@@ -30,7 +30,6 @@ database.ref().once("value", function(snapshot) {
 $('.loader').hide();
 // Only ask user for location if they are on the app
 if (window.location.pathname === '/app') {
-    console.log('on app');
     window.onload = function() {
         //gather user location
         if (sessionStorage.getItem('latitude') !== null || sessionStorage.getItem('longitude') !== null) {
@@ -161,8 +160,8 @@ $('#submitBtn').on('click', function(e) {
 $(".card-image").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
-    $('.loader').show();
     $('#backButton1').hide();
+    $('.loader').show();
     $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
     $('#progress2').show();
     $('#budgetProgressMsg').show();
@@ -178,8 +177,8 @@ $(".card-image").on("click", function() {
         }
     }).done(function(response) {
         $('.loader').hide();
-        $('#budgetProgressMsg').hide();
         $('#backButton2').show();
+        $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
             if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
@@ -266,13 +265,11 @@ $('.btn-large').on('click', function() {
         city: recCity,
         budget: recBudget,
         rating: recRating,
+        link: recDetails,
         saved: false
     };
 
-    $.post('/app', resultsData, function(data) {
-        //
-        console.log(data);
-    });
+    $.post('/app', resultsData, function(data) {});
 
     //add data to results page
     $('#recName').text(recName);
@@ -374,20 +371,18 @@ $('#hungryBtn').on('click', function(e) {
                 destLatitude = userResult.location.latitude;
                 destLongitude = userResult.location.longitude;
 
-                //Data for Results Model
+               //Data for Results Model
                 var resultsData = {
                     restaurant_name: recName,
                     cuisine_type: recCuisine,
                     city: recCity,
                     budget: recBudget,
                     rating: recRating,
+                    link: recDetails,
                     saved: false
                 };
 
-                $.post('/app', resultsData, function(data) {
-                    //
-                    console.log(data);
-                });
+                $.post('/app', resultsData, function(data) {});
 
                 //add data to results page
                 $('#recName').text(recName);
@@ -395,30 +390,20 @@ $('#hungryBtn').on('click', function(e) {
                 $('#recRating').text(recRating);
                 $('#recDetails').attr('href', recDetails);
                 $('#recCuisine').text(recCuisine);
-                $('#recBudget').text(recBudget);
+                $('#recBudget').text(`$${recBudget}`);
 
 
                 $('#resultProgressMsg').show();
                 $('#results-container').show();
                 //set static map
-                var map = $('#themap');
-                var imgSrc = `https://maps.googleapis.com/maps/api/staticmap?size=400x400&maptype=roadmap
-                &format=jpg-baseline&markers=color:red%7Clabel:A%7C${userLatitude},${userLongitude}&markers=icon:https://goo.gl/eiJSZQ%7C${destLatitude},${destLongitude}&path=color:blue|weight:4|${userLatitude},${userLongitude}|${destLatitude},${destLongitude}&key=${googleApiKey}`;
+                var map = $('#googleMapContainer');
+                var imgSrc = `https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&avoid=tolls|highways`;
                 $('.map-title').show();
                 $('#showMap').attr('src', imgSrc);
                 map.show();
             });
         });
     }
-});
-
-// Show Google Map function
-$('#directionsButton').on('click', function(e) {
-    e.preventDefault();
-    $('#googleMapContainer').show();
-
-
-
 });
 
 //Function to hide fail message
