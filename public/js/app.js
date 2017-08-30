@@ -160,8 +160,8 @@ $('#submitBtn').on('click', function(e) {
 $(".card-image").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
-    $('.loader').show();
     $('#backButton1').hide();
+    $('.loader').show();
     $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
     $('#progress2').show();
     $('#budgetProgressMsg').show();
@@ -177,8 +177,8 @@ $(".card-image").on("click", function() {
         }
     }).done(function(response) {
         $('.loader').hide();
-        $('#budgetProgressMsg').hide();
         $('#backButton2').show();
+        $('#budgetProgressMsg').hide();
         //For loop to push restaurants to budget arrays
         for (var i = 0; i < response.restaurants.length; i++) {
             if (response.restaurants[i].restaurant.average_cost_for_two < 40) {
