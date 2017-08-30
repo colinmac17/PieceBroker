@@ -1,17 +1,16 @@
 # PieceBroker
 
-	Piece Broker is an app that helps people make decisions about food.
+PieceBroker is an app that helps people make decisions about food.
     
-    We've all been hanging out with friends, family or significant others looking for a place to eat, 
-    but with so many great choices out there it can sometimes be challenging for everyone to agree.
+We've all been hanging out with friends, family or significant others looking for a place to eat, but with so many great choices out there it can sometimes be challenging for everyone to agree.
     
-    We've got a fix for that.
+We've got a fix for that.
     
-    Piece Broker eliminates indecision while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user make a decision by providing a single restaurant recommendation. It uses the GIPHY API to call the gifs, which, when clicked, will be pushed to Firebase as the search parameters. Those search terms will then be pushed to the Zomato API to pick the restaurant that best matches the user’s criteria. That recommendation is sent back to the app and displayed for the user. From there, the user can call and make a reservation.
+Piece Broker eliminates indecision by making the process of choosing a place to eat as simple as possible — after answering three simple questions, a decision is made.
     
-    From start to finish, it's fun, a decision is made (avoiding any arguments!), and action can be taken based on the result. Skip the argument, skip the line.
+From start to finish, it's fun, a decision is made (avoiding any arguments!), and action can be taken based on the result. Find food fast and skip the argument.
     
-![alt text](public/images/piecebroker.png?raw=true "Piecebroker")
+![alt text](public/images/piecebroker-main.png?raw=true "Piecebroker")
 
 Demo: https://www.youtube.com/watch?v=7YXRhRzLPQA
 ----------------------------------------------------------------------------------------
