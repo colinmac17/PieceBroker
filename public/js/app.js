@@ -401,7 +401,7 @@ $('#hungryBtn').on('click', function(e) {
                 $('#resultProgressMsg').show();
                 $('#results-container').show();
                 //set static map
-                var map = $('#themap');
+                var map = $('#googleMapContainer');
                 var imgSrc = `https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&avoid=tolls|highways`;
                 $('.map-title').show();
                 $('#showMap').attr('src', imgSrc);
@@ -409,15 +409,6 @@ $('#hungryBtn').on('click', function(e) {
             });
         });
     }
-});
-
-// Show Google Map function
-$('#directionsButton').on('click', function(e) {
-    e.preventDefault();
-    $('#googleMapContainer').show();
-
-
-
 });
 
 //Function to hide fail message
