@@ -10,7 +10,7 @@ PieceBroker eliminates indecision by making the process of choosing a place to e
     
 From start to finish, it's fun, a decision is made (avoiding any arguments!), and action can be taken based on the result. Find food fast and skip the argument.
 
-Ready to give it a spin? Check PieceBroker out [here](https://www.youtube.com).
+Ready to give it a spin? Check PieceBroker out [here](https://youtu.be/PaFyCI6snH4).
 
 And [here's](https://www.youtube.com/watch?v=7YXRhRzLPQA) the demo.
     
