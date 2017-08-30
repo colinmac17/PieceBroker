@@ -268,10 +268,7 @@ $('.btn-large').on('click', function() {
         saved: false
     };
 
-    $.post('/app', resultsData, function(data) {
-        //
-        console.log(data);
-    });
+    $.post('/app', resultsData, function(data) {});
 
     //add data to results page
     $('#recName').text(recName);
@@ -383,10 +380,7 @@ $('#hungryBtn').on('click', function(e) {
                     saved: false
                 };
 
-                $.post('/app', resultsData, function(data) {
-                    //
-                    console.log(data);
-                });
+                $.post('/app', resultsData, function(data) {});
 
                 //add data to results page
                 $('#recName').text(recName);
