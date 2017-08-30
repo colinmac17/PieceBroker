@@ -263,6 +263,11 @@ margin-bottom: 10px;
     cursor: pointer;
 }
 
+#recDetails:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .fa {
     margin-right: 5px;
 }
