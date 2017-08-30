@@ -21,11 +21,11 @@
     <div class="row center input-field">
         <!--User form-->
         <input class="col s10 offset-s1 m4 offset-m4 text-area" id="locationInput" type="text" placeholder="Chicago, IL">
-        <a href="#" class="btn waves-effect waves-light green darken-1" id="submitBtn">Find Food</a>
+        <a class="btn waves-effect waves-light green darken-1 z-depth-2" id="submitBtn">Find Food</a>
     </div>
     <div class="row center">
         <p class="errMsg" id="failMsg">Please enter a valid city</p>
-        <a href="#" class="btn waves-effect waves-light grey lighten-1" id="hungryBtn">Feeling hungry?</a>
+        <a class="btn waves-effect waves-light grey lighten-1 z-depth-2" id="hungryBtn">Feeling hungry?</a>
         <p id="locationLoad" class="animated bounce">...Finding your location</p>
     </div>
 </div>
@@ -109,7 +109,7 @@
     <!-- back button -->
     <div class="row">
         <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton1" onclick="location.reload()">Restart</button>
+            <button class="btn waves-effect waves-light z-depth-2" id="backButton1" onclick="location.reload()">Restart</button>
         </div>
     </div>
 </div>
@@ -128,13 +128,13 @@
     </div>   
 
     <div class="row center-align" id="moneySigns">
-        <button class="btn btn-large green" data-id="cheap">$</button>
+        <button class="btn btn-large green z-depth-2" data-id="cheap">$</button>
         <p class="errMsg" id="cheapErrMsg">Sorry, there are no cheap restaurants for your selection</p>
         
-        <button class="btn btn-large green" data-id="medium">$$</button>
+        <button class="btn btn-large green z-depth-2" data-id="medium">$$</button>
         <p class="errMsg" id="medErrMsg">Sorry, there are no medium-priced restaurants for your selection</p>
         
-        <button class="btn btn-large green" data-id="expensive">$$$</button>
+        <button class="btn btn-large green z-depth-2" data-id="expensive">$$$</button>
         <p class="errMsg" id="expErrMsg">Uh oh, we can't seem find any restaurants.</p>
     </div>
     <!-- progress bar -->
@@ -144,7 +144,7 @@
   <!-- back button -->
     <div class="row">
         <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton1" onclick="location.reload()">Restart</button>
+            <button class="btn waves-effect waves-light z-depth-2" id="backButton1" onclick="location.reload()">Restart</button>
         </div>
     </div>
 
@@ -155,7 +155,7 @@
 <div class="container" id="results-container">
     <div class="row">
         <div class="col s12 center-align">
-            <button class="btn waves-effect waves-light" id="backButton3" onclick="location.reload()">Try Again</button>
+            <button class="btn waves-effect waves-light z-depth-2" id="backButton3" onclick="location.reload()">Try Again</button>
             <h5 class="blue-text center-align" id="heres-your-result">Here's your result:</h5>
         </div>
     </div>
