@@ -10,7 +10,11 @@ From start to finish, it's quick, a decision is made (avoiding any arguments!), 
 
 PieceBroker: Find food fast and skip the argument.
 
-Wanna see it in action? You're in luck — [here's](https://www.youtube.com/watch?v=7YXRhRzLPQA) the demo.
+Wanna see it in action? You're in luck:
+* [Quick demo](https://www.youtube.com/embed/ExfAOTDspAs) 
+* [Walkthrough of entire app](https://www.youtube.com/embed/h_bYUtygllg) 
+* [iPhone experience](https://www.youtube.com/embed/pEec71j59Lk)
+* [Laptop experience](https://www.youtube.com/embed/0Kkpz-ACdS8). 
 
 Ready to give it a spin? Check PieceBroker out [here](https://youtu.be/PaFyCI6snH4).
 
