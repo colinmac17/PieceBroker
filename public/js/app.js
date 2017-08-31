@@ -282,7 +282,6 @@ $('.btn-large').on('click', function() {
 
     $('#budget-container').hide();
     $('#progress2').hide();
-    $('.loader').show();
     $('#resultProgressMsg').show();
     $('#results-container').show();
     //set static map
@@ -290,7 +289,6 @@ $('.btn-large').on('click', function() {
     var imgSrc = `https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${userLatitude},${userLongitude}&destination=${destLatitude},${destLongitude}&avoid=tolls|highways`;
     $('.map-title').show();
     $('#showMap').attr('src', imgSrc);
-    $('.loader').hide();
     map.show();
 });
 
