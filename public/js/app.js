@@ -160,7 +160,6 @@ $('#submitBtn').on('click', function(e) {
 $(".card-image").on("click", function() {
     var progressMsgRandNum = Math.floor(Math.random() * progressMessages.length);
     $('#foodType-container').hide();
-    $('#backButton1').hide();
     $('.loader').show();
     $('#budgetMsg').text(progressMessages[progressMsgRandNum]);
     $('#progress2').show();
@@ -191,6 +190,7 @@ $(".card-image").on("click", function() {
         }
 
         $('#budget-container').fadeIn();
+        $('#backButton2').show();
         return cuisineID;
     });
 });
