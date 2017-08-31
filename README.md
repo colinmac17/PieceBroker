@@ -20,7 +20,19 @@ Ready to give it a spin? Check PieceBroker out [here](https://youtu.be/PaFyCI6sn
 
 Screenshots:
     
-![alt text](public/images/piecebroker-main.png?raw=true "Piecebroker")
+![alt text](public/images/piecebroker-index.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-sign-up-form.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-location.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-cuisine.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-budget.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-result.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-user-history.png?raw=true "Piecebroker")
 
 ----------------------------------------------------------------------------------------
 ## Built With
