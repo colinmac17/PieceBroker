@@ -1,18 +1,20 @@
 # PieceBroker
 
-PieceBroker is an app that helps people make decisions about food.
+We've all been with friends, family, or significant others deciding on a place to eat, but with so many amazing choices out there, it can sometimes be challenging for everyone to agree on a place.
     
-We've all been with friends, family, or significant others deciding on a place to eat, but with so many amazing choices out there, it can sometimes be challenging for everyone to agree.
+We sought to fix that: enter PieceBroker, an app that helps people make decisions about food.
     
-We've got a fix for that.
+It eliminates indecision by making the process of choosing a place to eat as simple as possible — after answering three simple questions involving your location, preferred food type, and budget for the meal, that decision is made _for_ you. Now wasn't that easy?
     
-PieceBroker eliminates indecision by making the process of choosing a place to eat as simple as possible — after answering three simple questions, a decision is made.
-    
-From start to finish, it's fun, a decision is made (avoiding any arguments!), and action can be taken based on the result. Find food fast and skip the argument.
+From start to finish, it's quick, a decision is made (avoiding any arguments!), and action can be taken based on the result, breaking down one less step between you and food. 
+
+PieceBroker: Find food fast and skip the argument.
+
+Wanna see it in action? You're in luck — [here's](https://www.youtube.com/watch?v=7YXRhRzLPQA) the demo.
 
 Ready to give it a spin? Check PieceBroker out [here](https://youtu.be/PaFyCI6snH4).
 
-And [here's](https://www.youtube.com/watch?v=7YXRhRzLPQA) the demo.
+Screenshots:
     
 ![alt text](public/images/piecebroker-main.png?raw=true "Piecebroker")
 
