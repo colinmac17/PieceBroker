@@ -1,19 +1,39 @@
 # PieceBroker
 
-	Piece Broker is an app that helps people make decisions about food.
+We've all been with friends, family, or significant others deciding on a place to eat, but with so many amazing choices out there, it can sometimes be challenging for everyone to agree on a place.
     
-    We've all been hanging out with friends, family or significant others looking for a place to eat, 
-    but with so many great choices out there it can sometimes be challenging for everyone to agree.
+We sought to fix that: enter PieceBroker, an app that helps people make decisions about food.
     
-    We've got a fix for that.
+It eliminates indecision by making the process of choosing a place to eat as simple as possible — after answering three simple questions involving your location, preferred food type, and budget for the meal, that decision is made _for_ you. Now wasn't that easy?
     
-    Piece Broker eliminates indecision while also adding levity—and a little fun—to the process of choosing a place to eat. After asking three simple questions, our web app helps the user make a decision by providing a single restaurant recommendation. It uses the GIPHY API to call the gifs, which, when clicked, will be pushed to Firebase as the search parameters. Those search terms will then be pushed to the Zomato API to pick the restaurant that best matches the user’s criteria. That recommendation is sent back to the app and displayed for the user. From there, the user can call and make a reservation.
-    
-    From start to finish, it's fun, a decision is made (avoiding any arguments!), and action can be taken based on the result. Skip the argument, skip the line.
-    
-![alt text](public/images/piecebroker.png?raw=true "Piecebroker")
+From start to finish, it's quick, a decision is made (avoiding any arguments!), and action can be taken based on the result, breaking down one less step between you and food. 
 
-Demo: https://www.youtube.com/watch?v=7YXRhRzLPQA
+PieceBroker: Find food fast and skip the argument.
+
+Wanna see it in action? You're in luck:
+* [Quick demo](https://www.youtube.com/embed/ExfAOTDspAs) 
+* [Walkthrough of entire app](https://www.youtube.com/embed/h_bYUtygllg) 
+* [iPhone experience](https://www.youtube.com/embed/pEec71j59Lk)
+* [Laptop experience](https://www.youtube.com/embed/0Kkpz-ACdS8). 
+
+Ready to give it a spin? Check PieceBroker out [here](https://youtu.be/PaFyCI6snH4).
+
+Screenshots:
+    
+![alt text](public/images/piecebroker-index.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-sign-up-form.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-location.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-cuisine.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-budget.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-result.png?raw=true "Piecebroker")
+
+![alt text](public/images/piecebroker-user-history.png?raw=true "Piecebroker")
+
 ----------------------------------------------------------------------------------------
 ## Built With
 
